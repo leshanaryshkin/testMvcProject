@@ -15,8 +15,8 @@ namespace testMvcProject.Models.DAOs.ProductsDAO
 
             Profile profile1 = new Profile("desheviy", 3000, 3900);
             Profile profile2 = new Profile("dorogoi", 6000, 10400);
-            Window window1 = new Window(160, 90, furniture1, profile1, 3, true);
-            Window window2 = new Window(160, 90, furniture2, profile2, 3, true);
+            Window window1 = new Window(190, 90, furniture1, profile1, 3, true);
+            Window window2 = new Window(240, 90, furniture2, profile2, 3, false);
             Window window3 = new Window(160, 90, furniture1, profile2, 3, true);
 
             windowsArray.Add(window1);
