@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+</head>
+
+<body>
+
+    <style>
+        div {
+            box-sizing: border-box;
+        }
+
+        .my_boks {
+            position: relative;
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+        }
+
+        .my_boks1, .my_boks2, .my_boks3, .my_boks4 {
+            margin: 3px;
+            padding: 20px 10px;
+            width: calc(25% - 25px);
+            display: inline-block;
+        }
+
+        .nav-buttons {
+            font-size: 20px;
+            border-radius: 8px;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+        }
+
+
+    </style>
+
+
+    <div class="my_boks">
+
+        <div class="my_boks1">
+            <form action="AboutUs">
+                <button class="nav-buttons" >About us</button>
+            </form>
+        </div>
+
+        <div class="my_boks2">
+            <form action="Calculator">
+                <button class="nav-buttons">Calculator</button>
+            </form>
+        </div>
+
+        <div class="my_boks3">
+            <form action="AdditionalServices">
+                <button class="nav-buttons">Additional services</button>
+            </form>
+        </div>
+
+        <div class="my_boks4">
+            <form action="Orders">
+                <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Orders</button>
+            </form>
+        </div>
+
+    </div>
+
+
+    <div>
+
+        <h1 style="text-align:center">Hi! There will be information about all your orders</h1>
+
+
+    </div>
+
+</body>
+
+
+</html>
