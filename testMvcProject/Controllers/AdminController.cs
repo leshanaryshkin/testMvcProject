@@ -10,6 +10,6 @@ namespace testMvcProject.Controllers
 {
     public class AdminController : Controller
     {
-        
+        //
     }
 }
