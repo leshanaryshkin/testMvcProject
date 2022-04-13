@@ -27,12 +27,12 @@ namespace testMvcProject
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
-            /*app.UseMvc(routes =>
+            app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=User}/{action=AboutUs}");
-            });*/
+                name: "Default",
+                template: "{controller}/{action}");
+            });
 
 
         }

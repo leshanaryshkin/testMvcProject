@@ -29,6 +29,7 @@ namespace testMvcProject
 
 
 
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -37,5 +38,7 @@ namespace testMvcProject
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+
     }
 }
