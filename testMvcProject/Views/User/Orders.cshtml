@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using testMvcProject.Models.DAOs.ProductsDAO
+@model WindowsDAOClass
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 
 <html>
 
@@ -27,7 +34,7 @@
         .my_boks1, .my_boks2, .my_boks3, .my_boks4 {
             margin: 3px;
             padding: 20px 10px;
-            width: calc(25% - 25px);
+            width: calc(20% - 25px);
             display: inline-block;
         }
 
@@ -68,6 +75,12 @@
             </form>
         </div>
 
+        <div class="my_boks4">
+            <form action="Orders">
+                <button class="nav-buttons">Вход</button>
+            </form>
+        </div>
+
     </div>
 
 
@@ -76,6 +89,39 @@
         <h1 style="text-align:center">Hi! There will be information about all your orders</h1>
 
 
+    </div>
+
+
+    <div>
+
+
+        
+        @{
+            foreach(var p in Model.getList())
+         {
+            <div>
+            <h3>Размер окна: @p.getHeight() x @p.getWidth()</h3>
+            <h3>Камер в окне: @p.getHowManyCameras()</h3>
+            <h3>
+            Нужен ли монтаж? 
+                        @{
+                            if (p.getNeewWindowInstallation() == true)
+                            {
+                                <p>нужен</p>
+                            }
+                            else
+                            {
+                                <p>не нужен</p>
+                            }
+                        }
+            </h3>
+
+                
+            <h3>Стоимость окна, исходя из всех параметров @p.calculate()</h3>
+             <hr>
+            </div>
+         }
+        }
     </div>
 
 </body>
