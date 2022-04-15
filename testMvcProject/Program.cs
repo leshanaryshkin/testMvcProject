@@ -15,19 +15,8 @@ namespace testMvcProject
     {
         public static void Main(string[] args)
         {
-            /*
-            Furniture furniture = new Furniture("deshman", 1500, 2500);
-            Profile profile = new Profile("deshman", 400, 900);
-            Window window = new Window(100, 100, furniture, profile, 2, true);
-            Console.Out.WriteLine(window.getPerimeter() + " - perimeter");
-            Console.Out.WriteLine(window.calculate() + " - calculatingSumm");
-            */
             
-
             CreateHostBuilder(args).Build().Run();
-
-
-
 
 
         }
