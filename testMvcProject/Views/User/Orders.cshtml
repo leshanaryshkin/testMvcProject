@@ -19,13 +19,19 @@
 
 <body>
 
+    <div>qweqweqwe</div>
+    <div>qweqweqwe</div>
+    <div>qweqweqwe</div>
+    <div>qweqweqwe</div>
+    <div>qweqweqwe</div>
+    <div>qweqweqwe</div>
 
 
     <div class="my_boks">
 
         <div class="my_boks1">
             <form action="AboutUs">
-                <button class="nav-buttons" >About us</button>
+                <button class="nav-buttons">About us</button>
             </form>
         </div>
 
@@ -67,30 +73,30 @@
     <div>
 
 
-        
+
         @{
             foreach(var p in Model.getList())
          {
             <div>
-            <h3>Размер окна: @p.getHeight() x @p.getWidth()</h3>
-            <h3>Камер в окне: @p.getHowManyCameras()</h3>
-            <h3>
-            Нужен ли монтаж? 
-                        @{
+                <h3>Размер окна: @p.getHeight() x @p.getWidth()</h3>
+                <h3>Камер в окне: @p.getHowManyCameras()</h3>
+                <h3>
+                    Нужен ли монтаж?
+                    @{
                             if (p.getNeewWindowInstallation() == true)
                             {
-                                <p>нужен</p>
+                        <p>нужен</p>
                             }
                             else
                             {
-                                <p>не нужен</p>
+                        <p>не нужен</p>
                             }
-                        }
-            </h3>
+                    }
+                </h3>
 
-                
-            <h3>Стоимость окна, исходя из всех параметров @p.calculate()</h3>
-             <hr>
+
+                <h3>Стоимость окна, исходя из всех параметров @p.calculate()</h3>
+                <hr>
             </div>
          }
         }
