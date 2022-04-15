@@ -15,6 +15,9 @@ namespace testMvcProject
     {
         public static void Main(string[] args)
         {
+            
+            
+            //qweqweqwe
             CreateHostBuilder(args).Build().Run();
         }
 
