@@ -17,10 +17,10 @@ namespace testMvcProject
         {
             
 
-            //
+                        CreateHostBuilder(args).Build().Run();
 
 
-            CreateHostBuilder(args).Build().Run();
+
 
 
         }
