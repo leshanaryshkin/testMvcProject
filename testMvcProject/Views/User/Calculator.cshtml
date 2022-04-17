@@ -10,10 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="~/css/User/Calculator.css"/>
     <meta charset="UTF-8"/>
+    
 
 </head>
 
 <body>
+
 <div class="my_boks">
 
     <div class="my_boks1">
@@ -58,19 +60,43 @@
 
 
 
-<div class="range-slider">
-    <input class="range-slider__range" type="range" value="100" min="0" max="500"
-           onmousemove="rangeSlider(this.value)" onchange="rangeSlider(this.value)">
-    <span class="range-slider__value" id="rangeValue"></span>
+<div class="range-slider" id="width-range-slider">
+    <input class="range-slider__range" type="range" value="200" min="0" max="400"
+           onmousemove="widthSlider(this.value)" onchange="widthSlider(this.value)">
+    <span class="range-slider__value" id="widthSlider"></span>
+</div>
+
+
+<script type="text/javascript">
+function widthSlider(value){
+    if (value > 99)
+        document.getElementById('widthSlider').style.width = '13px';
+    else
+        document.getElementById('widthSlider').style.width = '10px';
+    document.getElementById('widthSlider').innerHTML = value;
+    }
+    </script>
+
+
+<div class="range-slider" id="height-range-slider">
+    <input class="range-slider__range" id="height-range-slider__range" type="range" orient="vertical" value="200" min="0" max="400"
+           onmousemove="heightSlider(this.value)" onchange="heightSlider(this.value)">
+    <span class="range-slider__value" id="heightSlider"></span>
 </div>
 
 
 
+
 <script type="text/javascript">
-function rangeSlider(value){
-    document.getElementById('rangeValue').innerHTML = value;
+function heightSlider(value){
+    if (value > 99)
+        document.getElementById('heightSlider').style.width = '13px';
+    else
+        document.getElementById('heightSlider').style.width = '10px';
+    document.getElementById('heightSlider').innerHTML = value;
     }
     </script>
+
 
 
 </body>
