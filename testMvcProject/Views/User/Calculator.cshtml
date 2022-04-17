@@ -6,61 +6,72 @@
 
 <html>
 
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="~/css/User/Calculator.css" /> 
+    <link rel="stylesheet" type="text/css" href="~/css/User/Calculator.css"/>
+    <meta charset="UTF-8"/>
 
 </head>
 
 <body>
+<div class="my_boks">
 
-   
+    <div class="my_boks1">
+        <form action="AboutUs">
+            <button class="nav-buttons">About us</button>
+        </form>
+    </div>
 
+    <div class="my_boks2">
+        <form action="Calculator">
+            <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Calculator</button>
+        </form>
+    </div>
 
-    <div class="my_boks">
+    <div class="my_boks3">
+        <form action="AdditionalServices">
+            <button class="nav-buttons" style="border: 0px;">Additional services</button>
+        </form>
+    </div>
 
-        <div class="my_boks1">
-            <form action="AboutUs">
-                <button class="nav-buttons" >About us</button>
-            </form>
-        </div>
-
-        <div class="my_boks2">
-            <form action="Calculator">
-                <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Calculator</button>
-            </form>
-        </div>
-
-        <div class="my_boks3">
-            <form action="AdditionalServices">
-                <button class="nav-buttons" style="border: 0px;">Additional services</button>
-            </form>
-        </div>
-
-        <div class="my_boks4">
-            <form action="Orders">
-                <button class="nav-buttons">Orders</button>
-            </form>
-        </div>
-
-
-        <div class="my_boks4">
-            <form action="Orders">
-                <button class="nav-buttons">Вход</button>
-            </form>
-        </div>
-
-
+    <div class="my_boks4">
+        <form action="Orders">
+            <button class="nav-buttons">Orders</button>
+        </form>
     </div>
 
 
-    <div>
-
-        <h1 style="text-align:center">Hi! There will be window calculator</h1>
-
-
+    <div class="my_boks4">
+        <form action="Orders">
+            <button class="nav-buttons">Вход</button>
+        </form>
     </div>
+
+
+</div>
+
+
+<div>
+    <h1 style="text-align:center">Hi! There will be window calculator</h1>
+</div>
+
+
+
+
+<div class="range-slider">
+    <input class="range-slider__range" type="range" value="100" min="0" max="500"
+           onmousemove="rangeSlider(this.value)" onchange="rangeSlider(this.value)">
+    <span class="range-slider__value" id="rangeValue"></span>
+</div>
+
+
+
+<script type="text/javascript">
+function rangeSlider(value){
+    document.getElementById('rangeValue').innerHTML = value;
+    }
+    </script>
+
 
 </body>
 

@@ -12,11 +12,7 @@ namespace testMvcProject.Controllers
     public class UserController : Controller
     {
 
-
- 
- 
- 
-
+        
         public UserController()
         {
         }
