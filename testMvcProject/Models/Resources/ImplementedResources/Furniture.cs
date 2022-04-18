@@ -13,7 +13,7 @@ namespace testMvcProject.Models.Resources.ImplementedResources
             : base(name, costPrice)
         {
             this.storeMargin = storeMargin;
-            this.setResourceType(ResourceType.FURNITURE);
+            this.ResourceType = ResourceType.FURNITURE;
 
         }
 

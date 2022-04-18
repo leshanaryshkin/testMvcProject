@@ -3,7 +3,7 @@ namespace testMvcProject.Models.Resources.ImplementedResources
 {
     public class Profile : resource
     {
-        private double storeMargin;
+        public double storeMargin { get; set; }
 
 
         public Profile() { }
@@ -13,7 +13,7 @@ namespace testMvcProject.Models.Resources.ImplementedResources
             : base(name, costPrice)
         {
             this.storeMargin = storeMargin;
-            this.setResourceType(ResourceType.PROFILE);
+            this.ResourceType = ResourceType.PROFILE;
         }
 
         public override double getStorePrice() => storeMargin;
@@ -21,6 +21,8 @@ namespace testMvcProject.Models.Resources.ImplementedResources
         public void setStoreMarginCoef(double storeMargin) {
             this.storeMargin = storeMargin;
         }
+
+        
         
     }
 }

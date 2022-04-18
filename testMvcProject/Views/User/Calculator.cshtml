@@ -1,4 +1,7 @@
-﻿@{
+﻿@using testMvcProject.Models.DAOs.ResourcesDAOs
+@model resourceDAO
+
+@{
     Layout = null;
 }
 
@@ -8,95 +11,125 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="~/css/User/Calculator.css"/>
-    <meta charset="UTF-8"/>
-    
+    <link rel="stylesheet" type="text/css" href="~/css/User/Calculator.css" />
+    <meta charset="UTF-8" />
+
 
 </head>
 
 <body>
 
-<div class="my_boks">
+    <div class="my_boks">
 
-    <div class="my_boks1">
-        <form action="AboutUs">
-            <button class="nav-buttons">About us</button>
-        </form>
+        <div class="my_boks1">
+            <form action="AboutUs">
+                <button class="nav-buttons">About us</button>
+            </form>
+        </div>
+
+        <div class="my_boks2">
+            <form action="Calculator">
+                <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Calculator</button>
+            </form>
+        </div>
+
+        <div class="my_boks3">
+            <form action="AdditionalServices">
+                <button class="nav-buttons" style="border: 0px;">Additional services</button>
+            </form>
+        </div>
+
+        <div class="my_boks4">
+            <form action="Orders">
+                <button class="nav-buttons">Orders</button>
+            </form>
+        </div>
+
+
+        <div class="my_boks4">
+            <form action="Orders">
+                <button class="nav-buttons">Вход</button>
+            </form>
+        </div>
+
+
     </div>
 
-    <div class="my_boks2">
-        <form action="Calculator">
-            <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Calculator</button>
-        </form>
-    </div>
 
-    <div class="my_boks3">
-        <form action="AdditionalServices">
-            <button class="nav-buttons" style="border: 0px;">Additional services</button>
-        </form>
-    </div>
-
-    <div class="my_boks4">
-        <form action="Orders">
-            <button class="nav-buttons">Orders</button>
-        </form>
+    <div>
+        <h1 style="text-align:center">Hi! There will be window calculator</h1>
     </div>
 
 
-    <div class="my_boks4">
-        <form action="Orders">
-            <button class="nav-buttons">Вход</button>
-        </form>
+
+
+    <div class="range-slider" id="width-range-slider">
+        <input class="range-slider__range" type="range" value="200" min="0" max="400"
+               onmousemove="widthSlider(this.value)" onchange="widthSlider(this.value)">
+        <span class="range-slider__value" id="widthSlider"></span>
     </div>
 
 
-</div>
+    <script type="text/javascript">function widthSlider(value) {
+            if (value > 99)
+                document.getElementById('widthSlider').style.width = '13px';
+            else
+                document.getElementById('widthSlider').style.width = '10px';
+            document.getElementById('widthSlider').innerHTML = value;
+        }</script>
 
 
-<div>
-    <h1 style="text-align:center">Hi! There will be window calculator</h1>
-</div>
-
-
-
-
-<div class="range-slider" id="width-range-slider">
-    <input class="range-slider__range" type="range" value="200" min="0" max="400"
-           onmousemove="widthSlider(this.value)" onchange="widthSlider(this.value)">
-    <span class="range-slider__value" id="widthSlider"></span>
-</div>
-
-
-<script type="text/javascript">
-function widthSlider(value){
-    if (value > 99)
-        document.getElementById('widthSlider').style.width = '13px';
-    else
-        document.getElementById('widthSlider').style.width = '10px';
-    document.getElementById('widthSlider').innerHTML = value;
-    }
-    </script>
-
-
-<div class="range-slider" id="height-range-slider">
-    <input class="range-slider__range" id="height-range-slider__range" type="range" orient="vertical" value="200" min="0" max="400"
-           onmousemove="heightSlider(this.value)" onchange="heightSlider(this.value)">
-    <span class="range-slider__value" id="heightSlider"></span>
-</div>
+    <div class="range-slider" id="height-range-slider">
+        <input class="range-slider__range" id="height-range-slider__range" type="range" orient="vertical" value="200" min="0" max="400"
+               onmousemove="heightSlider(this.value)" onchange="heightSlider(this.value)">
+        <span class="range-slider__value" id="heightSlider"></span>
+    </div>
 
 
 
 
-<script type="text/javascript">
-function heightSlider(value){
-    if (value > 99)
-        document.getElementById('heightSlider').style.width = '13px';
-    else
-        document.getElementById('heightSlider').style.width = '10px';
-    document.getElementById('heightSlider').innerHTML = value;
-    }
-    </script>
+    <script type="text/javascript">function heightSlider(value) {
+            if (value > 99)
+                document.getElementById('heightSlider').style.width = '13px';
+            else
+                document.getElementById('heightSlider').style.width = '10px';
+            document.getElementById('heightSlider').innerHTML = value;
+        }</script>
 
+
+    <section>
+        <label class="select-label">Тип профиля:</label>
+        <select class="cs-select cs-skin-rotate">
+            @{
+                int i = 0;
+                foreach (var Profile in Model.getList())
+                {
+                    i++;
+                    if (((int)Profile.ResourceType) == 1)
+                    {
+                        <option value="@i">@Profile.Name</option>
+                    }
+                }
+            }
+        </select>
+    </section>
+
+    <section>
+        <label class="select-label">Тип фурнитуры:</label>
+        <select class="cs-select cs-skin-rotate">
+            @{
+                int k = 0;
+                foreach (var Profile in Model.getList())
+                {
+                    k++;
+                    if (((int)Profile.ResourceType) == 2)
+                    {
+                        <option value="@k">@Profile.Name</option>
+                    }
+                }
+            }
+        </select>
+    </section>
 
 
 </body>

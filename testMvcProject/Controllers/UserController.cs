@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using testMvcProject.Models.DAOs.ProductsDAO;
+using testMvcProject.Models.DAOs.ResourcesDAOs;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,7 +31,7 @@ namespace testMvcProject.Controllers
 
         public ViewResult Calculator()
         {
-            return View();
+            return View(new resourceDAO());
         }
 
         public ViewResult Orders()
