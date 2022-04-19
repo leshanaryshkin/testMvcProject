@@ -1,7 +1,7 @@
 ﻿using System;
 namespace testMvcProject.Models.Resources
 {
-    public abstract class resource
+    public  class resource
     {
         public ResourceType ResourceType { get; set; }
         public string Name { get; set; }
@@ -15,7 +15,6 @@ namespace testMvcProject.Models.Resources
             this.CostPrice = costPrice;
         }
         
-        public abstract double getStorePrice();
         
     }
 }

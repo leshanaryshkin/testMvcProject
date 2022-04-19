@@ -15,14 +15,7 @@ namespace testMvcProject.Models.Resources.ImplementedResources
             this.storeMargin = storeMargin;
             this.ResourceType = ResourceType.PROFILE;
         }
-
-        public override double getStorePrice() => storeMargin;
-
-        public void setStoreMarginCoef(double storeMargin) {
-            this.storeMargin = storeMargin;
-        }
-
-        
+    
         
     }
 }
