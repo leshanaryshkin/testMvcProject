@@ -8,33 +8,20 @@ namespace testMvcProject.Models.Users
 
         public String Name { get; set; }
         public String Telephone { get; set; }
-        public Adress adress;
+        
+        public String Password { get; set; }
 
-        public string Password { get; set; }
-        public bool IsAdmin { get; set; }
-
-
-        public Adress getAdress()
-        {
-            return adress;
-        }
+        public string Adress { get; set; }
 
 
-        public void setAdress (String City,
-            String StreetName, String HouseNumber)
-        {
-            this.adress.City = City;
-            this.adress.StreetName = StreetName;
-            this.adress.HouseNumber = HouseNumber;
-        }
 
-        public Person(String Name, String Telephone = null,
-            Adress adress = null, bool IsAdmin = false)
+        public Person(String Name, String Telephone,
+            String Adress , bool IsAdmin = false)
         {
             PersonCount++;
             this.Name = Name;
             this.Telephone = Telephone;
-            this.adress = adress;
+            this.Adress = Adress;
             this.Password = (IsAdmin == true) ? Convert.ToString(Name): "Admin";
         }
 
@@ -44,7 +31,7 @@ namespace testMvcProject.Models.Users
         }
 
         public Person(Person person)
-            : this(person.Name, person.Telephone, person.getAdress())
+            : this(person.Name, person.Telephone, person.Adress)
         {
         }
 

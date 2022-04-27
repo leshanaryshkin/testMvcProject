@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using testMvcProject.Models.DAOs.ProductsDAO;
 using testMvcProject.Models.DAOs.ResourcesDAOs;
+using testMvcProject.Models.DAOs.UsersDAO;
+using testMvcProject.Models.Users;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

@@ -15,5 +15,12 @@ namespace testMvcProject.Models.Users
             StreetName = streetName;
             HouseNumber = houseNumber;
         }
+
+        public override string ToString()
+        {
+            return City + " " +
+                   StreetName + " " +
+                   HouseNumber;
+        }
     }
 }
