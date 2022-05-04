@@ -1,4 +1,7 @@
-﻿@{
+﻿@using testMvcProject.Models.DAOs.ResourcesDAOs
+@model resourceDAO
+
+@{
     Layout = null;
 }
 
@@ -6,23 +9,21 @@
 
 <html>
 
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="~/css/User/Calculator.css" /> 
+    <link rel="stylesheet" type="text/css" href="~/css/User/Calculator.css" />
+    <meta charset="UTF-8" />
+
 
 </head>
 
 <body>
 
-   
-
-
     <div class="my_boks">
 
         <div class="my_boks1">
             <form action="AboutUs">
-                <button class="nav-buttons" >About us</button>
+                <button class="nav-buttons">About us</button>
             </form>
         </div>
 
@@ -46,7 +47,7 @@
 
 
         <div class="my_boks4">
-            <form action="Orders">
+            <form action="Authorization">
                 <button class="nav-buttons">Вход</button>
             </form>
         </div>
@@ -55,12 +56,93 @@
     </div>
 
 
-    <div>
-
         <h1 style="text-align:center">Hi! There will be window calculator</h1>
 
 
+
+        <div class="range-slider" id="width-range-slider">
+            <input class="range-slider__range" type="range" value="200" min="0" max="400"
+                   onmousemove="widthSlider(this.value)" onchange="widthSlider(this.value)">
+            <span class="range-slider__value" id="widthSlider"></span>
+
+            <script type="text/javascript">function widthSlider(value) {
+                    if (value > 99)
+                        document.getElementById('widthSlider').style.width = '13px';
+                    else
+                        document.getElementById('widthSlider').style.width = '10px';
+                    document.getElementById('widthSlider').innerHTML = value;
+            }
+            </script>
+        </div>
+
+
+    
+
+
+        <div class="range-slider" id="height-range-slider">
+            <input class="range-slider__range" id="height-range-slider__range" type="range" orient="vertical" value="200" min="0" max="400"
+                   onmousemove="heightSlider(this.value)" onchange="heightSlider(this.value)">
+            <span class="range-slider__value" id="heightSlider"></span>
+
+            <script type="text/javascript">function heightSlider(value) {
+                    if (value > 99)
+                        document.getElementById('heightSlider').style.width = '13px';
+                    else
+                        document.getElementById('heightSlider').style.width = '10px';
+                    document.getElementById('heightSlider').innerHTML = value;
+                }</script>
+        </div>
+
+
+
+
+
+
+    <section>
+        <label class="select-label">Тип профиля:</label>
+        <select class="cs-select cs-skin-rotate">
+            @{
+                int i = 0;
+                foreach (var Profile in Model.getList())
+                {
+                    i++;
+                    if (((int)Profile.ResourceType) == 1)
+                    {
+                        <option value="@i">@Profile.Name</option>
+                    }
+                }
+            }
+        </select>
+    </section>
+
+    <section>
+        <label class="select-label">Тип фурнитуры:</label>
+        <select class="cs-select cs-skin-rotate">
+            @{
+                int k = 0;
+                foreach (var Profile in Model.getList())
+                {
+                    k++;
+                    if (((int)Profile.ResourceType) == 2)
+                    {
+                        <option value="@k">@Profile.Name</option>
+                    }
+                }
+            }
+        </select>
+    </section>
+
+
+    <div>
+        <form class="custom-checkbox">
+            <p><b>Необходим монтаж окна?</b></p>
+            <p><input name="dzen" type="radio" value="NeedInstallation" checked>Да</p>
+            <p><input name="dzen" type="radio" value="dontNeedInstallation">Нет</p>
+        </form>
     </div>
+
+
+
 
 </body>
 

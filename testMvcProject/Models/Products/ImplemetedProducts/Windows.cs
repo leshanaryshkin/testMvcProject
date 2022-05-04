@@ -28,8 +28,8 @@ namespace testMvcProject.Models
         public double calculate()
         {
             double price = 0;
-            price += getPerimeter() / 100.0 * base.getProfile().getStorePrice();
-            price += base.getFurniture().getStorePrice();
+            price += getPerimeter() / 100.0 * base.getProfile().storeMargin;
+            price += base.getFurniture().storeMargin;
             price += (neewWindowInstallation ? 1000 : 0);
             price = price * camerasCoef[howManyCameras - 2];
             return price;

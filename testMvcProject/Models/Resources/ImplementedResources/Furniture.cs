@@ -3,7 +3,7 @@ namespace testMvcProject.Models.Resources.ImplementedResources
 {
     public class Furniture : resource
     {
-        private double storeMargin;
+        public double storeMargin { get; set; }
 
 
         public Furniture() { }
@@ -13,16 +13,11 @@ namespace testMvcProject.Models.Resources.ImplementedResources
             : base(name, costPrice)
         {
             this.storeMargin = storeMargin;
-            this.setResourceType(ResourceType.FURNITURE);
-
+            this.ResourceType = ResourceType.FURNITURE;
         }
 
-        public override double getStorePrice() => storeMargin;
+        
 
-        public void setStoreMarginCoef(double storeMarginCoef)
-        {
-            this.storeMargin = storeMarginCoef;
-        }
 
 
     }
