@@ -28,7 +28,7 @@ body {
 
 .block {
     height: 100%; /*задали высоту*/
-    background: radial-gradient(50% 50% at 50% 50%, rgba(171, 119, 131, 0.76) 0%, rgba(255, 189, 95, 0.5225) 100%), url(/img/Authoriation/проект.jpeg);
+    background: radial-gradient(50% 50% at 50% 50%, rgba(171, 119, 131, 0.76) 0%, rgba(255, 189, 95, 0.5225) 100%), url(/img/Authorization/wind1.png);
     background-size: 50% 100%;
     box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
     display: flex; /*делаем класс блок флекс контейнером, чтобы скомпоновать наши элементы*/
