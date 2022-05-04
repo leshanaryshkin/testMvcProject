@@ -1,115 +1,132 @@
+@import url('https://fonts.google.com/css?family=Poppins:400,500&display=swap'); /*шрифт*/
+
 * {
-    font-family: "Poppins";
+    box-sizing: border-box;
 }
 
 body {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    overflow-y: hidden;
+    font-family: 'Poppins', sans-serif; /*подключили шрифт*/
+    margin: 0; /*отступы*/
+
+    min-height: 100vh; /*делаем высоту бади равной высоте области просмотра*/
+    display: flex; /*тип отображени€*/
+    justify-content: center; /*выравнивание по центру главной оси*/
+    align-items: center; /*выравнивание по центру попереченой оси*/
+
+    background-color: #FFFFE3; /*фонова€ заливка*/
+}
+
+/*контейнер*/
+
+.conteiner {
+    width: 800px;
+    height: 500px;
+    /*outline: solid; - вр обводка*/
+    padding: 40px 0;
+    position: relative; /*наш абсолютный блок будет располагатьс€ ќ“Ќќ—»“≈Ћ№Ќќ контейнера*/
+}
+
+.block {
+    height: 100%; /*задали высоту*/
+    background: radial-gradient(50% 50% at 50% 50%, rgba(171, 119, 131, 0.76) 0%, rgba(255, 189, 95, 0.5225) 100%), url(проект.jpeg);
+    background-size: 50% 100%;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+    display: flex; /*делаем класс блок флекс контейнером, чтобы скомпоновать наши элементы*/
+    align-items: center; /*чтобы блоки были в центре по ширине относительно главного блока*/
+}
+
+.block_item { /*обращаемс€ к самим элементам*/
+    width: 50%; /*делаем их ширину 50%, чтобы они занимали по половине глав блока*/
+}
+
+.block-item { /*ƒЋя —јћ»’ ЅЋќ ќ¬*/
+    text-align: center; /*чтобы блоки были по центру*/
+}
+
+.block-item_title { /*ƒЋя «ј√ќЋќ¬ ќ¬*/
+    font-size: 1.2rem; /*мен€ем размер шрифта*/
+    font-weight: 500; /*толщина начертани€*/
+    color: #fff; /*цвет шрифта*/
+    margin-bottom: 10px; /*отступ снизу*/
+}
+
+.block-item_btn { /*ƒЋя ЁЋ≈ћ≈Ќ“ј  Ќќѕ »*/
+    border: none; /*сбросили границу*/
+    cursor: pointer; /*тип курсора(такой пальчик)*/
+    padding: 10px 20px; /*внутр пол€*/
+    background-color: #fff; /*заливка*/
+    color: #333; /*цвет шрифта*/
+    font-size: 16px; /*размер шрифта*/
+    font-weight: 500; /*толщина*/
+}
+
+.form-box {
+    background-color: #fff;
+    height: 100%;
+    width: 50%;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+    position: absolute; /*абсолютное позиционирование, чтобы располагалс€ над нашей подложкой*/
+    top: 0; /*прижали к верхнему краю*/
+    left: 0; /*прижали к левому краю*/
+    z-index: 1000;
+    transition: 0.5s ease-in-out; /*чтобы был плавный переход, длитс€ пол сек, ф-€ перехода - медленно нач, ускор€етс€, замедл*/
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: #dde5f4;
-    height: 100vh;
+    overflow: hidden; /*чтобы временно скрыть вторую форму*/
 }
 
-.screen-1 {
-    background: #f1f7fe;
-    padding: 2em;
-    display: flex;
-    flex-direction: column;
-    border-radius: 30px;
-    box-shadow: 0 0 2em #e6e9f9;
-    gap: 2em;
-}
-.screen-1 .logo {
-    margin-top: -3em;
-}
-.screen-1 .email {
-    background: white;
-    box-shadow: 0 0 2em #e6e9f9;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    border-radius: 20px;
-    color: #4d4d4d;
-    margin-top: -3em;
-}
-.screen-1 .email input {
-    outline: none;
-    border: none;
-}
-.screen-1 .email input::-moz-placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-.screen-1 .email input:-ms-input-placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-.screen-1 .email input::placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-.screen-1 .email ion-icon {
-    color: #4d4d4d;
-    margin-bottom: -0.2em;
-}
-.screen-1 .password {
-    background: white;
-    box-shadow: 0 0 2em #e6e9f9;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    border-radius: 20px;
-    color: #4d4d4d;
-}
-.screen-1 .password input {
-    outline: none;
-    border: none;
-}
-.screen-1 .password input::-moz-placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-.screen-1 .password input:-ms-input-placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-.screen-1 .password input::placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-.screen-1 .password ion-icon {
-    color: #4d4d4d;
-    margin-bottom: -0.2em;
-}
-.screen-1 .password .show-hide {
-    margin-right: -5em;
-}
-.screen-1 .login {
-    padding: 1em;
-    background: #3e4684;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-}
-.screen-1 .footer {
-    display: flex;
-    font-size: 0.7em;
-    color: #5e5e5e;
-    gap: 14em;
-    padding-bottom: 10em;
-}
-.screen-1 .footer span {
-    cursor: pointer;
+    .form-box.active { /*определ€ем состо€ние дл€ блока с классом эктив*/
+        left: 50%; /*смещаем от левого кра€ на 50%*/
+    }
+
+/*‘орма входа*/
+
+.form {
+    width: 100%; /*раст€нем на всю ширину*/
+    padding: 50px; /*пол€*/
+    font-size: 16px; /*размер шрифта*/
+
+    position: absolute;
 }
 
-button {
+.form_title { /*заголовок*/
+    font-size: 1.5rem;
+    font-weight: 500; /*толщина начертани€*/
+    color: #333; /*цвет текста*/
+}
+
+.form_input { /*пол€*/
+    width: 100%; /*на всю ширину*/
+    padding: 10px;
+    border: solid 1px #333; /*обводка*/
+    font-size: inherit; /*унаследовали размер шрифта*/
+}
+
+.form_btn { /*кнопка войти*/
+    border: none; /*сбросим границу*/
     cursor: pointer;
+    font-size: inherit;
+    background-color: #AB7783;
+    color: #fff;
+    padding: 10px 50px; /*внутр пол€*/
+}
+
+.form_btn_signup {
+    background-color: #E79472;
+}
+
+.form_signin {
+    left: 0;
+}
+
+.form_signup {
+    left: 100%;
+}
+
+.form-box.active .form_signup {
+    left: 0;
+}
+
+.form-box.active .form_signin {
+    left: -100%;
 }
