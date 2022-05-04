@@ -33,11 +33,10 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
-    <Folder Include="wwwroot\img\" />
-    <Folder Include="wwwroot\js\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Models\DAOs\ResourcesDAOs\" />
     <Folder Include="Models\Users\" />
+    <Folder Include="wwwroot\img\AboutUs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
