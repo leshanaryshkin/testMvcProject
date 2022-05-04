@@ -41,6 +41,19 @@ namespace testMvcProject.Controllers
             WindowsDAOClass windowsList = new WindowsDAOClass();
             return View(windowsList);
         }
+        
+        public ViewResult Authorization()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public string Authorization2()
+        {
+            string telephone = Request.Form.FirstOrDefault(p => p.Key == "telephone").Value;
+            string password = Request.Form.FirstOrDefault(p =>p.Key == "password").Value;
+            return $"log {telephone} и pass {password}";
+        }
 
         
 
