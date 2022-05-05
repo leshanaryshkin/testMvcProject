@@ -13,7 +13,7 @@ body {
     justify-content: center; /*выравнивание по центру главной оси*/
     align-items: center; /*выравнивание по центру попереченой оси*/
 
-    background-color: #FFFFE3; /*фоновая заливка*/
+    background-color: white; /*фоновая заливка*/
 }
 
 /*контейнер*/
@@ -112,7 +112,7 @@ body {
 }
 
 .form_btn_signup {
-    background-color: #E79472;
+    background-color: white;
 }
 
 .form_signin {
