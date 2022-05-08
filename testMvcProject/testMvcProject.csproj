@@ -21,6 +21,25 @@
     <None Remove="SQLitePCLRaw.core" />
     <None Remove="few" />
     <None Remove="Dockerfile" />
+    <None Remove="css-js-img\" />
+    <None Remove="css-js-img\css\User\AboutUs.css" />
+    <None Remove="css-js-img\css\User\AdditionalServices.css" />
+    <None Remove="css-js-img\css\User\Calculator.css" />
+    <None Remove="css-js-img\css\User\Orders.css" />
+    <None Remove="css-js-img\css\User\Registration.css" />
+    <None Remove="css-js-img\css\" />
+    <None Remove="css-js-img\img\AboutUs\cloud.png" />
+    <None Remove="css-js-img\img\AboutUs\clouds.png" />
+    <None Remove="css-js-img\img\AboutUs\human.png" />
+    <None Remove="css-js-img\img\AboutUs\mountains.png" />
+    <None Remove="css-js-img\img\Authorization\wind1.png" />
+    <None Remove="css-js-img\img\" />
+    <None Remove="css-js-img\js\.DS_Store" />
+    <None Remove="css-js-img\js\bootstrap.min.js" />
+    <None Remove="css-js-img\js\User\AboutUs.js" />
+    <None Remove="css-js-img\js\User\Calculator.js" />
+    <None Remove="css-js-img\js\" />
+    <None Remove="css-js-img\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
@@ -32,11 +51,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="css-js-img\css" />
     <Folder Include="Models\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Models\DAOs\ResourcesDAOs\" />
     <Folder Include="Models\Users\" />
-    <Folder Include="wwwroot\img\AboutUs\" />
+    <Folder Include="css-js-img\" />
+    <Folder Include="css-js-img\css\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\css" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -45,5 +68,10 @@
     <Content Remove="wwwroot\js\" />
     <Content Remove="wwwroot\css\User\Calculator.scss" />
     <Content Remove="wwwroot\css\User\Calculator1.css" />
+    <Content Remove="wwwroot\css\bootstrap.min.css" />
+    <Content Include="Views\User\css\Authorization.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 </Project>

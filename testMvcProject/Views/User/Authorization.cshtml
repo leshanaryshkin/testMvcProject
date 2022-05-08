@@ -8,7 +8,7 @@
 <head>
   <title>title</title>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-          <link rel="stylesheet" type="text/css" href="~/css/User/Authorization.css" /> 
+          <link rel="stylesheet" type="text/css" href="~/css/User/Registration.css" /> 
 
 </head>
 
@@ -32,7 +32,7 @@
         <div class="form-box">
 
 
-            <form action="#" class="form form_signin">
+            <form action="~/User/LogIn" class="form form_signin">
                 <h3 class="form_title">ВХОД</h3>
 
                 <p>
@@ -42,29 +42,37 @@
                     <input type="password" class="form_input" placeholder="Пароль">
                 </p>
                 <p>
-                    <button class="form_btn">Войти</button>
+                    <button class="form_btn" >Войти</button>
                 </p>
 
 
             </form>
 
-            <form action="#" class="form form_signup">
+            <form method="post" action="~/User/Registration" class="form form_signup">
                 <h3 class="form_title">РЕГИСТРАЦИЯ</h3>
 
                 <p>
-                    <input type="text" class="form_input" placeholder="Логин">
+                    <input name="name" type="text" class="form_input" placeholder="Дмитрий" required>
+                </p>
+                                @{
+                                    if (ViewBag.FalseReg != null)
+                                    {
+                                        <p>@ViewBag.FalseReg</p>
+                                    }
+                                }
+                <input name="telephone" type="tel" class="form_input" placeholder="89998887766" required>
+                    <p>
+                    <input name="cityName" type="text" class="form_input" placeholder="Москва" required>
                 </p>
                 <p>
-                    <input type="email" class="form_input" placeholder="Email">
+                    <input name="streetName" type="text" class="form_input" placeholder="Вадковский переулок" required>
                 </p>
                 <p>
-                    <input type="password" class="form_input" placeholder="Пароль">
+                    <input name="houseNumber" type="text" class="form_input" placeholder="1" required>
                 </p>
+                
                 <p>
-                    <input type="password" class="form_input" placeholder="Подтвердите пароль">
-                </p>
-                <p>
-                    <button class="form_btn form_btn_signup">Зарегестрироваться</button>
+                    <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ" class="form_btn form_btn_signup"></input>
                 </p>
 
 

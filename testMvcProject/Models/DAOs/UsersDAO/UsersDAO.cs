@@ -42,7 +42,7 @@ namespace testMvcProject.Models.DAOs.UsersDAO
         }
 
         //That static class works with UsersLoginsPasswords DB and do
-        //CRUD operations automatically at the end of some base class function
+        //CRUD operations automatically at the end of some base class function>
         private static class UsersLoginsPasswordsDAO
         {
             internal static void AddUserLogPass(Person person, SqliteConnection connection)
