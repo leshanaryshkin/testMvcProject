@@ -32,14 +32,14 @@
         <div class="form-box">
 
 
-            <form action="~/User/LogIn" class="form form_signin">
+            <form method="post" action="~/User/LogIn" class="form form_signin">
                 <h3 class="form_title">ВХОД</h3>
 
                 <p>
-                    <input type="text" class="form_input" placeholder="Логин">
+                    <input name="login" type="type" class="form_input" placeholder="Логин" required>
                 </p>
                 <p>
-                    <input type="password" class="form_input" placeholder="Пароль">
+                    <input name="password" type="password" class="form_input" placeholder="Пароль" required>
                 </p>
                 <p>
                     <button class="form_btn" >Войти</button>
@@ -54,13 +54,15 @@
                 <p>
                     <input name="name" type="text" class="form_input" placeholder="Дмитрий" required>
                 </p>
+                
                                 @{
                                     if (ViewBag.FalseReg != null)
                                     {
                                         <p>@ViewBag.FalseReg</p>
                                     }
                                 }
-                <input name="telephone" type="tel" class="form_input" placeholder="89998887766" required>
+                                
+                <input name="telephone" type="tel" class="form_input" placeholder="89998887766" pattern="[0-9]{11}" required>
                     <p>
                     <input name="cityName" type="text" class="form_input" placeholder="Москва" required>
                 </p>

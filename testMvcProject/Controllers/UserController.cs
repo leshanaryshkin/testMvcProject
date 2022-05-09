@@ -87,10 +87,24 @@ namespace testMvcProject.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ViewResult LogIn(string login, string password)
+        public ViewResult unSuccessLogin()
         {
-            
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult LogIn(string login, string password)
+        {
+            UsersDAO usersDao = new UsersDAO();
+            if (!usersDao.ContainAccount(login, password))
+            {
+                return RedirectToAction("unSuccessLogin", "User");
+            }
+            else
+            {
+                return RedirectToAction("AboutUs", "User");
+ 
+            }
         }
     }
 }
