@@ -75,5 +75,6 @@
     </Content>
     <Content Remove="Views\User\unSuccessLogin.cshtml" />
     <Content Remove="Views\User\UnSuccessRegistration.cshtml" />
+    <Content Remove="Views\Admin\Index.cshtml" />
   </ItemGroup>
 </Project>
