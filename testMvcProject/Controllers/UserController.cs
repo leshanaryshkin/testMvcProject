@@ -7,6 +7,9 @@ using testMvcProject.Models.DAOs.ProductsDAO;
 using testMvcProject.Models.DAOs.ResourcesDAOs;
 using testMvcProject.Models.DAOs.UsersDAO;
 using testMvcProject.Models.Users;
+using System.Linq;
+using System.Web;
+
 
 
 
@@ -43,8 +46,14 @@ namespace testMvcProject.Controllers
             return View(windowsList);
         }
         
-        public ViewResult Authorization()
+        public ViewResult Authorization(string telephone)
         {
+            if (telephone == "404")
+                ViewBag.FalseReg = "Такой пользователь не зарегистрирован";
+            else if (telephone!=null)
+                ViewBag.FalseReg = $"Пользователь с номером {telephone} уже есть в базе";
+             
+
             return View();
         }
         
@@ -56,12 +65,7 @@ namespace testMvcProject.Controllers
             
             if (usersDao.ContainTelephone(telephone))
             {
-                ViewBag.FalseReg = "Такой пользователь уже зарегистрирован!";
-                return RedirectToAction("unSuccessRegistration", "User");
-            }
-            else
-            {
-                ViewBag.FalseReg = null;
+                return RedirectToAction("Authorization", "User", new{telephone});
             }
 
             string Adress = cityName + " " + streetName + " " + houseNumber;
@@ -69,28 +73,18 @@ namespace testMvcProject.Controllers
             usersDao.AddUser(person);
 
             
-            return RedirectToAction("SuccessRegistration", "User", name);
+            return RedirectToAction("SuccessRegistration", "User", new{person.Name});
         }
         
-        public ViewResult FalseRegistration(string telephone)
-        {
-            return View(telephone);
-        }
+    
 
-        public ViewResult SuccessRegistration()
+        public ViewResult SuccessRegistration(string name)
         {
+            ViewBag.Name = $"{name}";
             return View();
         }
 
-        public ViewResult UnSuccessRegistration()
-        {
-            return View();
-        }
-
-        public ViewResult unSuccessLogin()
-        {
-            return View();
-        }
+        
 
         [HttpPost]
         public IActionResult LogIn(string login, string password)
@@ -98,7 +92,8 @@ namespace testMvcProject.Controllers
             UsersDAO usersDao = new UsersDAO();
             if (!usersDao.ContainAccount(login, password))
             {
-                return RedirectToAction("unSuccessLogin", "User");
+                string telephone = "404";
+                return RedirectToAction("Authorization", "User", new {telephone});
             }
             else
             {

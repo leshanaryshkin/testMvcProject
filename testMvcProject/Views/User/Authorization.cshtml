@@ -1,7 +1,3 @@
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
@@ -14,7 +10,15 @@
 
 <body>
 
-    <article class="conteiner">
+<p>
+    @{
+                                        if (ViewBag.FalseReg != null)
+                                        {
+                                            <p>@ViewBag.FalseReg</p>
+                                        }
+                                    }
+</p>
+<article class="conteiner">
 
         <div class="block">
 
@@ -55,12 +59,7 @@
                     <input name="name" type="text" class="form_input" placeholder="Дмитрий" required>
                 </p>
                 
-                                @{
-                                    if (ViewBag.FalseReg != null)
-                                    {
-                                        <p>@ViewBag.FalseReg</p>
-                                    }
-                                }
+                                
                                 
                 <input name="telephone" type="tel" class="form_input" placeholder="89998887766" pattern="[0-9]{11}" required>
                     <p>

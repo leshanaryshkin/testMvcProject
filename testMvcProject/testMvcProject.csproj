@@ -73,5 +73,7 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+    <Content Remove="Views\User\unSuccessLogin.cshtml" />
+    <Content Remove="Views\User\UnSuccessRegistration.cshtml" />
   </ItemGroup>
 </Project>
