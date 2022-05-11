@@ -58,8 +58,6 @@
     <Folder Include="Models\Users\" />
     <Folder Include="css-js-img\" />
     <Folder Include="css-js-img\css\" />
-    <Folder Include="wwwroot\" />
-    <Folder Include="wwwroot\css" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
