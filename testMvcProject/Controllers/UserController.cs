@@ -7,6 +7,10 @@ using testMvcProject.Models.DAOs.ProductsDAO;
 using testMvcProject.Models.DAOs.ResourcesDAOs;
 using testMvcProject.Models.DAOs.UsersDAO;
 using testMvcProject.Models.Users;
+using System.Linq;
+using System.Web;
+
+
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -42,21 +46,60 @@ namespace testMvcProject.Controllers
             return View(windowsList);
         }
         
-        public ViewResult Authorization()
+        public ViewResult Authorization(string telephone)
         {
+            if (telephone == "404")
+                ViewBag.FalseReg = "Такой пользователь не зарегистрирован";
+            else if (telephone!=null)
+                ViewBag.FalseReg = $"Пользователь с номером {telephone} уже есть в базе";
+             
+
             return View();
         }
         
         [HttpPost]
-        public string Authorization2()
+        public IActionResult Registration(string telephone, string name, 
+            string cityName, string streetName, string houseNumber)
         {
-            string telephone = Request.Form.FirstOrDefault(p => p.Key == "telephone").Value;
-            string password = Request.Form.FirstOrDefault(p =>p.Key == "password").Value;
-            return $"log {telephone} и pass {password}";
+            UsersDAO usersDao = new UsersDAO();
+            
+            if (usersDao.ContainTelephone(telephone))
+            {
+                return RedirectToAction("Authorization", "User", new{telephone});
+            }
+
+            string Adress = cityName + " " + streetName + " " + houseNumber;
+            Person person = new Person(name, telephone, Adress);
+            usersDao.AddUser(person);
+
+            
+            return RedirectToAction("SuccessRegistration", "User", new{person.Name});
+        }
+        
+    
+
+        public ViewResult SuccessRegistration(string name)
+        {
+            ViewBag.Name = $"{name}";
+            return View();
         }
 
         
 
-
+        [HttpPost]
+        public IActionResult LogIn(string login, string password)
+        {
+            UsersDAO usersDao = new UsersDAO();
+            if (!usersDao.ContainAccount(login, password))
+            {
+                string telephone = "404";
+                return RedirectToAction("Authorization", "User", new {telephone});
+            }
+            else
+            {
+                return RedirectToAction("AboutUs", "User");
+ 
+            }
+        }
     }
 }

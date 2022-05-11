@@ -35,5 +35,9 @@ namespace testMvcProject.Models.Users
         {
         }
 
+        public override string ToString()
+        {
+            return Name + " " + Telephone + " " + Adress;
+        }
     }
 }

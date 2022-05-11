@@ -41,8 +41,13 @@ namespace testMvcProject.Models.DAOs.UsersDAO
             return readerHasRows;
         }
 
+        public bool ContainAccount(string Login, string Password)
+        {
+            return UsersLoginsPasswordsDAO.ContainAccount(Login, Password, connection);
+        }
+
         //That static class works with UsersLoginsPasswords DB and do
-        //CRUD operations automatically at the end of some base class function
+        //CRUD operations automatically at the end of some base class function>
         private static class UsersLoginsPasswordsDAO
         {
             internal static void AddUserLogPass(Person person, SqliteConnection connection)
@@ -61,6 +66,23 @@ namespace testMvcProject.Models.DAOs.UsersDAO
 
                 command.CommandText = String.Format("INSERT INTO UsersLoginsPasswords (User_ID, Login, Password) VALUES ('{0}', '{1}', '{2}')", ID, person.Telephone, person.Name);
                 command.ExecuteNonQuery();
+            }
+
+            internal static bool ContainAccount(string login, string password, SqliteConnection connection)
+            {
+                connection.Open();
+            
+                string sqlExpression = String.Format("SELECT User_ID as ID, Login as Telephone, Password FROM UsersLoginsPasswords WHERE Login = '{0}' AND Password = '{1}'", login, password);
+                SqliteCommand command = new SqliteCommand(sqlExpression);
+                command.Connection = connection;
+            
+                SqliteDataReader reader = command.ExecuteReader();
+                bool readerHasRows = reader.HasRows;
+            
+                reader.Close();
+            
+                return readerHasRows;
+            
             }
         }
         
