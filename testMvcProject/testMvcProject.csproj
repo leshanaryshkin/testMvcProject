@@ -40,6 +40,8 @@
     <None Remove="css-js-img\js\User\Calculator.js" />
     <None Remove="css-js-img\js\" />
     <None Remove="css-js-img\logo.png" />
+    <None Remove="css-js-img\**" />
+    <None Remove="Views\User\css\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
@@ -51,13 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="css-js-img\css" />
     <Folder Include="Models\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Models\DAOs\ResourcesDAOs\" />
     <Folder Include="Models\Users\" />
-    <Folder Include="css-js-img\" />
-    <Folder Include="css-js-img\css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -74,5 +73,15 @@
     <Content Remove="Views\User\unSuccessLogin.cshtml" />
     <Content Remove="Views\User\UnSuccessRegistration.cshtml" />
     <Content Remove="Views\Admin\Index.cshtml" />
+    <Content Remove="css-js-img\**" />
+    <Content Remove="Views\User\css\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="css-js-img\**" />
+    <Compile Remove="Views\User\css\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="css-js-img\**" />
+    <EmbeddedResource Remove="Views\User\css\**" />
   </ItemGroup>
 </Project>

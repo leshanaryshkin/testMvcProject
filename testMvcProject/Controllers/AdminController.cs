@@ -10,12 +10,24 @@ namespace testMvcProject.Controllers
 {
     public class AdminController : Controller
     {
-
-
         public AdminController() { }
 
-
-        public ViewResult Index() { return View(); }    
+        public ViewResult OrdersInProgress()
+        {
+            return View();
+        }     
+        public ViewResult Requests()
+        {
+            return View();
+        }   
+        public ViewResult ResourcesOnStock()
+        {
+            return View();
+        }  
+        public ViewResult UsersDB()
+        {
+            return View();
+        }
 
     }
 }
