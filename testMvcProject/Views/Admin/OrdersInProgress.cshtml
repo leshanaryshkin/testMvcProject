@@ -1,20 +1,19 @@
-
+@using Microsoft.AspNetCore.Http
 @{
     Layout = null;
 }
 
+
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
-
+<html>
 	
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta charset="UTF-8" />
+    <<meta charset="UTF-8"/>
 
-	        <link rel="stylesheet" type="text/css" href="~/css/Admin/UsersDB.css" /> 
-
+	        
+            <link rel="stylesheet" type="text/css" href="~/css/Admin/OrdersInProgress.css" /> 
 	<title>UnionWindows</title>
 </head>
 
@@ -23,9 +22,7 @@
 	<div class="my_boks">
 
     <div class="my_boks1">
-        <form action="~/User/AboutUs">
-            <button class="nav-buttons">o nas</button>
-        </form>
+        <a href="/User/AboutUs" class="nav__link" lang="ru">О нас</a>  
     </div>
 
     <div class="my_boks2">

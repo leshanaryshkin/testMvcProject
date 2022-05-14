@@ -1,4 +1,6 @@
-﻿div {
+﻿@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap');
+
+div {
     box-sizing: border-box;
 }
 
@@ -33,3 +35,20 @@
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
+
+.nav__link {
+    font-family: 'Oswald', sans-serif;
+    color: #E75D41;
+    text-decoration: none;
+    transition: .2s linear;
+    margin-left: 50px;
+}
+
+:hover.nav__link {
+    color: #AB7783;
+}
+
+:first-child.nav__link {
+    margin-left: 0;
+}
+
