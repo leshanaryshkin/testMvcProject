@@ -1,4 +1,4 @@
-@using Microsoft.AspNetCore.Http
+﻿@using Microsoft.AspNetCore.Http
 @{
     Layout = null;
 }
@@ -10,7 +10,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <<meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 
 	        
             <link rel="stylesheet" type="text/css" href="~/css/Admin/OrdersInProgress.css" /> 
@@ -19,59 +19,32 @@
 
 <body>
 
-	<div class="my_boks">
-
-    <div class="my_boks1">
-        <a href="/User/AboutUs" class="nav__link" lang="ru">� ���</a>  
-    </div>
-
-    <div class="my_boks2">
-        <form action="~/User/Calculator">
-            <button class="nav-buttons" style="border: 0px;">Calculator</button>
-        </form>
-    </div>
-
-    <div class="my_boks3">
-        <form action="~/User/AdditionalServices">
-            <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Uslugi</button>
-        </form>
-    </div>
-
-  
+	<div class="nav">
 
 
-    <div class="my_boks4">
-        <form action="~/User/AboutUs">
-            <button class="nav-buttons">Vhod</button>
-        </form>
-    </div>
-
-</div>
+							<a class ="nav__link" href="/User/AboutUs">О нас</a>
+							<a class ="nav__link" href="/User/AdditionalServices">Услуги</a>
+							<a class ="nav__link" href="/User/Orders">Корзина</a>
+							<a class ="nav__link" href="/User/Authorization">Вход</a>
+        
+							
+	</div>
 
 <div class = "container"> 
-     <div class="my_boks5">
-        <form action="~/Admin/Requests">
-            <button class="nav-buttons">Zayavki</button>
-        </form>
-    </div>
 
-    <div class="my_boks6">
-        <form action="~/Admin/OrdersInProgress">
-            <button class="nav-buttons" style="border: 0px;">Activ zakazi</button>
-        </form>
-    </div>
 
-    <div class="my_boks7">
-        <form action="~/Admin/ResourcesOnStock">
-            <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Sclad</button>
-        </form>
-    </div>
+    <a class ="nav__link" href="/Admin/Requests">Заявки</a>
+ 
 
-    <div class="my_boks8">
-        <form action="~/User/Orders">
-            <button class="nav-buttons">Zakazchiki</button>
-        </form>
-    </div>
+    <a class ="nav__link" href="/Admin/OrdersInProgress">Активные заказы</a>
+
+    <a class ="nav__link" href="/Admin/ResourcesOnStock">Склад</a>
+
+
+    <a class ="nav__link" href="/Admin/UsersDB">Заказчики</a>
+
+    
+
 
 </div>
 
