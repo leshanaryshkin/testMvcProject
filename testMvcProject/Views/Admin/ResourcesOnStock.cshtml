@@ -1,83 +1,159 @@
-
+﻿
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
-
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="~/css/Admin/ResourcesOnStock.css" /> 
+<script src="/script.js"></script>
 	
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta charset="UTF-8" />
 
-	        <link rel="stylesheet" type="text/css" href="~/css/Admin/UsersDB.css" /> 
-
-	<title>UnionWindows</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Склад</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200&display=swap"rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+  <body>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+						<h2>Профиль</h2>
+					</div>
+					<div class="col-sm-6">
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Добавить</span></a>
+												
+					</div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+						<th>Состояние</th>
+                        <th>Имя</th>
+                        <th>Количество</th>
+						<th>Закупочная стоимость</th>
+                        <th>Погонная стоимость</th>
+						
 
-	<div class="my_boks">
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+						<td>
+							<label><input type="checkbox" class="ios-switch green  bigswitch"/><div><div></div></div></label>
+                        </td>
+						
+                        <td>Нарышкин</td>
+                        <td>150</td>
+						<td>300404040044</td>
+                        <td>40404040440404</td>
+                        <td>
+                           
+                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label><input type="checkbox" class="ios-switch green  bigswitch"/><div><div></div></div></label>
+                        </td>
+                        <td>ВИКа</td>
+                        <td>11</td>
+						<td>334434</td>
+                        <td>5090950</td>
+                        <td>
+                           
+                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>
+                            <label><input type="checkbox" class="ios-switch green  bigswitch"/><div><div></div></div></label>
+                        </td>
+				
+                        <td>Варя</td>
+                        <td>5090555</td>
+						<td>40940444444444444</td>
+                        <td>55555555555555555555</td>
+                        <td>
+                           
+                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                  
+                </tbody>
+            </table>
+			
+	<!-- Edit Modal HTML -->
+	<div id="addEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">						
+						<h4 class="modal-title">Добавить профиль</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+						<div class="form-group">
+							<label>Название</label>
+							<input type="text" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Количество</label>
+							<input type="number" min="0" value="0" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Закупочная стоимость</label>
+							<input type="number" class="form-control" required></input>
+						</div>
+						<div class="form-group">
+							<label>погонная стоимость</label>
+							<input type="number" class="form-control" required>
+						</div>					
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Назад">
+						<input type="submit" class="btn btn-success" value="Добавить">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-    <div class="my_boks1">
-        <form action="~/User/AboutUs">
-            <button class="nav-buttons">o nas</button>
-        </form>
-    </div>
-
-    <div class="my_boks2">
-        <form action="~/User/Calculator">
-            <button class="nav-buttons" style="border: 0px;">Calculator</button>
-        </form>
-    </div>
-
-    <div class="my_boks3">
-        <form action="~/User/AdditionalServices">
-            <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Uslugi</button>
-        </form>
-    </div>
-
-  
-
-
-    <div class="my_boks4">
-        <form action="~/User/AboutUs">
-            <button class="nav-buttons">Vhod</button>
-        </form>
-    </div>
-
-</div>
-
-<div class = "container"> 
-     <div class="my_boks5">
-        <form action="~/Admin/Requests">
-            <button class="nav-buttons">Zayavki</button>
-        </form>
-    </div>
-
-    <div class="my_boks6">
-        <form action="~/Admin/OrdersInProgress">
-            <button class="nav-buttons" style="border: 0px;">Activ zakazi</button>
-        </form>
-    </div>
-
-    <div class="my_boks7">
-        <form action="~/Admin/ResourcesOnStock">
-            <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Sclad</button>
-        </form>
-    </div>
-
-    <div class="my_boks8">
-        <form action="~/User/Orders">
-            <button class="nav-buttons">Zakazchiki</button>
-        </form>
-    </div>
-
-</div>
-
+	
+	<!-- Delete Modal HTML -->
+	<div id="deleteEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">						
+						<h4 class="modal-title">Удалить профиль</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+                        <p>Вы уверены что хотите удалить этот объект?</p>
+					
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Назад">
+						<input type="submit" class="btn btn-danger" value="Удалить">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+ 
 </body>
-
 </html>

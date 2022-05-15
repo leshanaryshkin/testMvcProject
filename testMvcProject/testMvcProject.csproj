@@ -54,7 +54,6 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Admin\" />
     <Folder Include="Models\DAOs\ResourcesDAOs\" />
     <Folder Include="Models\Users\" />
   </ItemGroup>
