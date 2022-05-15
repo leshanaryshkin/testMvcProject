@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Web;
 
 namespace testMvcProject
 {
@@ -36,8 +38,11 @@ namespace testMvcProject
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
-            app.UseSession();
+            app.UseMvc();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
@@ -46,6 +51,16 @@ namespace testMvcProject
                 template: "{controller}/{action}");
             });
 
+            app.Run(async (context) =>
+            {
+                if(context.Session.Keys.Contains("name"))
+                    await context.Response.WriteAsync($"Hello {context.Session.GetString("name")}!");
+                else
+                {
+                    context.Session.SetString("name", "Tom");
+                    await context.Response.WriteAsync("Hello World!");
+                }
+            });
 
         }
     }

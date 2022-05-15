@@ -37,7 +37,7 @@ namespace testMvcProject.Controllers
 
         public ViewResult Calculator()
         {
-            return View(new resourceDAO());
+            return View();
         }
 
         public ViewResult Orders()

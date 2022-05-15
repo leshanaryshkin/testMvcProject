@@ -17,12 +17,12 @@ div {
     box-sizing: border-box;
 }
 
-.nav {
+.my_boks {
     position: relative;
     width: 80%;
     display: block;
     margin: 0 auto;
-    padding: 100px;
+    padding: 0;
     text-align: center;
     border-bottom: 2px solid #E79472;
 }
@@ -36,21 +36,18 @@ div {
     text-align: center;
 }
 
-.nav__link {
+.my_boks1, .my_boks2, .my_boks3, .my_boks4, .my_boks5, .my_boks6, .my_boks7, .my_boks8 {
     margin: 3px;
     padding: 20px 10px;
     width: calc(20% - 25px);
     display: inline-block;
 }
 
-
-
-.nav__link {
-    font-family: 'Oswald', sans-serif;
-    color: #E75D41;
-    text-decoration: none;
-    transition: .2s linear;
-    margin-left: 50px;
+.nav-buttons {
+    font-size: 20px;
+    border-radius: 8px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
 :hover.nav__link {

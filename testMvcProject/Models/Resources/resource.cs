@@ -9,11 +9,12 @@ namespace testMvcProject.Models.Resources
 
         public resource() { }
 
-        public resource(string name, int costPrice)
+        public resource(string name, double costPrice)
         {
             this.Name = name;
             this.CostPrice = costPrice;
         }
+        
         
         
     }

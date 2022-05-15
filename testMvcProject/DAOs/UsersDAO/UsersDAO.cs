@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
@@ -44,6 +45,37 @@ namespace testMvcProject.Models.DAOs.UsersDAO
         public bool ContainAccount(string Login, string Password)
         {
             return UsersLoginsPasswordsDAO.ContainAccount(Login, Password, connection);
+        }
+
+        public List<Person> getAllPersons()
+        {
+            List<Person> persons = new List<Person>();
+            connection.Open();
+            string sqlExpression = String.Format("SELECT * FROM Users");
+            SqliteCommand command = new SqliteCommand(sqlExpression);
+            command.Connection = connection;
+            
+            SqliteDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+                while (reader.Read())
+                {
+                    int ID = Convert.ToInt16(reader.GetValue(0));
+                    string Name = Convert.ToString(reader.GetValue(1));
+                    string Adress = Convert.ToString(reader.GetValue(2));
+                    string Telephone = Convert.ToString(reader.GetValue(3));
+
+                    Person person = new Person();
+                    person.Name = Name;
+                    person.Adress = Adress;
+                    person.Telephone = Telephone;
+                    person.PersonID = ID;
+                    
+                    persons.Add(person);
+                }
+            
+            reader.Close();
+            return persons;
         }
 
         //That static class works with UsersLoginsPasswords DB and do

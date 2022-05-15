@@ -1,4 +1,5 @@
-﻿
+@using testMvcProject.Models.DAOs.UsersDAO
+@model UsersDAO
 @{
     Layout = null;
 }
@@ -10,12 +11,23 @@
 	
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta charset="UTF-8" />
+    
+    <meta charset="utf-8">
 
-	        <link rel="stylesheet" type="text/css" href="~/css/Admin/UsersDB.css" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<title>UnionWindows</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200&display=swap"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/Admin/UsersDB.css"/>
+
+    <title>UnionWindows</title>
 </head>
 
 <body>
@@ -44,6 +56,56 @@
 
 
 </div>
+
+<table>
+    <tr>
+        <th>Зарегистрированные пользователи</th>
+        <th>Имя</th>
+        <th>Номер телефона</th>
+        <th>Адрес</th>
+    </tr>
+
+    @{
+        foreach (var person in Model.getAllPersons())
+        {
+            <tr>
+                <td>ID:@person.PersonID</td>
+                <td>@person.Name</td>
+                <td>@person.Telephone</td>
+                <td>@person.Adress</td>
+            </tr>
+        }
+    }
+</table>
+
+
+
+<style>
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+    font-size: 14px;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
+th, td:first-child {
+    background: #AFCDE7;
+    color: white;
+    padding: 10px 20px;
+}
+th, td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+}
+td {
+    background: #D8E6F3;
+}
+th:first-child, td:first-child {
+    text-align: center;
+}
+</style>
+
 
 </body>
 
