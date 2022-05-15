@@ -30,5 +30,14 @@ namespace testMvcProject.Controllers
             return View(new UsersDAO());
         }
 
+        [HttpPost]
+        public ActionResult DeleteUser(int id)
+        {
+            Console.WriteLine($"QU{id}");
+            UsersDAO usersDao = new UsersDAO();
+            usersDao.deleteUser(id);
+            return RedirectToAction("UsersDB", "Admin");
+        }
+
     }
 }

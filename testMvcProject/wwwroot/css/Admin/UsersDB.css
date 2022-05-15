@@ -1,4 +1,5 @@
-﻿
+﻿@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap');
+
 body {
     margin: 0;
     height: 100%;
@@ -11,18 +12,17 @@ div {
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap');
 
 div {
     box-sizing: border-box;
 }
 
-.my_boks {
+.nav {
     position: relative;
     width: 80%;
     display: block;
     margin: 0 auto;
-    padding: 0;
+    padding: 100px;
     text-align: center;
     border-bottom: 2px solid #E79472;
 }
@@ -36,18 +36,21 @@ div {
     text-align: center;
 }
 
-.my_boks1, .my_boks2, .my_boks3, .my_boks4, .my_boks5, .my_boks6, .my_boks7, .my_boks8 {
+.nav__link {
     margin: 3px;
     padding: 20px 10px;
     width: calc(20% - 25px);
     display: inline-block;
 }
 
-.nav-buttons {
-    font-size: 20px;
-    border-radius: 8px;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
+
+
+.nav__link {
+    font-family: 'Oswald', sans-serif;
+    color: #E75D41;
+    text-decoration: none;
+    transition: .2s linear;
+    margin-left: 50px;
 }
 
 :hover.nav__link {

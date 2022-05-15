@@ -77,6 +77,19 @@ namespace testMvcProject.Models.DAOs.UsersDAO
             reader.Close();
             return persons;
         }
+        
+        public void deleteUser(int id)
+        {
+            connection.Open();
+            
+            UsersLoginsPasswordsDAO.deleteUser(id, connection);
+            
+            string sqlExpression = String.Format("Delete FROM Users WHERE ID = '{0}' ", id);
+            SqliteCommand command = new SqliteCommand(sqlExpression);
+            command.Connection = connection;
+            command.ExecuteNonQuery();
+
+        }
 
         //That static class works with UsersLoginsPasswords DB and do
         //CRUD operations automatically at the end of some base class function>
@@ -116,6 +129,18 @@ namespace testMvcProject.Models.DAOs.UsersDAO
                 return readerHasRows;
             
             }
+
+            public static void deleteUser(int id, SqliteConnection connection)
+            {
+                connection.Open();
+            
+                string sqlExpression = String.Format("Delete FROM UsersLoginsPasswords WHERE User_ID = '{0}' ", id);
+                SqliteCommand command = new SqliteCommand(sqlExpression);
+                command.Connection = connection;
+                command.ExecuteNonQuery();
+            }
+
+
         }
         
     }
