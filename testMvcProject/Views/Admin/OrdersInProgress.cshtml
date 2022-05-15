@@ -1,52 +1,125 @@
-﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http
 @{
     Layout = null;
 }
 
 
 <!DOCTYPE html>
-<html>
-	
-
+<html lang="ru">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta charset="UTF-8"/>
-
-	        
-            <link rel="stylesheet" type="text/css" href="~/css/Admin/OrdersInProgress.css" /> 
-	<title>UnionWindows</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="~/css/Admin/Requests.css" />
+    <title>Страница со всеми заявками для админа</title>
 </head>
-
 <body>
 
-	<div class="nav">
+
+    <div class='header2'>
+        <div class='container2'>
+            <div class='header-line2'>
 
 
-							<a class ="nav__link" href="/User/AboutUs">О нас</a>
-							<a class ="nav__link" href="/User/AdditionalServices">Услуги</a>
-							<a class ="nav__link" href="/User/Orders">Корзина</a>
-							<a class ="nav__link" href="/User/Authorization">Вход</a>
-        
-							
-	</div>
+                <div class='btn_user1'>
+                    <a class='button_user1' href="/User/AboutUs">О нас</a>
+                </div>
 
-<div class = "container"> 
+                <div class='btn_user2'>
+                    <a class='button_user2' href="/User/AdditionalServices">Услуги</a>"
+                </div>
 
+                <div class='btn_user3'>
+                    <a class='button_user3' href="/User/Orders">Корзина</a>
+                </div>
 
-    <a class ="nav__link" href="/Admin/Requests">Заявки</a>
- 
-
-    <a class ="nav__link" href="/Admin/OrdersInProgress">Активные заказы</a>
-
-    <a class ="nav__link" href="/Admin/ResourcesOnStock">Склад</a>
+                <div class='btn_user4'>
+                    <a class='button_user4' href="/User/Authorization">Вход</a>
+                </div>
 
 
-    <a class ="nav__link" href="/Admin/UsersDB">Заказчики</a>
+            </div>
+        </div>
+    </div>
 
-    
+    <div class='line'>
+    </div>
 
 
-</div>
+
+
+    <div class='header1'>
+        <div class='container1'>
+            <div class='header-line1'>
+
+
+                <div class='btn1'>
+                    <a class='button1' href="/Admin/Requests">Заявки</a>
+                </div>
+
+                <div class='btn2'>
+                    <a class='button2' href="/Admin/OrdersInProgress">Активные заказы</a>
+                </div>
+
+                <div class='btn3'>
+                    <a class='button3' href="/Admin/ResourcesOnStock">Склад</a>
+                </div>
+
+                <div class='btn4'>
+                    <a class='button4' href="/Admin/UsersDB">Заказчики</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class='specifications'>
+
+        <div class='container3'>
+            <div class='specifications-holder'>
+                <div class='ID'>
+
+                    <div class='ID-title'>
+                        ID
+                    </div>
+
+                </div>
+
+                <div class='ID'>
+
+                    <div class='ID-title'>
+                        Время
+                    </div>
+
+                </div>
+
+                <div class='ID'>
+
+                    <div class='ID-title'>
+                        Номер телефона
+                    </div>
+
+                </div>
+
+                <div class='ID'>
+
+                    <div class='ID-title'>
+                        Сумма
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
 
 </body>
 
