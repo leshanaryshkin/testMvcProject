@@ -69,11 +69,12 @@
     display: flex; /*все элементы в линию*/
     align-items: center; /*выровняли в линию по главному элементу*/
     justify-content: space-around;
+
 }
 
 
 .button1 {
-    background: #8090F8;
+    background: #AFCDE6;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     color: #000000;
@@ -84,7 +85,7 @@
 }
 
 .button2 {
-    background: rgba(255, 189, 95, 0.7);
+    background: #E0EBF5;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     color: #000000;
@@ -95,7 +96,7 @@
 }
 
 .button3 {
-    background: #8090F8;
+    background: #AFCDE6;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     color: #000000;
@@ -106,7 +107,7 @@
 }
 
 .button4 {
-    background: #8090F8;
+    background: #AFCDE6;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     color: #000000;
