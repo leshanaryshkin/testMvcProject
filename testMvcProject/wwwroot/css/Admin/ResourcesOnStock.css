@@ -6,11 +6,12 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    background: #FFFFFF;
 }
 
 .title h1 {
     font-size: 40px;
-    color: #fcfffc;
+    color: #FFFFFF;
     margin-bottom: 50px;
 }
 
@@ -20,7 +21,7 @@
 
 .list_menu a {
     font-size: 25px;
-    color: #fcfffc;
+    color: #FFFFFF;
     border-left: 2px solid #8090f8;
     transition: 0.2s ease;
     padding-left: 5px;
@@ -62,6 +63,7 @@
 .container1 {
     margin-top: 25px;
     margin-bottom: 70px;
+    background: #FFFFFF;
 }
 
 .header-line1 {
@@ -69,6 +71,7 @@
     display: flex; /*все элементы в линию*/
     align-items: center; /*выровняли в линию по главному элементу*/
     justify-content: space-around;
+    background: #FFFFFF;
 }
 
 
