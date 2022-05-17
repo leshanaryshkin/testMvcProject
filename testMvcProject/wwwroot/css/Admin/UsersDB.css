@@ -1,18 +1,151 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap');
 
+.body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.title h1 {
+    font-size: 40px;
+    color: #fcfffc;
+    margin-bottom: 50px;
+}
+
+.title span {
+    color: #8090f8;
+}
+
+.list_menu a {
+    font-size: 25px;
+    color: #fcfffc;
+    border-left: 2px solid #8090f8;
+    transition: 0.2s ease;
+    padding-left: 5px;
+}
+
+    .list_menu a:hover {
+        border-left: 2px solid #8090f8;
+        transition: 0.2s ease;
+        padding-left: 10px;
+    }
+
+.list_menu li {
+    margin: 20px 0;
+}
+
+.list_menu {
+    margin-bottom: 50px;
+}
+
+.menu {
+    padding: 25vh 50px;
+    background: rgba(20, 20, 20, 0.5);
+    height: 100vh;
+    border-right: 80px solid #8090f8;
+    position: fixed;
+    left: -292px;
+    transition: 0.4s ease;
+}
+
+    .menu:hover {
+        left: 0;
+        transition: 0.5s ease;
+    }
+
+.header1 {
+    background: #FFFFFF;
+}
+
+.container1 {
+    margin-top: 25px;
+    margin-bottom: 70px;
+}
+
+.header-line1 {
+    padding-top: 25px; /*верхний отступ*/
+    display: flex; /*все элементы в линию*/
+    align-items: center; /*выровняли в линию по главному элементу*/
+    justify-content: space-around;
+}
+
+
+.button1 {
+    background: #8090F8;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 3px 25px;
+}
+
+.button2 {
+    background: #8090F8;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 3px 25px;
+}
+
+.button3 {
+    background: #8090F8;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 3px 25px;
+}
+
+.button4 {
+    background: rgba(255, 189, 95, 0.7);
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 3px 25px;
+}
+
+.button1:hover {
+    color: #FFFFFF;
+}
+
+.button2:hover {
+    color: #FFFFFF;
+}
+
+.button3:hover {
+    color: #FFFFFF;
+}
+
+.button4:hover {
+    color: #FFFFFF;
+}
+
+
+
+
 body {
     margin: 0;
     height: 100%;
     line-height: 1;
     font-size: 16px;
     background-color: white;
-    font-family: 'Oswald', sans-serif;
 }
 div {
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap');
 
 div {
     box-sizing: border-box;

@@ -7,46 +7,29 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="~/css/Admin/UsersDB.css" />
-    <title>Страница со всеми заявками для админа</title>
+    <title>Страница с заказчиками</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Admin/UsersDB.css" />
 </head>
 <body>
 
 
-    <div class='header2'>
-        <div class='container2'>
-            <div class='header-line2'>
-
-                <div class='btn_user1'>
-                    <a class="button_user1" href="/User/AboutUs">О нас</a>
-                </div>
-
-                <div class='btn_user2'>
-                    <a class='button_user2' href="/User/AdditionalServices">Услуги</a>
-                </div>
-
-                <div class='btn_user3'>
-                    <a class='button_user3' href="/User/Orders">Корзина</a>
-                </div>
-
-                <div class='btn_user4'>
-                    <a class='button_user4' href="/User/Authorization">Вход</a>
-                </div>
-
-
-            </div>
+    <div class="menu">
+        <div class="title"><h1><span>М</span>ЕНЮ</h1></div>
+        <div class="list_menu">
+            <ul>
+                <li><a href="/User/AboutUs">О нас</a></li>
+                <li><a href="/User/AdditionalServices">Услуги</a></li>
+                <li><a href="/User/Orders">Корзина</a></li>
+                <li><a href="/User/Authorization">Вход</a></li>
+            </ul>
         </div>
     </div>
-
-    <div class='line'>
-    </div>
-
-
-
 
     <div class='header1'>
         <div class='container1'>
             <div class='header-line1'>
+
 
                 <div class='btn1'>
                     <a class='button1' href="/Admin/Requests">Заявки</a>
@@ -64,114 +47,71 @@
                     <a class='button4' href="/Admin/UsersDB">Заказчики</a>
                 </div>
 
-
             </div>
+
+
         </div>
     </div>
 
 
+    <table>
+        <tr>
+            <th>Зарегистрированные пользователи</th>
+            <th>Имя</th>
+            <th>Номер телефона</th>
+            <th>Адрес</th>
+        </tr>
 
-    <div class='specifications'>
-
-        <div class='container3'>
-            <div class='specifications-holder'>
-                <div class='ID'>
-
-                    <div class='ID-title'>
-                        ID
-                    </div>
-
-                </div>
-
-                <div class='ID'>
-
-                    <div class='ID-title'>
-                        Время
-                    </div>
-
-                </div>
-
-                <div class='ID'>
-
-                    <div class='ID-title'>
-                        Номер телефона
-                    </div>
-
-                </div>
-
-                <div class='ID'>
-
-                    <div class='ID-title'>
-                        Сумма
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-
-
-    </div>
-
-
-
-
-
-<table>
-    <tr>
-        <th>Зарегистрированные пользователи</th>
-        <th>Имя</th>
-        <th>Номер телефона</th>
-        <th>Адрес</th>
-    </tr>
-
-    @{
-        foreach (var person in Model.getAllPersons())
-        {
-            <tr>
-                <td>ID:@person.PersonID</td>
-                <td>@person.Name</td>
-                <td>@person.Telephone</td>
-                <td>@person.Adress</td>
-                <td>
-                    <form action="/Admin/DeleteUser" method="post">
-                    <input name="id" value="@person.PersonID" type="hidden">
-                <button>delete</button>
-                    </form>
+        @{
+            foreach (var person in Model.getAllPersons())
+            {
+                <tr>
+                    <td>ID:@person.PersonID</td>
+                    <td>@person.Name</td>
+                    <td>@person.Telephone</td>
+                    <td>@person.Adress</td>
+                    <td>
+                        <form action="/Admin/DeleteUser" method="post">
+                            <input name="id" value="@person.PersonID" type="hidden">
+                            <button>delete</button>
+                        </form>
                     </td>
-            </tr>
+                </tr>
+            }
         }
-    }
-</table>
+    </table>
 
 
 
-<style>
-table {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
-    font-size: 14px;
-    border-collapse: collapse;
-    text-align: center;
-    width: 100%;
-}
-th, td:first-child {
-    background: #AFCDE7;
-    color: white;
-    padding: 10px 20px;
-}
-th, td {
-    border-style: solid;
-    border-width: 0 1px 1px 0;
-    border-color: white;
-}
-td {
-    background: #D8E6F3;
-}
-th:first-child, td:first-child {
-    text-align: center;
-}
-</style>
+    <style>
+        table {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+            font-size: 14px;
+            border-collapse: collapse;
+            text-align: center;
+            width: 100%;
+        }
+
+        th, td:first-child {
+            background: #AFCDE7;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        th, td {
+            border-style: solid;
+            border-width: 0 1px 1px 0;
+            border-color: white;
+        }
+
+        td {
+            background: #D8E6F3;
+        }
+
+            th:first-child, td:first-child {
+                text-align: center;
+            }
+    </style>
 
 
 </body>

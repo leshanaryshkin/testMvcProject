@@ -1,151 +1,276 @@
 ﻿@using testMvcProject.Models.DAOs.ResourcesDAOs
 @model ProfilesDAO
 
+
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="~/css/User/Calculator.css" />
-    <meta charset="UTF-8" />
-
-
+	
+	<meta charset="utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200&display=swap"
+		rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap" rel="stylesheet">
+	
+<link rel="stylesheet" href="slyle.css">
+	
+	<title>UnionWindows</title>
 </head>
+
 
 <body>
 
-    <div class="my_boks">
-
-        <div class="my_boks1">
-            <form action="AboutUs">
-                <button class="nav-buttons">About us</button>
-            </form>
+    <div class = "fill"></div>
+    <div class="container">
+        <form action="#"class = "form form1">
+            <div class="form__item">
+                <h2 class="heading">Рассчитайте стоимость своего окна</h2>
+                <ul class="switcher">
+                    <select id="switcher__item">
+                        <option value="hide">Профиль</option>
+                        <option value="Economy">Экономный</option>
+                        <option value="Average">Средний</option>
+                        <option value="Premium">Премиум</option>
+                        
+                    </select> 
+                    <select id="switcher__item">
+                        <option value="hide">Кол-во камер</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <select id="switcher__item">
+                        <option value="hide">Кол-во створок</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    
+                    
+                </ul>
+            </div>
+            <div class="form__item">
+                <div class="slider">
+                <input type="range" name ="width"  id="width" step = "1" min="100" max="4000" value="2"/>
+                <output id="volume" for="width" > 2</output>
+                </div>
+                <div class="form__item">
+                    <h2 class="heading">Дополнительные услуги</h2>
+                    <div class="option__item">
+                        <input type="checkbox" name="option1" id="option1" class="option"/>
+                        <label for="option1" class="checkmark"></label>
+                        <label for="option1">Подмести пол</label>
+                    </div>
+                    <div class="option__item">
+                        <input type="checkbox" name="option2" id="option2" class="option"/>
+                        <label for="option2" class="checkmark"></label>
+                        <label for="option2">Выгнать Нарышкина из комнаты</label>
+                    </div>
+                    <div class="option__item">
+                        <input type="checkbox" name="option3" id="option3" class="option"/>
+                        <label for="option3" class="checkmark"></label>
+                        <label for="option3">Выйти из окна</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form action="#"class = "form form2">
+            <div class="form__item">
+                <h2 class="heading">Ваш заказ:</h2>
+                <div class="order">
+                <span>Стоимость 1 см кв:</span>
+                <output id="order_price">200</output>
+            </div>
+            <div class="order">
+            
+            <span>Профиль:</span>
+                <output id="order_price">200</output>
+            </div>
+            <div class="order">
+            
+            <span>Камеры:</span>
+                <output class="order" id="order_price">200 </output>
+            </div>
+            <div class="order">
+            <span>Дополнительные услуги:</span>
+            <output id="order_price">200</output>
         </div>
+        <div>
+            <div class="form__item">
+                <h2 class="heading">Итоговая стоимость:</h2>
+                <output class="total" id="total">0</output>
+            </div>
 
-        <div class="my_boks2">
-            <form action="Calculator">
-                <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Calculator</button>
-            </form>
-        </div>
-
-        <div class="my_boks3">
-            <form action="AdditionalServices">
-                <button class="nav-buttons" style="border: 0px;">Additional services</button>
-            </form>
-        </div>
-
-        <div class="my_boks4">
-            <form action="Orders">
-                <button class="nav-buttons">Orders</button>
-            </form>
-        </div>
-
-
-        <div class="my_boks4">
-            <form action="Authorization">
-                <button class="nav-buttons">Вход</button>
-            </form>
-        </div>
-
-
-    </div>
-
-
-        <h1 style="text-align:center">Hi! There will be window calculator</h1>
-
-
-
-        <div class="range-slider" id="width-range-slider">
-            <input class="range-slider__range" type="range" value="200" min="0" max="400"
-                   onmousemove="widthSlider(this.value)" onchange="widthSlider(this.value)">
-            <span class="range-slider__value" id="widthSlider"></span>
-
-            <script type="text/javascript">function widthSlider(value) {
-                    if (value > 99)
-                        document.getElementById('widthSlider').style.width = '13px';
-                    else
-                        document.getElementById('widthSlider').style.width = '10px';
-                    document.getElementById('widthSlider').innerHTML = value;
-            }
-            </script>
-        </div>
-
-
-    
-
-
-        <div class="range-slider" id="height-range-slider">
-            <input class="range-slider__range" id="height-range-slider__range" type="range" orient="vertical" value="200" min="0" max="400"
-                   onmousemove="heightSlider(this.value)" onchange="heightSlider(this.value)">
-            <span class="range-slider__value" id="heightSlider"></span>
-
-            <script type="text/javascript">function heightSlider(value) {
-                    if (value > 99)
-                        document.getElementById('heightSlider').style.width = '13px';
-                    else
-                        document.getElementById('heightSlider').style.width = '10px';
-                    document.getElementById('heightSlider').innerHTML = value;
-                }</script>
-        </div>
-
-
-
-
-
-<!--
-    <section>
-        <label class="select-label">Тип профиля:</label>
-        <select class="cs-select cs-skin-rotate">
-            @{/*
-                int i = 0;
-                foreach (var Profile in Model.getList())
-                {
-                    i++;
-                    if (((int)Profile.ResourceType) == 1)
-                    {
-                        <option value="@i">@Profile.Name</option>
-                    }
-                }
-            */}
-        </select>
-    </section>
-
-    <section>
-        <label class="select-label">Тип фурнитуры:</label>
-        <select class="cs-select cs-skin-rotate">
-            @{/*
-                int k = 0;
-                foreach (var Profile in Model.getList())
-                {
-                    k++;
-                    if (((int)Profile.ResourceType) == 2)
-                    {
-                        <option value="@k">@Profile.Name</option>
-                    }
-                }
-            */}
-        </select>
-    </section>
-        -->
-
-
-
-    <div>
-        <form class="custom-checkbox">
-            <p><b>Необходим монтаж окна?</b></p>
-            <p><input name="dzen" type="radio" value="NeedInstallation" checked>Да</p>
-            <p><input name="dzen" type="radio" value="dontNeedInstallation">Нет</p>
         </form>
     </div>
 
 
+<style> /*import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap');*/
 
+    *,
+    *::after,
+    *::before{
+        box-sizing: inherit;
+    }
+    body{
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    width: 100%;
+    min-height: 100%;
+    color: white;
+    background-image: url(img/AboutUs/backK.jpg);
+    block-size: cover;
+    box-sizing: border-box;
+    
+    }
+    .fill{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: antiquewhite;
+        opacity: 0.66;
+    }
+    .container{
+        min-width:1200px ;
+        width: 100%;
+        height: 650px;
+        position: absolute;
+   
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
 
+ 
+    }
+    .form{
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 25px;
+        padding:30px;
+        color: #E79472;
+
+    }
+    .form1{
+        flex-basis: 800px ;
+        flex-shrink: 0;
+        flex-grow: 0;
+        margin-right: 50px;
+
+    }
+    .form2{
+        flex-shrink: 1;
+        flex-grow: 1;
+     
+    }
+
+    .form .from_item{
+        margin-bottom: 40px;
+    }
+    .form .heading{
+        margin-bottom: 30px;
+        font-size: 18px;
+
+    }
+    .switcher{
+    display: flex;
+
+}
+.switcher__item {
+    margin-bottom: 30px;
+
+}
+
+#width{
+    -webkit-appearance: none;
+    width: 500px;
+height: 10px;
+background-color: #f7eae5;
+border-radius: 20px;
+outline: none;
+}
+
+#volume{
+    font-size: 48px;
+    margin-left: 30px;
+    color: #E79472;
+}
+.slider{
+    display: flex;
+    align-items: center;
+}
+#width::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: #E79472;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.option__item{
+margin-bottom: 15px;
+display: flex;
+align-items: center;
+}
+.option__item input{
+    display: none;
+}
+.option__item .checkmark{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color:#f7eae5 ;
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+
+}
+.option__item .checkmark::after{
+    display: none;
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-color: #E79472;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.option__item input:checked + .checkmark::after{
+    display: block;
+}
+.form2 .order output{
+    margin-left: 10px;
+    font-size: 10px;
+
+}
+.form2 .total{
+    font-size: 40px;
+    font-weight: 400;
+    position: relative;
+}
+.form2 .total::after{
+    content: "\20BD";
+}
+
+    </style>
 </body>
 
 

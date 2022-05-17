@@ -1,48 +1,28 @@
-﻿@{
-    Layout = null;
-}
+﻿@using Microsoft.AspNetCore.Http
+
+@{ Layout = null; }
+
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="~/css/Admin/Requests.css" />
-    <title>Страница со всеми заявками для админа</title>
+    <title>Страница со всеми заявками</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Admin/Requests.css" />
 </head>
 <body>
-
-
-    <div class='header2'>
-        <div class='container2'>
-            <div class='header-line2'>
-
-
-                <div class='btn_user1'>
-                    <a class='button_user1' href="/User/AboutUs">О нас</a>
-                </div>
-
-                <div class='btn_user2'>
-                    <a class='button_user2' href="/User/AdditionalServices">Услуги</a>"
-                </div>
-
-                <div class='btn_user3'>
-                    <a class='button_user3' href="/User/Orders">Корзина</a>
-                </div>
-
-                <div class='btn_user4'>
-                    <a class='button_user4' href="/User/Authorization">Вход</a>
-                </div>
-
-
-            </div>
+    <div class="menu">
+        <div class="title"><h1><span>М</span>ЕНЮ</h1></div>
+        <div class="list_menu">
+            <ul>
+                <li><a href="/User/AboutUs">О нас</a></li>
+                <li><a href="/User/AdditionalServices">Услуги</a></li>
+                <li><a href="/User/Orders">Корзина</a></li>
+                <li><a href="/User/Authorization">Вход</a></li>
+            </ul>
         </div>
     </div>
-
-    <div class='line'>
-    </div>
-
-
-
 
     <div class='header1'>
         <div class='container1'>
@@ -65,60 +45,13 @@
                     <a class='button4' href="/Admin/UsersDB">Заказчики</a>
                 </div>
 
-
             </div>
+
+
         </div>
     </div>
-
-
-
-    <div class='specifications'>
-
-        <div class='container3'>
-            <div class='specifications-holder'>
-                <div class='ID'>
-
-                    <div class='ID-title'>
-                        ID
-                    </div>
-
-                </div>
-
-                <div class='ID'>
-
-                    <div class='ID-title'>
-                        Время
-                    </div>
-
-                </div>
-
-                <div class='ID'>
-
-                    <div class='ID-title'>
-                        Номер телефона
-                    </div>
-
-                </div>
-
-                <div class='ID'>
-
-                    <div class='ID-title'>
-                        Сумма
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-
-
-    </div>
-
-
 
 
 
 </body>
-
 </html>
