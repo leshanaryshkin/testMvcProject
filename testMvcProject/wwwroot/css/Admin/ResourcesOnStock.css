@@ -269,6 +269,7 @@ input[type="checkbox"] {
     opacity: 0;
 }
 
+
     /* Normal Track */
     input[type="checkbox"].ios-switch + div {
         vertical-align: middle;

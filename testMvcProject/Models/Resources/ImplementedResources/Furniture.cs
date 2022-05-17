@@ -10,12 +10,13 @@ namespace testMvcProject.Models.Resources.ImplementedResources
         public Furniture() { }
 
         public Furniture(string name,
-                        double costPrice, double storeMargin, int onStock = 0)
+                        double costPrice, double storeMargin, int onStock = 0, bool activePosition = true)
             : base(name, costPrice)
         {
             this.storeMargin = storeMargin;
             this.ResourceType = ResourceType.FURNITURE;
             this.onStock = onStock;
+            this.activePosition = activePosition;
         }
 
 
@@ -24,7 +25,8 @@ namespace testMvcProject.Models.Resources.ImplementedResources
             return($"Name:{Name}" + " " +
                    $"costPrice:{CostPrice}" + " " +
                    $"storeMargin:{storeMargin}" + " " +
-                   $"onStock:{onStock}");
+                   $"onStock:{onStock}" + " " +
+                   $"isActual:{activePosition}");
         }
     }
 }
