@@ -61,6 +61,7 @@
 
 .container1 {
     margin-top: 25px;
+    margin-bottom: 70px;
 }
 
 .header-line1 {
@@ -105,7 +106,7 @@
 }
 
 .button4 {
-    background: #8090F8;
+    background: rgba(255, 189, 95, 0.7);
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     color: #000000;
@@ -140,13 +141,11 @@ body {
     line-height: 1;
     font-size: 16px;
     background-color: white;
-    font-family: 'Oswald', sans-serif;
 }
 div {
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap');
 
 div {
     box-sizing: border-box;
