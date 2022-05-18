@@ -1,4 +1,7 @@
-﻿
+﻿@using System.Diagnostics.Eventing.Reader
+@using testMvcProject.Models.DAOs.ResourcesDAOs
+@using testMvcProject.Models.Resources.ImplementedResources
+@model resourceDAO;
 @{
     Layout = null;
 }
@@ -65,136 +68,156 @@
     </div>
 
 
-    <div class="container">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h2>Профиль</h2>
-                    </div>
-                    <div class="col-sm-6">
-                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Добавить</span></a>
 
-                    </div>
-                </div>
-            </div>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Состояние</th>
-                        <th>Имя</th>
-                        <th>Количество</th>
-                        <th>Закупочная стоимость</th>
-                        <th>Погонная стоимость</th>
+<div>
+	<p>Рублей - @Model.BalanceDao.GetCurrencyNumber("Ruble")</p>
+</div>
 
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <label><input type="checkbox" class="ios-switch green  bigswitch" /><div><div></div></div></label>
-                        </td>
 
-                        <td>Нарышкин</td>
-                        <td>150</td>
-                        <td>300404040044</td>
-                        <td>40404040440404</td>
-                        <td>
+<div class="container">
+	<div class="table-wrapper">
+		<div class="table-title">
+			<div class="row">
+				<div class="col-sm-6">
+					<h2>Список фурнитуры</h2>
+				</div>
+				<div class="col-sm-6">
+					<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Добавить</span></a>
 
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label><input type="checkbox" class="ios-switch green  bigswitch" /><div><div></div></div></label>
-                        </td>
-                        <td>ВИКа</td>
-                        <td>11</td>
-                        <td>334434</td>
-                        <td>5090950</td>
-                        <td>
-
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label><input type="checkbox" class="ios-switch green  bigswitch" /><div><div></div></div></label>
-                        </td>
-
-                        <td>Варя</td>
-                        <td>5090555</td>
-                        <td>40940444444444444</td>
-                        <td>55555555555555555555</td>
-                        <td>
-
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!-- Edit Modal HTML -->
-    <div id="addEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                        <h4 class="modal-title">Добавить профиль</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Название</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Количество</label>
-                            <input type="number" min="0" value="0" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Закупочная стоимость</label>
-                            <input type="number" class="form-control" required></input>
-                        </div>
-                        <div class="form-group">
-                            <label>погонная стоимость</label>
-                            <input type="number" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Назад">
-                        <input type="submit" class="btn btn-success" value="Добавить">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
 
 
-    <!-- Delete Modal HTML -->
-    <div id="deleteEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                        <h4 class="modal-title">Удалить профиль</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Вы уверены что хотите удалить этот объект?</p>
 
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Назад">
-                        <input type="submit" class="btn btn-danger" value="Удалить">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+		<table class="table table-striped table-hover">
+			<thead>
+			<tr>
+				<th>Состояние</th>
+				<th>Имя</th>
+				<th>Количество</th>
+				<th>Закупочная стоимость</th>
+				<th>Погонная стоимость</th>
+			</tr>
+
+			</thead>
+
+			<tbody>
+
+			@foreach (var furniture in Model.FurnitureDao.getFurnitureList())
+			{
+				<tr>
+
+					<td>
+
+						<label>
+
+							@{
+								if (furniture.activePosition == false)
+								{
+									<p>неактивно</p>
+								}
+								else
+								{
+									<p>активно</p>
+								}
+
+							}
+
+							<form action="/Admin/ChangeActionPosition" method="post">
+								<input name="name" type="hidden" value="@furniture.Name"/>
+								<button type="submit">изменить</button>
+							</form>
+
+							<div>
+								<div></div></div>
+						</label>
+
+					</td>
+
+					<td>@furniture.Name</td>
+					<td>@furniture.onStock</td>
+					<td>@furniture.CostPrice</td>
+					<td>@furniture.storeMargin</td>
+
+					<td>
+
+						<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+					</td>
+
+				</tr>
+
+			}
+
+
+
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- Edit Modal HTML -->
+<div id="addEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="/Admin/AddFurniture" method="post">
+				<div class="modal-header">
+					<h4 class="modal-title">Добавить фурнитуру</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label>Название</label>
+						<input name="name" type="text" class="form-control" required>
+					</div>
+
+					<div class="form-group">
+						<label>Закупочная стоимость</label>
+						<input name="costPrice" type="number" class="form-control" required></input>
+					</div>
+
+					<div class="form-group">
+						<label>погонная стоимость</label>
+						<input name="marginPrice" type="number" class="form-control" required>
+					</div>
+
+					<div class="form-group">
+						<label>Количество</label>
+						<input name="count" type="number" min="0" value="0" class="form-control" required></div>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Назад">
+
+					<input type="submit" class="btn btn-success" value="Добавить">
+
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<!-- Delete Modal HTML -->
+<div id="deleteEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form>
+				<div class="modal-header">
+					<h4 class="modal-title">Удалить профиль</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<p>Вы уверены что хотите удалить этот объект?</p>
+
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Назад">
+					<input type="submit" class="btn btn-danger" value="Удалить">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>
