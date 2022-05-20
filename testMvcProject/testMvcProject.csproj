@@ -60,6 +60,7 @@
   <ItemGroup>
     <Content Remove="wwwroot\" />
     <Content Remove="wwwroot\css\" />
+    <Content Remove="wwwroot\css\User\AboutUs.css" />
     <Content Remove="wwwroot\img\" />
     <Content Remove="wwwroot\js\" />
     <Content Remove="wwwroot\css\User\Calculator.scss" />

@@ -68,9 +68,30 @@
     </div>
 
 
+	
 
-<div>
-	<p>Рублей - @Model.BalanceDao.GetCurrencyNumber("Ruble")</p>
+
+
+
+
+
+
+
+
+
+
+<p1>@Model.BalanceDao.GetCurrencyNumber("Ruble")</p1>
+<div class="money_wrapper">
+  <input type="checkbox" id="money">
+  <label class="btn_money" for="money">+</label>
+  
+  <form action="/" class="popup">
+    <span>Сколько прибавить?</span>
+    <input type="text" placeholder="Введите сумму" >
+  
+    <input class="plus" type="submit" value = "Прибавить">
+    <label class="close" for="money">+</label>
+  </form>
 </div>
 
 
@@ -177,7 +198,7 @@
 					</div>
 
 					<div class="form-group">
-						<label>погонная стоимость</label>
+						<label>Погонная стоимость</label>
 						<input name="marginPrice" type="number" class="form-control" required>
 					</div>
 

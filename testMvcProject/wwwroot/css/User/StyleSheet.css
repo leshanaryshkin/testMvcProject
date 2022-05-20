@@ -127,18 +127,18 @@ body {
 }
 
 .images-parallax__clouds {
-    background: url(clouds.png) top / cover no-repeat padding-box;
+    background: url(/img/AboutUs/clouds.png) top / cover no-repeat padding-box;
     top: 0;
 }
 
 .images-parallax__mountains {
-    background: url(mountains.png) top / cover no-repeat padding-box;
+    background: url(/img/AboutUs/mountains.png) top / cover no-repeat padding-box;
     top: 15%;
     z-index: 1;
 }
 
 .images-parallax__human {
-    background: url(human.png) top / cover no-repeat padding-box;
+    background: url(/img/AboutUs/human.png) top / cover no-repeat padding-box;
     top: 15%;
     margin-top: 350px;
     z-index: 2;
@@ -156,7 +156,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(cloud.png);
+    background: url(/img/AboutUs/cloud.png);
     animation: anim 90s linear infinite;
     z-index: 4;
 }
@@ -330,7 +330,7 @@ h3 {
 
 .parallax-new {
     height: 200px;
-    background: url(reg.jpg) no-repeat center fixed;
+    background: url(/img/AboutUs/reg.jpg) no-repeat center fixed;
     background-attachment: fixed;
     display: flex;
     justify-content: center;

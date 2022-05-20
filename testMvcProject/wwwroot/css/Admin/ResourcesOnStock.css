@@ -1,5 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap');
 
+
 .body {
     margin: 0;
     padding: 0;
@@ -297,7 +298,7 @@ table.table .avatar {
     margin-top: 10px;
     font-size: 13px;
 }
-/* Custom checkbox */
+
 .custom-checkbox {
     position: relative;
 }
@@ -355,7 +356,7 @@ table.table .avatar {
         box-shadow: none;
         background: #ddd;
     }
-/* Modal styles */
+
 .modal .modal-dialog {
     max-width: 400px;
 }
@@ -402,7 +403,7 @@ input[type="checkbox"] {
 }
 
 
-    /* Normal Track */
+    
     input[type="checkbox"].ios-switch + div {
         vertical-align: middle;
         width: 40px;
@@ -416,20 +417,17 @@ input[type="checkbox"] {
         margin: 15px 1.2em 15px 2.5em;
     }
 
-    /* Big Track */
     input[type="checkbox"].bigswitch.ios-switch + div {
         width: 50px;
         height: 25px;
     }
 
-    /* Green Track */
     input[type="checkbox"].green.ios-switch:checked + div {
         background-color: #00e359;
         border: 1px solid rgba(0, 162, 63,1);
         box-shadow: inset 0 0 0 10px rgba(0,227,89,1);
     }
 
-    /* Normal Knob */
     input[type="checkbox"].ios-switch + div > div {
         float: left;
         width: 18px;
@@ -448,7 +446,7 @@ input[type="checkbox"] {
         margin-left: 1px;
     }
 
-    /* Checked Knob (Blue Style) */
+    
     input[type="checkbox"].ios-switch:checked + div > div {
         -webkit-transform: translate3d(20px, 0, 0);
         -moz-transform: translate3d(20px, 0, 0);
@@ -456,40 +454,37 @@ input[type="checkbox"] {
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(8, 80, 172,1);
     }
 
-    /* Tiny Knob */
+   
     input[type="checkbox"].tinyswitch.ios-switch + div > div {
         width: 16px;
         height: 16px;
         margin-top: 1px;
     }
 
-    /* Checked Tiny Knob (Blue Style) */
     input[type="checkbox"].tinyswitch.ios-switch:checked + div > div {
         -webkit-transform: translate3d(16px, 0, 0);
         -moz-transform: translate3d(16px, 0, 0);
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(8, 80, 172,1);
     }
 
-    /* Big Knob */
+
     input[type="checkbox"].bigswitch.ios-switch + div > div {
         width: 23px;
         height: 23px;
         margin-top: 1px;
     }
 
-    /* Checked Big Knob (Blue Style) */
     input[type="checkbox"].bigswitch.ios-switch:checked + div > div {
         -webkit-transform: translate3d(25px, 0, 0);
         -moz-transform: translate3d(16px, 0, 0);
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(8, 80, 172,1);
     }
 
-    /* Green Knob */
+    
     input[type="checkbox"].green.ios-switch:checked + div > div {
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 162, 63,1);
     }
 
-/* Needless Page Decoration */
 body {
     -webkit-user-select: none;
     cursor: default;
@@ -537,4 +532,100 @@ a:hover {
 
 a:active {
     text-decoration: underline;
+}
+
+
+    p1:after
+
+{
+    content: " \20BD";
+}
+
+p1 {
+    padding-left: 200px;
+    font-size: 20px;
+ 
+}
+.money__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border: 1px solid black;
+    padding: 5px;
+    align-items: center;
+  
+}
+
+.money_wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+    position: relative;
+    box-sizing: inherit;
+}
+
+.btn_money {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    border: 2px solid darkcyan;
+    padding: 10px 30px;
+    color: darkcyan;
+    text-transform: uppercase;
+    font-family: arial;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+    .btn_money:hover {
+        background-color: darkcyan;
+        color: white;
+    }
+
+.popup {
+    display: block;
+    width: 160px;
+    background-color: darkcyan;
+    padding: 30px;
+    text-transform: uppercase;
+    font-family: arial;
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: -999px;
+    transition: .5s all linear;
+}
+
+    .popup input {
+        width: 100%;
+        border: 0;
+        margin: 10px 0;
+        height: 35px;
+        padding: 5px;
+        outline: none;
+    }
+
+.plus {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#money {
+    display: none;
+}
+
+    #money:checked ~ .popup {
+        top: 0px;
+    }
+
+.close {
+    display: block;
+    position: absolute;
+    transform: rotate(45deg);
+    font-size: 24px;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
 }
