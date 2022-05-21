@@ -1,6 +1,4 @@
-﻿@using testMvcProject.Models.DAOs.ProductsDAO
-@model WindowsDAOClass
-
+﻿@using Microsoft.AspNetCore.Http
 @{
     Layout = null;
 }
@@ -11,8 +9,10 @@
 
 
 <head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="~/css/User/Orders.css" /> 
+    <link rel="stylesheet" type="text/css" href="~/css/User/Orders.css" />
 
 
 </head>
@@ -20,80 +20,123 @@
 <body>
 
 
-    <div class="my_boks">
-
-        <div class="my_boks1">
-            <form action="AboutUs">
-                <button class="nav-buttons">About us</button>
-            </form>
-        </div>
-
-        <div class="my_boks2">
-            <form action="Calculator">
-                <button class="nav-buttons">Calculator</button>
-            </form>
-        </div>
-
-        <div class="my_boks3">
-            <form action="AdditionalServices">
-                <button class="nav-buttons">Additional services</button>
-            </form>
-        </div>
-
-        <div class="my_boks4">
-            <form action="Orders">
-                <button class="nav-buttons" style="border: 0px; background-color: #4CAF50;">Orders</button>
-            </form>
-        </div>
-
-        <div class="my_boks4">
-            <form action="Authorization">
-                <button class="nav-buttons">Вход</button>
-            </form>
-        </div>
-
-    </div>
+    <div class='header'>
+        <div class='container'>
+            <div class='header-line'>
 
 
-    <div>
+                <div class='btn1'>
+                    <a class='button1' href="/User/AboutUs">О нас</a>
+                </div>
 
-        <h1 style="text-align:center">Hi! There will be information about all your orders</h1>
+                <div class='btn2'>
+                    <a class='button2' href="/User/Calculator">Калькулятор</a>
+                </div>
 
+                <div class='btn3'>
+                    <a class='button3' href="/User/Orders">Корзина</a>
+                </div>
 
-    </div>
+                <div class='btn4'>
+                    <a class='button4' href="/User/Authorization">Вход</a>
+                </div>
 
-
-    <div>
-
-
-
-        @{
-            foreach(var p in Model.getList())
-         {
-            <div>
-                <h3>Размер окна: @p.getHeight() x @p.getWidth()</h3>
-                <h3>Камер в окне: @p.getHowManyCameras()</h3>
-                <h3>
-                    Нужен ли монтаж?
-                    @{
-                            if (p.getNeewWindowInstallation() == true)
-                            {
-                        <p>нужен</p>
-                            }
-                            else
-                            {
-                        <p>не нужен</p>
-                            }
-                    }
-                </h3>
-
-
-                <h3>Стоимость окна, исходя из всех параметров @p.calculate()</h3>
-                <hr>
             </div>
-         }
-        }
+        </div>
     </div>
+
+    <section class="section-cart">
+        <header class="section-cart__header">
+            <div class="container">
+                <h1 class="title-1">Корзина товаров</h1>
+            </div>
+        </header>
+        <div class="section-cart__body">
+            <div class="container">
+
+                <section class="cart">
+                    <header class="cart-header">
+                        <div class="cart-header__title">размер</div>
+                        <div class="cart-header__count">профиль</div>
+                        <div class="cart-header__cost">фурнитура</div>
+                        <div class="cart-header__cost">кол-во камер</div>
+                        <div class="cart-header__cost">кол-во створок</div>
+                        <div class="cart-header__cost">услуги</div>
+                        <div class="cart-header__cost">кол-во</div>
+                        <div class="cart-header__cost">стоимость</div>
+                    </header>
+
+                    <section class="product">
+                        <div class="product__size">190*90</div>
+                        <div class="product__profile">иииии</div>
+                        <div class="product__furniture">хз</div>
+                        <div class="product__numOFcams">3</div>
+                        <div class="product__numOFdoors">2</div>
+                        <div class="product__install">нужен</div>
+                        <div class="product__count">
+                            <div class="count">
+                                <div class="count__box">
+                                    <input type="number" class="count__input" min="1" max="100" value="1">
+                                </div>
+                                <div class="count__controls">
+                                    <button type="button" class="count__up">
+                                        <img src="вверх.svg" alt="Больше">
+                                    </button>
+                                    <button type="button" class="count__down">
+                                        <img src="вниз.svg" alt="Меньше">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__price">20 000 руб.</div>
+                        <div class="product__controls">
+                            <button type="button">
+                                <img src="крестик.svg" alt="Удалить">
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="product">
+                        <div class="product__size">200*100</div>
+                        <div class="product__profile">аоаа</div>
+                        <div class="product__furniture">фззф</div>
+                        <div class="product__numOFcams">10</div>
+                        <div class="product__numOFdoors">3</div>
+                        <div class="product__install">не нужен</div>
+                        <div class="product__count">
+                            <div class="count">
+                                <div class="count__box">
+                                    <input type="number" class="count__input" min="1" max="100" value="1">
+                                </div>
+                                <div class="count__controls">
+                                    <button type="button" class="count__up">
+                                        <img src="вверх.svg" alt="Больше">
+                                    </button>
+                                    <button type="button" class="count__down">
+                                        <img src="вниз.svg" alt="Меньше">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__price">9 000 руб.</div>
+                        <div class="product__controls">
+                            <button type="button">
+                                <img src="крестик.svg" alt="Удалить">
+                            </button>
+                        </div>
+                    </section>
+
+
+                    <footer class="cart-footer">
+                        <div class="cart-footer__price">329 000 руб.</div>
+                    </footer>
+                </section>
+
+            </div>
+        </div>
+    </section>
+
+
 
 </body>
 
