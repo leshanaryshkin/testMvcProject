@@ -29,9 +29,29 @@
 	
 	<title>UnionWindows</title>
 </head>
+<header class="header">
+  
+        <div class="header__inner">
+        <div class="header__logo">
+            <img src="logo.png" alt="">
+        </div>
+        
+        <div class="nav">
+            <a class ="nav__link" href="/User/AboutUs">О нас</a>
+            <a class ="nav__link" href="/User/Orders">Корзина</a>
+            <a class ="nav__link" href="/User/Authorizations">Вход</a>
+ 
+        </div>
+    </div>
+
+</header>
 
 
 <body>
+    	
+   
+
+    
 
     <div class = "fill"></div>
     <div class="container">
@@ -39,48 +59,57 @@
             <div class="form__item">
                 <h2 class="heading">Рассчитайте стоимость своего окна</h2>
                 <ul class="switcher">
-                    <select id="switcher__item">
-                        <option value="hide">Профиль</option>
-                        <option value="Economy">Экономный</option>
-                        <option value="Average">Средний</option>
-                        <option value="Premium">Премиум</option>
+                    <div class ="select">
+                    <select id="profile" onchange="calc()">
+                        <option value="" disabled selected>Профиль</option>
+                        <option  class="profil" id="economy" value="5100">Экономный</option>
+                        <option class="profil" id="Average"value="7000">Средний</option>
+                        <option  class="profil" id="Premium" value="9500">Премиум</option>
                         
                     </select> 
-                    <select id="switcher__item">
-                        <option value="hide">Кол-во камер</option>
+                    <select id="camers" onchange="calc()">
+                        <option value="" disabled selected>Кол-во камер</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    <select id="switcher__item">
-                        <option value="hide">Кол-во створок</option>
+                    <select id="sashes" onchange="changeImg(sashes.value); calc();">
+                        <option value="" disabled selected>Кол-во створок</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    
+                    </div>
                     
                 </ul>
             </div>
+           
             <div class="form__item">
-                <div class="slider">
-                <input type="range" name ="width"  id="width" step = "1" min="100" max="4000" value="2"/>
-                <output id="volume" for="width" > 2</output>
+                
+            <div class="slider2">
+                
+                <input type="range" name ="height"  id="height" step = "1" min="0" max="400" value="0" onchange="calc()"/>
+                <div class="window"><img src="~/img/AboutUs/window1.png" id="window_img"alt=""></div>
                 </div>
+                <output id="volume2" for="height" > 0</output>
+                <div class="slider">
+                <input type="range" name ="width"  id="width" step = "1" min="0" max="400" value="0" onchange="calc()"/>
+                <output id="volume" for="width" > 0</output>
+            </div>
                 <div class="form__item">
                     <h2 class="heading">Дополнительные услуги</h2>
                     <div class="option__item">
-                        <input type="checkbox" name="option1" id="option1" class="option"/>
+                        <input type="checkbox" onchange="calc()" name="option1" id="option1" value="300" class="option"/>
                         <label for="option1" class="checkmark"></label>
                         <label for="option1">Подмести пол</label>
                     </div>
                     <div class="option__item">
-                        <input type="checkbox" name="option2" id="option2" class="option"/>
+                        <input type="checkbox" onchange="calc()" name="option2" id="option2" value="1" class="option"/>
                         <label for="option2" class="checkmark"></label>
                         <label for="option2">Выгнать Нарышкина из комнаты</label>
                     </div>
                     <div class="option__item">
-                        <input type="checkbox" name="option3" id="option3" class="option"/>
+                        <input type="checkbox" onchange="calc()" name="option3" id="option3" value="500" class="option"/>
                         <label for="option3" class="checkmark"></label>
                         <label for="option3">Выйти из окна</label>
                     </div>
@@ -88,39 +117,35 @@
             </div>
         </form>
         <form action="#"class = "form form2">
-            <div class="form__item">
+            <div class="">
                 <h2 class="heading">Ваш заказ:</h2>
-                <div class="order">
-                <span>Стоимость 1 см кв:</span>
-                    <output id="order_price">200</output>
-                    </div>
+                <div>
+                <span>Стоимость 100 см кв:</span>
+                <span><output id="profile_price">0</output> рублей</span>
             </div>
-            <div class="order">
+            <div >
             
-            <span>Профиль:</span>
-                <output id="order_price">200</output>
+            <span>Кол-во камер:</span>
+            <span><output id="camers_amount">0</output> шт.</span>
             </div>
-            <div class="order">
-            
-            <span>Камеры:</span>
-                <output class="order" id="order_price">200 </output>
+            <span>Кол-во створок:</span>
+                <span><output id="sashes_amount">0</output> шт.</span>
             </div>
-            <div class="order">
+            <div>
             <span>Дополнительные услуги:</span>
-            <output id="order_price">200</output>
+            <span><output id="additionally">0</output> рублей</span>
         </div>
         <div>
-        <div class="form__item">
-            <h2 class="heading">Итоговая стоимость:</h2>
-            <output class="total" id="total">0</output>
-        </div>
-        </div>
-
+            <div class="form__item">
+                <h2 class="heading">Итоговая стоимость:</h2>
+                <div><span id="result">0</span> руб.</div>
+            </div>
+            <button type="submit" id="add">В корзину</button>
         </form>
     </div>
+    <script src="~/js/User/Calc.js"></script>
 
-
-<style> /*import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap');*/
+<style>
 
     *,
     *::after,
@@ -129,27 +154,61 @@
     }
     body{
     font-family: 'Oswald', sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.2;
     width: 100%;
+    margin: 0px;
     min-height: 100%;
     color: white;
-    background-image: url(img/AboutUs/backK.jpg);
-    background-size: cover;
+    background-image: url(window.jpg);
+    block-size: cover;
     box-sizing: border-box;
     
     }
-    .fill{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: antiquewhite;
-        opacity: 0.66;
-    }
+    .header {
+    width: 100%;
+    position: relative;
+    height: 100px;
+
+
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #E79472;
+    align-items: center;
+    padding: 35px 0px;
+    width: 100%;
+
+}
+
+
+.nav {
+    display: flex;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav__link {
+    color: #000000;
+    text-decoration: none;
+    transition: .2s linear;
+    margin-left: 50px;
+}
+
+:hover.nav__link {
+    color: #747474;
+}
+
+:first-child.nav__link {
+    margin-left: 0;
+}
     .container{
-        min-width:1200px ;
-        width: 100%;
-        height: 650px;
+       
+        width: 80%;
+        height: 800px;
         position: absolute;
    
         top: 50%;
@@ -160,7 +219,7 @@
  
     }
     .form{
-        width: 100%;
+        width: 80%;
         height: 100%;
         background-color: #fff;
         border-radius: 25px;
@@ -168,39 +227,60 @@
         color: #E79472;
 
     }
+    .form output {
+        color: red;
+    }
     .form1{
-        flex-basis: 800px ;
+        flex-basis: 900px ;
         flex-shrink: 0;
         flex-grow: 0;
         margin-right: 50px;
-
+        height: 1200px;
+        position: absolute;
+        width: 900px;
+        left: 50px;
+        top: 120px;
     }
     .form2{
-        flex-shrink: 1;
-        flex-grow: 1;
-     
+        position: absolute;
+        height: 450px;
+        width: 400px;
+        left: 1000px;
+        top: 120px;
     }
 
-    .form .from_item{
-        margin-bottom: 40px;
+    .form__item span{
+        color: red;
     }
+
     .form .heading{
         margin-bottom: 30px;
-        font-size: 18px;
+        font-size: 30px;
 
     }
     .switcher{
     display: flex;
-
+    width: 900px;
+    height: 40px;
+    margin-bottom: 400px;
 }
 .switcher__item {
     margin-bottom: 30px;
 
+
 }
 
 #width{
-    -webkit-appearance: none;
-    width: 500px;
+-webkit-appearance: none;
+width: 800px;
+height: 10px;
+background-color: #f7eae5;
+border-radius: 20px;
+outline: none;
+}
+#height{
+-webkit-appearance: none;
+width: 500px;
 height: 10px;
 background-color: #f7eae5;
 border-radius: 20px;
@@ -208,13 +288,44 @@ outline: none;
 }
 
 #volume{
-    font-size: 48px;
-    margin-left: 30px;
+    font-size: 30px;
+    margin-right: 30px;
     color: #E79472;
 }
+#volume2{
+    font-size: 30px;
+    color: #E79472;
+    position: absolute;
+    top:185px;
+    left: 35px;
+}
 .slider{
-    display: flex;
     align-items: center;
+    margin-left: 15px;
+}
+
+.slider2{
+  width: 60px;
+  height: 150px;
+}
+.window {
+    height: auto;
+    position: absolute;
+    top:250px;
+    left: 80px;
+    z-index: 2;
+    height: 300px;
+}
+
+.window img{
+    height: 450px;
+    image-rendering: pixelated;
+}
+.slider2 input {
+
+margin-left: 7px;
+  transform-origin: 75px 75px;
+  transform: rotate(-90deg);
 }
 #width::-webkit-slider-thumb{
     -webkit-appearance: none;
@@ -224,6 +335,15 @@ outline: none;
     border-radius: 50%;
     cursor: pointer;
 }
+#height::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: #E79472;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 
 .option__item{
 margin-bottom: 15px;
@@ -260,20 +380,63 @@ align-items: center;
 }
 .form2 .order output{
     margin-left: 10px;
-    font-size: 10px;
+    font-size: 15px;
 
 }
 .form2 .total{
-    font-size: 40px;
+    font-size: 0px;
     font-weight: 400;
     position: relative;
 }
 .form2 .total::after{
     content: "\20BD";
 }
+.select{
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+
+.select select{
+    padding: 0.75rem 1rem;
+    background: none;
+    border-radius: 4px ;
+    border:1px solid #ccc;
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #E79472;
+}
+
+#add {
+    margin-top: 40px;
+    width: 100px;
+    height: 40px;
+}
+
+button{
+    background-color: #E79472; 
+    border: none;
+    color: white;
+    padding: 1px 3px;
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 19px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family:inherit;
+}
+
+button:hover{
+background-color: #f55c1f;
+
+
+}
 
     </style>
+    
 </body>
-
 
 </html>
