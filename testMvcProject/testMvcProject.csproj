@@ -66,6 +66,8 @@
     <Content Remove="wwwroot\css\User\Calculator.scss" />
     <Content Remove="wwwroot\css\User\Calculator1.css" />
     <Content Remove="wwwroot\css\bootstrap.min.css" />
+    <Content Include="C:\Users\ASUS\Desktop\учеба\Requests.cshtml" Link="Requests.cshtml" />
+    <Content Include="C:\Users\ASUS\Desktop\учеба\Requests.css" Link="Requests.css" />
     <Content Include="Views\User\css\Authorization.css">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
