@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using testMvcProject.Models.DAOs.ProductsDAO;
-using testMvcProject.Models.DAOs.ResourcesDAOs;
-using testMvcProject.Models.DAOs.UsersDAO;
+using testMvcProject.DAOs.ProductsDAO;
+using testMvcProject.DAOs.ResourcesDAOs;
+using testMvcProject.DAOs.UsersDAO;
 using testMvcProject.Models.Users;
-using System.Linq;
 using System.Web;
 
 

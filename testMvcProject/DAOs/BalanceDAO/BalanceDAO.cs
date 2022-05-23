@@ -4,7 +4,6 @@ using testMvcProject.Models.Resources.ImplementedResources;
 
 using System.Collections.Generic;
 using System.Data;
-using Microsoft.Data.Sqlite;
 using testMvcProject.Models.Currency;
 
 
