@@ -43,6 +43,8 @@
     <None Remove="css-js-img\**" />
     <None Remove="Views\User\css\**" />
     <None Remove="DB4" />
+    <None Remove="DataBaseDAOs\" />
+    <None Remove="DataBaseDAOs\User\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
@@ -67,6 +69,8 @@
     <Folder Include="Models\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Models\Users\" />
+    <Folder Include="DataBaseDAOs\" />
+    <Folder Include="DataBaseDAOs\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -77,10 +81,6 @@
     <Content Remove="wwwroot\css\User\Calculator.scss" />
     <Content Remove="wwwroot\css\User\Calculator1.css" />
     <Content Remove="wwwroot\css\bootstrap.min.css" />
-    <Content Include="Views\User\css\Authorization.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Remove="Views\User\unSuccessLogin.cshtml" />
     <Content Remove="Views\User\UnSuccessRegistration.cshtml" />
     <Content Remove="Views\Admin\Index.cshtml" />
@@ -91,6 +91,7 @@
     <Compile Remove="css-js-img\**" />
     <Compile Remove="Views\User\css\**" />
     <Compile Remove="GlobalUsings.cs" />
+    <Compile Remove="DataBase\UsersLoginsPassword.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="css-js-img\**" />

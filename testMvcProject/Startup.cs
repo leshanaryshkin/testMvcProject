@@ -16,7 +16,7 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using testMvcProject.DataBase;
-
+using testMvcProject.DataBaseDAOs.Users;
 
 namespace testMvcProject
 {
@@ -28,11 +28,15 @@ namespace testMvcProject
         {
 
             var connectString =
-                "Server=localhost;Database=MvcProject;Trusted_Connection=True;Connect Timeout=15;Encrypt=False;Packet Size=4096";
-            services.AddDbContext<DBContext>(param => param.UseSqlServer(connectString));
+                "Server=localhost;Database=MvcProject;User=SA;Password=reallyStrongPwd123;";
+
+            services.AddDbContext<DBContext2>(param => param.UseSqlServer(connectString));
             services.AddMvc(option => option.EnableEndpointRouting = false);
             
             services.AddDistributedMemoryCache();
+
+            services.AddScoped<IUserManager, UserDAO>();
+
 
             services.AddSession(options =>
             {
