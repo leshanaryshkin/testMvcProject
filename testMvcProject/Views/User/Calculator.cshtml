@@ -1,4 +1,4 @@
-﻿@using testMvcProject.Models.DAOs.ResourcesDAOs
+﻿@using testMvcProject.DAOs.ResourcesDAOs
 @model ProfilesDAO
 
 
@@ -140,7 +140,8 @@
                 <h2 class="heading">Итоговая стоимость:</h2>
                 <div><span id="result">0</span> руб.</div>
             </div>
-            <button type="submit" id="add">В корзину</button>
+        <button type="submit" id="add">В корзину</button>
+        </div>
         </form>
     </div>
     <script src="~/js/User/Calc.js"></script>
@@ -161,7 +162,7 @@
     min-height: 100%;
     color: white;
     background-image: url(window.jpg);
-    block-size: cover;
+    background-size: cover;
     box-sizing: border-box;
     
     }

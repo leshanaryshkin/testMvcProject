@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using testMvcProject.Models.DAOs.ProductsDAO;
-using testMvcProject.Models.DAOs.ResourcesDAOs;
-using testMvcProject.Models.DAOs.UsersDAO;
+using testMvcProject.DAOs.ProductsDAO;
+using testMvcProject.DAOs.ResourcesDAOs;
+using testMvcProject.DAOs.UsersDAO;
 using testMvcProject.Models.Users;
-using System.Linq;
+using testMvcProject.DataBaseDAOs.Users;
 using System.Web;
 
 
@@ -19,11 +19,13 @@ namespace testMvcProject.Controllers
 {
     public class UserController : Controller
     {
-
+        public readonly IUserManager userManager;
         
-        public UserController()
+        public UserController(IUserManager userManager)
         {
+            this.userManager = userManager;
         }
+
 
         public ViewResult AboutUs()
         {
@@ -61,19 +63,22 @@ namespace testMvcProject.Controllers
         public IActionResult Registration(string telephone, string name, 
             string cityName, string streetName, string houseNumber)
         {
-            UsersDAO usersDao = new UsersDAO();
-            
-            if (usersDao.ContainTelephone(telephone))
+            /*
+            if (userManager.ContainTel(telephone))
             {
                 return RedirectToAction("Authorization", "User", new{telephone});
             }
+            */
 
             string Adress = cityName + " " + streetName + " " + houseNumber;
-            Person person = new Person(name, telephone, Adress);
-            usersDao.AddUser(person);
+            DataBase.User user = new DataBase.User();
+            user.Name = name;
+            user.Adress = Adress;
+            user.telephone = telephone;
+            userManager.Create(new DataBase.User { Name = user.Name, Adress = user.Adress, telephone = user.telephone }  );
 
             
-            return RedirectToAction("SuccessRegistration", "User", new{person.Name});
+            return RedirectToAction("SuccessRegistration", "User", new{user.Name});
         }
         
     
