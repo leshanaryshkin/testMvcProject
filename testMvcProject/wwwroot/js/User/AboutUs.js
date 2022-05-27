@@ -13,7 +13,7 @@ window.onload = function () {
 		const forMountains = 140;
 		const forHuman = 90;
 
-		const speed = 5;
+		const speed = 1.2;
 
 		let positionX = 0, positionY = 0;
 		let coordXprocent = 0, coordYprocent = 0;
@@ -62,9 +62,10 @@ window.onload = function () {
 		observer.observe(document.querySelector('.content'));
 
 		function setParallaxItemStyle(scrollTopProcent) {
-			content.style.cssText = `transform: translate(0%,-${scrollTopProcent / 3}%);`;
-			mountains.parentElement.style.cssText = `transform: translate(0%,-${scrollTopProcent / 2}%);`;
-			human.parentElement.style.cssText = `transform: translate(0%,-${scrollTopProcent / 1}%);`;
+			content.style.cssText = `transform: translate(0%,-${scrollTopProcent / 9}%);`;
+			mountains.parentElement.style.cssText = `transform: translate(0%,-${scrollTopProcent / 6}%);`;
+			human.parentElement.style.cssText = `transform: translate(0%,-${scrollTopProcent / 3}%);`;
 		}
 	}
 }
+
