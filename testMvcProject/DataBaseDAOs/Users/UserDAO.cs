@@ -5,6 +5,7 @@ using testMvcProject.DataBase;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using testMvcProject.DataBaseDAOs.UsersLoginsPasswords;
 
 
 
@@ -21,36 +22,34 @@ namespace testMvcProject.DataBaseDAOs.Users
 
 
 
-        public async Task<IList<User>> GetAll() => await dBContext.Users.ToListAsync();
+        public List<User> GetAll() => dBContext.Users.ToList();
 
-        public async Task Create(User user)
+        public void Create(User user)
         {
-            
+            dBContext.Users.Add(user);
 
-            dBContext.Users.Add(new User
-            {
-               Adress = user.Adress, Name = user.Name, telephone = user.telephone
-            }) ;
-            await dBContext.SaveChangesAsync();
+            dBContext.SaveChanges();
         }
 
-        public async Task Delete(int id)
+        public void Delete(int id)
         {
-            var userR = dBContext.Users.Find(id);
+            var userR = dBContext.Users.FirstOrDefault(p => p.ID == id);
             if (userR != null)
             {
                 dBContext.Users.Remove(userR);
-                await dBContext.SaveChangesAsync();
+
+                dBContext.SaveChanges();
             }
             
         }
 
-        public  bool ContainTel(string tel) {
+        public  int? ContainTel(string tel) {
             DataBase.User user = dBContext.Users.FirstOrDefault(p => p.telephone == tel);
             if (user == null)
-                return false;
-            return true;
+                return null;
+            return user.ID;
 
         }
+
     }
 }

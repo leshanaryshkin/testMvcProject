@@ -1,4 +1,5 @@
-
+@using testMvcProject.DataBaseDAOs.Users;
+@model IUserManager;
 @{
     Layout = null;
 }
@@ -63,16 +64,16 @@
         </tr>
 
         @{
-            foreach (var person in Model.getAllPersons())
+            foreach (var person in Model.GetAll())
             {
                 <tr>
-                    <td>ID:@person.PersonID</td>
+                    <td>ID:@person.ID</td>
                     <td>@person.Name</td>
-                    <td>@person.Telephone</td>
+                    <td>@person.telephone</td>
                     <td>@person.Adress</td>
                     <td>
                         <form action="/Admin/DeleteUser" method="post">
-                            <input name="id" value="@person.PersonID" type="hidden">
+                            <input name="id" value="@person.ID" type="hidden">
                             <button>delete</button>
                         </form>
                     </td>

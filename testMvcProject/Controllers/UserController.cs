@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using testMvcProject.DAOs.ProductsDAO;
 using testMvcProject.DAOs.ResourcesDAOs;
 using testMvcProject.DAOs.UsersDAO;
-using testMvcProject.Models.Users;
 using testMvcProject.DataBaseDAOs.Users;
+using testMvcProject.DataBaseDAOs.UsersLoginsPasswords;
 using System.Web;
 
 
@@ -20,10 +20,12 @@ namespace testMvcProject.Controllers
     public class UserController : Controller
     {
         public readonly IUserManager userManager;
+        public readonly IUserLoginsPasswordsManager userLoginsPasswordsManager;
         
-        public UserController(IUserManager userManager)
+        public UserController(IUserManager userManager, IUserLoginsPasswordsManager userLoginsPasswordsManager)
         {
             this.userManager = userManager;
+            this.userLoginsPasswordsManager = userLoginsPasswordsManager;
         }
 
 
@@ -44,6 +46,7 @@ namespace testMvcProject.Controllers
 
         public ViewResult Orders()
         {
+            //!!
             WindowsDAOClass windowsList = new WindowsDAOClass();
             return View(windowsList);
         }
@@ -58,25 +61,37 @@ namespace testMvcProject.Controllers
 
             return View();
         }
-        
+
+
         [HttpPost]
         public IActionResult Registration(string telephone, string name, 
             string cityName, string streetName, string houseNumber)
         {
-            /*
-            if (userManager.ContainTel(telephone))
+
+            if (userManager.ContainTel(telephone) != null)
             {
                 return RedirectToAction("Authorization", "User", new{telephone});
             }
-            */
+            
 
             string Adress = cityName + " " + streetName + " " + houseNumber;
+
             DataBase.User user = new DataBase.User();
             user.Name = name;
             user.Adress = Adress;
             user.telephone = telephone;
-            userManager.Create(new DataBase.User { Name = user.Name, Adress = user.Adress, telephone = user.telephone }  );
 
+            userManager.Create(user);
+
+            int? id = userManager.ContainTel(telephone);
+
+            DataBase.UserLoginPassword user1 = new DataBase.UserLoginPassword();
+            user1.ID = Convert.ToInt32(id); 
+            user1.Is_admin = false;
+            user1.Login = telephone;
+            user1.Password = name;
+
+            userLoginsPasswordsManager.Create(user1);
             
             return RedirectToAction("SuccessRegistration", "User", new{user.Name});
         }
@@ -94,8 +109,8 @@ namespace testMvcProject.Controllers
         [HttpPost]
         public IActionResult LogIn(string login, string password)
         {
-            UsersDAO usersDao = new UsersDAO();
-            if (!usersDao.ContainAccount(login, password))
+            
+            if (!userLoginsPasswordsManager.ContainAccount(login, password))
             {
                 string telephone = "404";
                 return RedirectToAction("Authorization", "User", new {telephone});
@@ -103,8 +118,9 @@ namespace testMvcProject.Controllers
             else
             {
                 return RedirectToAction("AboutUs", "User");
- 
             }
+
+
         }
     }
 }

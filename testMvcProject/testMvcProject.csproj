@@ -45,6 +45,7 @@
     <None Remove="DB4" />
     <None Remove="DataBaseDAOs\" />
     <None Remove="DataBaseDAOs\User\" />
+    <None Remove="DataBaseDAOs\IUsersLoginsPasswordsManager\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
@@ -70,7 +71,8 @@
     <Folder Include="Views\Admin\" />
     <Folder Include="Models\Users\" />
     <Folder Include="DataBaseDAOs\" />
-    <Folder Include="DataBaseDAOs\User\" />
+    <Folder Include="DataBaseDAOs\Users\" />
+    <Folder Include="DataBaseDAOs\UsersLoginsPasswords\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

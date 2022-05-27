@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using testMvcProject.DAOs.ResourcesDAOs;
 using testMvcProject.DAOs.UsersDAO;
 using testMvcProject.Models.Resources.ImplementedResources;
+using testMvcProject.DataBaseDAOs.UsersLoginsPasswords;
+using testMvcProject.DataBaseDAOs.Users;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,7 +16,14 @@ namespace testMvcProject.Controllers
 {
     public class AdminController : Controller
     {
-        public AdminController() { }
+        public readonly IUserManager userManager;
+        public readonly IUserLoginsPasswordsManager userLoginsPasswordsManager;
+
+        public AdminController(IUserManager userManager, IUserLoginsPasswordsManager userLoginsPasswordsManager)
+        {
+            this.userManager = userManager;
+            this.userLoginsPasswordsManager = userLoginsPasswordsManager;
+        }
 
         public ViewResult OrdersInProgress()
         {
@@ -28,20 +37,19 @@ namespace testMvcProject.Controllers
         {
             
             
-            
+            //!!!!!
             return View(new resourceDAO());
         }  
         public ViewResult UsersDB()
         {
-            return View(new UsersDAO());
+            return View(userManager);
         }
 
         [HttpPost]
         public ActionResult DeleteUser(int id)
         {
-            Console.WriteLine($"QU{id}");
-            UsersDAO usersDao = new UsersDAO();
-            usersDao.deleteUser(id);
+            userLoginsPasswordsManager.Delete(id);
+            userManager.Delete(id);
             return RedirectToAction("UsersDB", "Admin");
         }
 

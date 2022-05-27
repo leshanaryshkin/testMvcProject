@@ -7,10 +7,10 @@ namespace testMvcProject.DataBaseDAOs.Users
 {
     public interface IUserManager
     {
-        Task<IList<User>> GetAll();
-        Task Create(User user);
-        Task Delete(int ID);
-        bool ContainTel(string tel);
+        List<User> GetAll();
+        void Create(User user);
+        void Delete(int ID);
+        int? ContainTel(string tel);
 
     }
 }

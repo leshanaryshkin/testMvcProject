@@ -5,7 +5,6 @@ namespace testMvcProject.DataBase
 {
     public class User
     {
-        [Key]
         [Required]
         public int ID { get; set; }
         [StringLength(50)]
