@@ -66,18 +66,24 @@
                             <option value="" disabled selected>Профиль</option>
                             @{foreach (var profile in Model.profileManager.GetAll())
                                 {
+                                    if (profile.isActualPosition == true)
+                                    {
                                     <option class="profil" id="@profile.ID" value="@profile.pricePerMeter">@profile.Name</option>
+                                        }
+                                    }
                                 }
-                            }
                         </select>
 
                         <select id="furniture" onchange="calc()">
                             <option value="" disabled selected>Фурнитура</option>
                             @{foreach (var furniture in Model.furnitureManager.GetAll())
                                 {
+                                    if (furniture.isActualPosition == true)
+                                    {
                                     <option class="furniture" id="@furniture.ID" value="@furniture.pricePerOnce">@furniture.Name</option>
-                                }
-                            }
+                                    }
+                                 }
+                              }
                         </select>
 
                         <select id="camers" onchange="calc()">
