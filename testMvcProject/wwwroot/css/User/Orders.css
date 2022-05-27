@@ -40,7 +40,7 @@ body {
     grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
     column-gap: 30px;
     padding: 22px 0;
-    background-color: #AFCDE6;
+    background-color: #E79472;
     font-weight: 700;
     font-size: 13px;
     line-height: 1.2;
@@ -53,7 +53,7 @@ body {
     grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
     column-gap: 30px; /*раст между колонками*/
     padding: 19px 0; /*отступы*/
-    background: #AFCDE6;
+    background: #E79472;
     font-weight: 700; /*обьем шрифта*/
     font-size: 18px; /*размер шрифта*/
     line-height: 1.2; /*величина пространства между строками*/
