@@ -1,4 +1,5 @@
-@using Microsoft.AspNetCore.Http
+@using testMvcProject.DAOs.ResourcesDAOs
+
 @{
     Layout = null;
 }
@@ -8,39 +9,33 @@
 
 <head>
 
-    <title>title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/css/User/Orders.css" />
 
+    <title>UnionWindows</title>
 </head>
 
-<body>
+<header class="header">
 
+    <div class="header__inner">
+        <div class="header__logo">
+            <img src="~/img/AboutUs/logo.png" alt="">
+        </div>
 
-    <div class='header'>
-        <div class='container'>
-            <div class='header-line'>
+        <div class="nav">
+            <a class="nav__link" href="~/User/AboutUs">О нас</a>
+            <a class="nav__link" href="~/User/Calculator">Калькулятор</a>
+            <a class="nav__link" href="~/User/Orders">Корзина</a>
+            <a class="nav__link" href="~/User/Authorization">Вход</a>
 
-
-                <div class='btn1'>
-                    <a class='button1' href="/User/AboutUs">О нас</a>
-                </div>
-
-                <div class='btn2'>
-                    <a class='button2' href="/User/Calculator">Калькулятор</a>
-                </div>
-
-                <div class='btn3'>
-                    <a class='button3' href="/User/Orders">Корзина</a>
-                </div>
-
-                <div class='btn4'>
-                    <a class='button4' href="/User/Authorization">Вход</a>
-                </div>
-
-            </div>
         </div>
     </div>
+
+</header>
+
+<body>
 
     <section class="section-cart">
         <header class="section-cart__header">
@@ -133,7 +128,7 @@
         </div>
     </section>
 
-
+   
 
 </body>
 
