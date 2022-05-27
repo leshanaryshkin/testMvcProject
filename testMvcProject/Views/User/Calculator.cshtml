@@ -1,4 +1,4 @@
-﻿@using testMvcProject.Models.DAOs.ResourcesDAOs
+﻿@using testMvcProject.DAOs.ResourcesDAOs
 @model ProfilesDAO
 
 
@@ -33,13 +33,14 @@
   
         <div class="header__inner">
         <div class="header__logo">
-            <img src="logo.png" alt="">
+            <img src="~/img/AboutUs/logo.png" alt="">
         </div>
         
         <div class="nav">
-            <a class ="nav__link" href="/User/AboutUs">О нас</a>
-            <a class ="nav__link" href="/User/Orders">Корзина</a>
-            <a class ="nav__link" href="/User/Authorizations">Вход</a>
+            <a class ="nav__link" href="~/User/AboutUs">О нас</a>
+			<a class ="nav__link" href="~/User/Calculator">Калькулятор</a>
+			<a class ="nav__link" href="~/User/Orders">Корзина</a>
+			<a class ="nav__link" href="~/User/Authorization">Вход</a>
  
         </div>
     </div>
@@ -140,7 +141,8 @@
                 <h2 class="heading">Итоговая стоимость:</h2>
                 <div><span id="result">0</span> руб.</div>
             </div>
-            <button type="submit" id="add">В корзину</button>
+        <button type="submit" id="add">В корзину</button>
+        </div>
         </form>
     </div>
     <script src="~/js/User/Calc.js"></script>
@@ -161,7 +163,7 @@
     max-height: 100%;
     color: white;
     background-image: url(window.jpg);
-    block-size: cover;
+    background-size: cover;
     box-sizing: border-box;
 
     
@@ -207,12 +209,9 @@
     margin-left: 0;
 }
     .container{
-       
-        width: 80%;
-        height: 800px;
+        width: 90%;
         position: absolute;
-   
-        top: 50%;
+        top: 10px;
         left: 50%;
         transform: translate(-50%,-50%);
         display: flex;
@@ -234,6 +233,7 @@
         color: red;
     }
     .form1{
+        position: absolute;
         flex-basis: 900px ;
         flex-shrink: 0;
         flex-grow: 0;
@@ -242,14 +242,14 @@
         position: absolute;
         width: 900px;
         left: 50px;
-        top: 120px;
+        top: 140px;
     }
     .form2{
         position: absolute;
         height: 450px;
         width: 400px;
         left: 1000px;
-        top: 120px;
+        top: 140px;
     }
 
     .form__item span{

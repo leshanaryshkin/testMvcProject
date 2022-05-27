@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using testMvcProject.Models.DAOs.ResourcesDAOs;
-using testMvcProject.Models.DAOs.UsersDAO;
+using testMvcProject.DAOs.ResourcesDAOs;
+using testMvcProject.DAOs.UsersDAO;
 using testMvcProject.Models.Resources.ImplementedResources;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -25,6 +26,9 @@ namespace testMvcProject.Controllers
         }   
         public ViewResult ResourcesOnStock()
         {
+            
+            
+            
             return View(new resourceDAO());
         }  
         public ViewResult UsersDB()

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using Microsoft.Data.Sqlite;
 
-namespace testMvcProject.Models.DAOs.ResourcesDAOs
+namespace testMvcProject.DAOs.ResourcesDAOs
 {
     public class FurnitureDAO
     {
@@ -85,10 +85,13 @@ namespace testMvcProject.Models.DAOs.ResourcesDAOs
             else
                  sqlExpression = String.Format("UPDATE Furniture SET ActualPosition = 'true' WHERE Name = '{0}'", _Name);
 
+            
+            reader.Close();
+
+            
             command = new SqliteCommand(sqlExpression);
             command.Connection = connection;
             command.ExecuteNonQuery();
-            reader.Close();
 
             
         }

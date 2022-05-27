@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using testMvcProject.Models.Products.ImplemetedProducts;
 using testMvcProject.Models.Resources.ImplementedResources;
 
-namespace testMvcProject.Models.DAOs.ProductsDAO
+namespace testMvcProject.DAOs.ProductsDAO
 {
     public class WindowsDAOClass
     {

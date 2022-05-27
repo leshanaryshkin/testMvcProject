@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Connections;
-using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using testMvcProject.Models.Users;
 
-namespace testMvcProject.Models.DAOs.UsersDAO
+namespace testMvcProject.DAOs.UsersDAO
 {
     public class UsersDAO
     {

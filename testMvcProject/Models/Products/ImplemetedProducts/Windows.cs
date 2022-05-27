@@ -2,7 +2,7 @@
 using testMvcProject.Models.Products;
 using testMvcProject.Models.Resources.ImplementedResources;
 
-namespace testMvcProject.Models
+namespace testMvcProject.Models.Products.ImplemetedProducts
 {
     public class Window : product, ICalculating
     {
