@@ -1,6 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
-
-* {
+﻿* {
     padding: 0px;
     margin: 0px;
     border: none;
@@ -42,7 +40,7 @@ body {
     grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
     column-gap: 30px;
     padding: 22px 0;
-    background-color: #AFCDE6;
+    background-color: #E79472;
     font-weight: 700;
     font-size: 13px;
     line-height: 1.2;
@@ -55,7 +53,7 @@ body {
     grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
     column-gap: 30px; /*раст между колонками*/
     padding: 19px 0; /*отступы*/
-    background: #AFCDE6;
+    background: #E79472;
     font-weight: 700; /*обьем шрифта*/
     font-size: 18px; /*размер шрифта*/
     line-height: 1.2; /*величина пространства между строками*/
@@ -141,83 +139,46 @@ body {
     flex-direction: column; /*расп в одной колонке*/
 }
 
-    .count__controls img {
-        display: block; /*чтобы был нужный размер картинки???*/
-    }
+.count__input::-webkit-inner-spin-button,
+.count__input::-webkit-outer-spin-button {
+    appearance: none;
+}
+
 
 .header {
-    background: #FFFFFF;
+    width: 100%;
+    position: relative;
+    height: 100px;
 }
 
-.container {
-    margin-top: 25px;
-    margin-bottom: 70px;
-}
-
-.header-line {
-    padding-top: 25px; /*верхний отступ*/
-    display: flex; /*все элементы в линию*/
-    align-items: center; /*выровняли в линию по главному элементу*/
-    justify-content: space-around;
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #E79472;
+    align-items: center;
+    padding: 35px 0px;
+    width: 100%;
 }
 
 
-.button1 {
-    background: #AFCDE6;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+.nav {
+    display: flex;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav__link {
     color: #000000;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 25px;
-    padding: 3px 25px;
+    transition: .2s linear;
+    margin-left: 50px;
 }
 
-.button2 {
-    background: #AFCDE6;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    color: #000000;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 25px;
-    padding: 3px 25px;
+:hover.nav__link {
+    color: #747474;
 }
 
-.button3 {
-    background: #E0EBF5;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    color: #000000;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 25px;
-    padding: 3px 25px;
-}
-
-.button4 {
-    background: #AFCDE6;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    color: #000000;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 25px;
-    padding: 3px 25px;
-}
-
-.button1:hover {
-    color: #FFFFFF;
-}
-
-.button2:hover {
-    color: #FFFFFF;
-}
-
-.button3:hover {
-    color: #FFFFFF;
-}
-
-.button4:hover {
-    color: #FFFFFF;
+:first-child.nav__link {
+    margin-left: 0;
 }
