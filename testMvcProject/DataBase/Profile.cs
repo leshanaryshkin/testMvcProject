@@ -15,18 +15,7 @@ namespace testMvcProject.DataBase
         public int costPrice { get; set; }
         public int pricePerMeter { get; set; }
 
-        private int onStock1;
-
-        public int GetonStock()
-        {
-            return onStock1;
-        }
-
-        public void SetonStock(int value)
-        {
-            onStock1 = value;
-        }
-
+        public int onStock { get; set; }
         public bool isActualPosition { get; set; } = true;
     }
 }

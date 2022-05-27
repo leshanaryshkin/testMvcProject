@@ -46,6 +46,10 @@
     <None Remove="DataBaseDAOs\" />
     <None Remove="DataBaseDAOs\User\" />
     <None Remove="DataBaseDAOs\IUsersLoginsPasswordsManager\" />
+    <None Remove="DataBaseDAOs\FurnitureDAO\" />
+    <None Remove="DataBaseDAOs\Resources\" />
+    <None Remove="DataBaseDAOs\Resources\Furniture\" />
+    <None Remove="DataBaseDAOs\Resources\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
@@ -73,6 +77,9 @@
     <Folder Include="DataBaseDAOs\" />
     <Folder Include="DataBaseDAOs\Users\" />
     <Folder Include="DataBaseDAOs\UsersLoginsPasswords\" />
+    <Folder Include="DataBaseDAOs\Resources\" />
+    <Folder Include="DataBaseDAOs\Resources\Furniture\" />
+    <Folder Include="DataBaseDAOs\Resources\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -94,6 +101,7 @@
     <Compile Remove="Views\User\css\**" />
     <Compile Remove="GlobalUsings.cs" />
     <Compile Remove="DataBase\UsersLoginsPassword.cs" />
+    <Compile Remove="DataBaseDAOs\Resources\IResourceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="css-js-img\**" />

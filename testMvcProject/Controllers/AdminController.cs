@@ -9,6 +9,9 @@ using testMvcProject.DAOs.UsersDAO;
 using testMvcProject.Models.Resources.ImplementedResources;
 using testMvcProject.DataBaseDAOs.UsersLoginsPasswords;
 using testMvcProject.DataBaseDAOs.Users;
+using testMvcProject.DataBaseDAOs.Resources.Furniture;
+using testMvcProject.DataBaseDAOs.Resources;
+using testMvcProject.DataBaseDAOs.Resources.Profile;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,11 +21,17 @@ namespace testMvcProject.Controllers
     {
         public readonly IUserManager userManager;
         public readonly IUserLoginsPasswordsManager userLoginsPasswordsManager;
+        public readonly IFurnitureManager furnitureManager;
+        public readonly IProfileManager profileManager;
 
-        public AdminController(IUserManager userManager, IUserLoginsPasswordsManager userLoginsPasswordsManager)
+        public AdminController(IUserManager userManager,
+            IUserLoginsPasswordsManager userLoginsPasswordsManager,
+            IFurnitureManager furnitureManager, IProfileManager profileManager)
         {
             this.userManager = userManager;
             this.userLoginsPasswordsManager = userLoginsPasswordsManager;
+            this.furnitureManager = furnitureManager;
+            this.profileManager = profileManager;
         }
 
         public ViewResult OrdersInProgress()
@@ -32,13 +41,16 @@ namespace testMvcProject.Controllers
         public ViewResult Requests()
         {
             return View();
-        }   
-        public ViewResult ResourcesOnStock()
+        }
+
+        public ViewResult ResourcesOnStock(string trouble)
         {
+            if (trouble != null)
+                ViewBag.FalseAdding = "Такой ресурс уже присутствует";
+
+            ResourceClass resources = new ResourceClass(furnitureManager, profileManager);
             
-            
-            //!!!!!
-            return View(new resourceDAO());
+            return View(resources);
         }  
         public ViewResult UsersDB()
         {
@@ -57,25 +69,69 @@ namespace testMvcProject.Controllers
         public ActionResult AddFurniture(string name,
             int costPrice, int marginPrice, int count)
         {
-            FurnitureDAO furnitureDao = new FurnitureDAO();
+            if (furnitureManager.ContainFurniture(name) != null)
+            {
+                string trouble = "inBase";
+                return RedirectToAction("ResourcesOnStock", "Admin", new { trouble });
+            }
+            else 
+            {
+                DataBase.Furniture furniture = new DataBase.Furniture();
+                furniture.Name = name;
+                furniture.costPrice = costPrice;
+                furniture.pricePerOnce = marginPrice;
+                furniture.onStock = count;
+                furniture.isActualPosition = true;
 
-            Furniture furniture = new Furniture(name, costPrice, marginPrice, count);
-            
-            furnitureDao.AddFurniture(furniture);
-            
-            return RedirectToAction("ResourcesOnStock", "Admin");
+                furnitureManager.Create(furniture);
+
+                return RedirectToAction("ResourcesOnStock", "Admin", new { });
+            }
         }
 
-        
         [HttpPost]
-        public ActionResult ChangeActionPosition(string name)
+        public ActionResult AddProfile(string name,
+            int costPrice, int marginPrice, int count)
         {
-            FurnitureDAO furnitureDao = new FurnitureDAO();
-            
-            furnitureDao.ChangeActual(name);
-            
+            if (profileManager.ContainProfile(name) != null)
+            {
+                string trouble = "inBase";
+                return RedirectToAction("ResourcesOnStock", "Admin", new { trouble });
+            }
+            else
+            {
+                DataBase.Profile profile = new DataBase.Profile();
+                profile.Name = name;
+                profile.costPrice = costPrice;
+                profile.pricePerMeter = marginPrice;
+                profile.onStock = count;
+                profile.isActualPosition = true;
+
+                profileManager.Create(profile);
+
+                return RedirectToAction("ResourcesOnStock", "Admin", new { });
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult ChangeActionPositionFurniture(string name)
+        {
+
+            furnitureManager.ChangeActualPosition(name);
+
             return RedirectToAction("ResourcesOnStock", "Admin");
-            
+
+        }
+
+        [HttpPost]
+        public ActionResult ChangeActionPositionProfile(string name)
+        {
+
+            profileManager.ChangeActualPosition(name);
+
+            return RedirectToAction("ResourcesOnStock", "Admin");
+
         }
 
     }

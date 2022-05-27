@@ -18,6 +18,8 @@ using Microsoft.EntityFrameworkCore;
 using testMvcProject.DataBase;
 using testMvcProject.DataBaseDAOs.Users;
 using testMvcProject.DataBaseDAOs.UsersLoginsPasswords;
+using testMvcProject.DataBaseDAOs.Resources.Furniture;
+using testMvcProject.DataBaseDAOs.Resources.Profile;
 
 namespace testMvcProject
 {
@@ -40,6 +42,9 @@ namespace testMvcProject
 
             services.AddScoped<IUserManager, UserDAO>();
             services.AddScoped<IUserLoginsPasswordsManager, UsersLoginsPasswordsDAO>();
+            services.AddScoped<IFurnitureManager, FurnitureDAO>();
+            services.AddScoped<IProfileManager, ProfileDAO>();
+
 
 
 
