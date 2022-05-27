@@ -141,9 +141,10 @@ body {
     flex-direction: column; /*расп в одной колонке*/
 }
 
-    .count__controls img {
-        display: block; /*чтобы был нужный размер картинки???*/
-    }
+.count__input::-webkit-inner-spin-button,
+.count__input::-webkit-outer-spin-button {
+    appearance: none;
+}
 
 .header {
     background: #FFFFFF;
