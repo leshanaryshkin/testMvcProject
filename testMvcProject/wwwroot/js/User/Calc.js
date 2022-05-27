@@ -1,5 +1,6 @@
 function calc() {
     var profile = document.getElementById("profile");
+    var furniture = document.getElementById("furniture");
     var camers = document.getElementById("camers");
     var result = document.getElementById("result");
     var sashes = document.getElementById("sashes");
@@ -22,6 +23,10 @@ function calc() {
     price += (option3.checked == true) ? parseInt(option3.value) : 0;
 
     document.getElementById("profile_price").innerHTML = profile.options[profile.selectedIndex].value;
+    document.getElementById("furniture_price").innerHTML = furniture.options[furniture.selectedIndex].value;
+    document.getElementById("how_many_furniture").innerHTML = sashes.options[sashes.selectedIndex].value;
+
+
     document.getElementById("camers_amount").innerHTML = camers.options[camers.selectedIndex].value;
     document.getElementById("sashes_amount").innerHTML = sashes.options[sashes.selectedIndex].value;
     if (option1.checked) {

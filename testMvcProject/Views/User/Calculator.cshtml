@@ -1,5 +1,5 @@
-﻿@using testMvcProject.DAOs.ResourcesDAOs
-@model ProfilesDAO
+﻿@using testMvcProject.DataBaseDAOs.Resources;
+@model ResourceClass;
 
 
 @{
@@ -60,26 +60,38 @@
             <div class="form__item">
                 <h2 class="heading">Рассчитайте стоимость своего окна</h2>
                 <ul class="switcher">
-                    <div class ="select">
-                    <select id="profile" onchange="calc()">
-                        <option value="" disabled selected>Профиль</option>
-                        <option  class="profil" id="economy" value="5100">Экономный</option>
-                        <option class="profil" id="Average"value="7000">Средний</option>
-                        <option  class="profil" id="Premium" value="9500">Премиум</option>
-                        
-                    </select> 
-                    <select id="camers" onchange="calc()">
-                        <option value="" disabled selected>Кол-во камер</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                    <select id="sashes" onchange="changeImg(sashes.value); calc();">
-                        <option value="" disabled selected>Кол-во створок</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
+                    <div class="select">
+
+                        <select id="profile" onchange="calc()">
+                            <option value="" disabled selected>Профиль</option>
+                            @{foreach (var profile in Model.profileManager.GetAll())
+                                {
+                                    <option class="profil" id="@profile.ID" value="@profile.pricePerMeter">@profile.Name</option>
+                                }
+                            }
+                        </select>
+
+                        <select id="furniture" onchange="calc()">
+                            <option value="" disabled selected>Фурнитура</option>
+                            @{foreach (var furniture in Model.furnitureManager.GetAll())
+                                {
+                                    <option class="furniture" id="@furniture.ID" value="@furniture.pricePerOnce">@furniture.Name</option>
+                                }
+                            }
+                        </select>
+
+                        <select id="camers" onchange="calc()">
+                            <option value="" disabled selected>Кол-во камер</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <select id="sashes" onchange="changeImg(sashes.value); calc();">
+                            <option value="" disabled selected>Кол-во створок</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
                     </div>
                     
                 </ul>
@@ -121,16 +133,28 @@
             <div class="">
                 <h2 class="heading">Ваш заказ:</h2>
                 <div>
-                <span>Стоимость 100 см кв:</span>
-                <span><output id="profile_price">0</output> рублей</span>
-            </div>
-            <div >
-            
-            <span>Кол-во камер:</span>
-            <span><output id="camers_amount">0</output> шт.</span>
-            </div>
-            <span>Кол-во створок:</span>
-                <span><output id="sashes_amount">0</output> шт.</span>
+                    <span>Стоимость профиля:</span>
+                    <span><output id="profile_price">0</output> рублей/м²</span>
+                </div>
+
+                <div>
+                    <span>Стоимость фурнитуры:</span>
+                    <span><output id="furniture_price">0</output> рублей/шт</span>
+                </div>
+
+                <div>
+                    <span>Фурнитуры необходимо для такого типа окна:</span>
+                    <span><output id="how_many_furniture"></output></span>
+                </div>
+
+
+                <div>
+
+                    <span>Кол-во камер:</span>
+                    <span><output id="camers_amount"></output> шт.</span>
+                </div>
+                <span>Кол-во створок:</span>
+                <span><output id="sashes_amount"></output> шт.</span>
             </div>
             <div>
             <span>Дополнительные услуги:</span>
