@@ -1,25 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Web;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using testMvcProject.DataBase;
 using testMvcProject.DataBaseDAOs.Users;
 using testMvcProject.DataBaseDAOs.UsersLoginsPasswords;
 using testMvcProject.DataBaseDAOs.Resources.Furniture;
 using testMvcProject.DataBaseDAOs.Resources.Profile;
+using testMvcProject.DataBaseDAOs.Balance;
 
 namespace testMvcProject
 {
@@ -44,9 +36,7 @@ namespace testMvcProject
             services.AddScoped<IUserLoginsPasswordsManager, UsersLoginsPasswordsDAO>();
             services.AddScoped<IFurnitureManager, FurnitureDAO>();
             services.AddScoped<IProfileManager, ProfileDAO>();
-
-
-
+            services.AddScoped<IBalanceManager, DataBaseDAOs.Balance.BalanceDAO>();
 
             services.AddSession(options =>
             {

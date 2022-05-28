@@ -50,6 +50,8 @@
     <None Remove="DataBaseDAOs\Resources\" />
     <None Remove="DataBaseDAOs\Resources\Furniture\" />
     <None Remove="DataBaseDAOs\Resources\Profile\" />
+    <None Remove="DataBaseDAOs\Balance\" />
+    <None Remove="Microsoft.Owin.Host.SystemWeb" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
@@ -68,6 +70,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="SQLite" Version="3.13.0" />
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -80,6 +83,7 @@
     <Folder Include="DataBaseDAOs\Resources\" />
     <Folder Include="DataBaseDAOs\Resources\Furniture\" />
     <Folder Include="DataBaseDAOs\Resources\Profile\" />
+    <Folder Include="DataBaseDAOs\Balance\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

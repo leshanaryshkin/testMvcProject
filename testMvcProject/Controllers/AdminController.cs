@@ -12,6 +12,7 @@ using testMvcProject.DataBaseDAOs.Users;
 using testMvcProject.DataBaseDAOs.Resources.Furniture;
 using testMvcProject.DataBaseDAOs.Resources;
 using testMvcProject.DataBaseDAOs.Resources.Profile;
+using testMvcProject.DataBaseDAOs.Balance;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -23,39 +24,35 @@ namespace testMvcProject.Controllers
         public readonly IUserLoginsPasswordsManager userLoginsPasswordsManager;
         public readonly IFurnitureManager furnitureManager;
         public readonly IProfileManager profileManager;
+        public readonly IBalanceManager balanceManager;
 
         public AdminController(IUserManager userManager,
             IUserLoginsPasswordsManager userLoginsPasswordsManager,
-            IFurnitureManager furnitureManager, IProfileManager profileManager)
+            IFurnitureManager furnitureManager, IProfileManager profileManager,
+            IBalanceManager balanceManager)
         {
             this.userManager = userManager;
             this.userLoginsPasswordsManager = userLoginsPasswordsManager;
             this.furnitureManager = furnitureManager;
             this.profileManager = profileManager;
+            this.balanceManager = balanceManager;
         }
 
-        public ViewResult OrdersInProgress()
-        {
-            return View();
-        }     
-        public ViewResult Requests()
-        {
-            return View();
-        }
+        public ViewResult OrdersInProgress() => View();
+        public ViewResult Requests() => View();
+        public ViewResult UsersDB() => View(userManager);
+
 
         public ViewResult ResourcesOnStock(string trouble)
         {
             if (trouble != null)
                 ViewBag.FalseAdding = "Такой ресурс уже присутствует";
-
-            ResourceClass resources = new ResourceClass(furnitureManager, profileManager);
+            
+            ResourceClass resources = new ResourceClass(furnitureManager, profileManager, balanceManager);
             
             return View(resources);
-        }  
-        public ViewResult UsersDB()
-        {
-            return View(userManager);
         }
+
 
         [HttpPost]
         public ActionResult DeleteUser(int id)
@@ -133,6 +130,18 @@ namespace testMvcProject.Controllers
             return RedirectToAction("ResourcesOnStock", "Admin");
 
         }
+
+        [HttpPost]
+        public ActionResult changeCurrencyBalance(string name, int Num)
+        {
+
+            balanceManager.changeCurrencyBalance(name, Num);
+
+            return RedirectToAction("ResourcesOnStock", "Admin");
+
+        }
+
+
 
     }
 }

@@ -12,6 +12,7 @@ using System.Web;
 using testMvcProject.DataBaseDAOs.Resources;
 using testMvcProject.DataBaseDAOs.Resources.Furniture;
 using testMvcProject.DataBaseDAOs.Resources.Profile;
+using testMvcProject.DataBaseDAOs.Balance;
 
 
 
@@ -27,15 +28,18 @@ namespace testMvcProject.Controllers
 
         public readonly IFurnitureManager furnitureManager;
         public readonly IProfileManager profileManager;
+        public readonly IBalanceManager balanceManager;
 
         public UserController(IUserManager userManager,
             IUserLoginsPasswordsManager userLoginsPasswordsManager,
-            IFurnitureManager furnitureManager, IProfileManager profileManager)
+            IFurnitureManager furnitureManager, IProfileManager profileManager,
+            IBalanceManager balanceManager)
         {
             this.userManager = userManager;
             this.userLoginsPasswordsManager = userLoginsPasswordsManager;
             this.furnitureManager = furnitureManager;
             this.profileManager = profileManager;
+            this.balanceManager = balanceManager;
         }
 
     
@@ -53,7 +57,7 @@ namespace testMvcProject.Controllers
 
         public ViewResult Calculator()
         {
-            return View(new ResourceClass(furnitureManager, profileManager));
+            return View(new ResourceClass(furnitureManager, profileManager, balanceManager));
         }
 
         public ViewResult Orders()
