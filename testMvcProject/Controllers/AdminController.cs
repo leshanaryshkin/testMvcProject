@@ -4,8 +4,6 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using testMvcProject.DAOs.ResourcesDAOs;
-using testMvcProject.DAOs.UsersDAO;
 using testMvcProject.Models.Resources.ImplementedResources;
 using testMvcProject.DataBaseDAOs.UsersLoginsPasswords;
 using testMvcProject.DataBaseDAOs.Users;

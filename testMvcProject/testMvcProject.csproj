@@ -52,6 +52,10 @@
     <None Remove="DataBaseDAOs\Resources\Profile\" />
     <None Remove="DataBaseDAOs\Balance\" />
     <None Remove="Microsoft.Owin.Host.SystemWeb" />
+    <None Remove="Microsoft.Owin.Security.Cookies" />
+    <None Remove="Microsoft.Owin" />
+    <None Remove="DAOs\.DS_Store" />
+    <None Remove="OWIN\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
@@ -71,6 +75,8 @@
     </PackageReference>
     <PackageReference Include="SQLite" Version="3.13.0" />
     <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.2" />
+    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="4.2.2" />
+    <PackageReference Include="Microsoft.Owin" Version="4.2.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -84,6 +90,7 @@
     <Folder Include="DataBaseDAOs\Resources\Furniture\" />
     <Folder Include="DataBaseDAOs\Resources\Profile\" />
     <Folder Include="DataBaseDAOs\Balance\" />
+    <Folder Include="OWIN\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -106,6 +113,12 @@
     <Compile Remove="GlobalUsings.cs" />
     <Compile Remove="DataBase\UsersLoginsPassword.cs" />
     <Compile Remove="DataBaseDAOs\Resources\IResourceManager.cs" />
+    <Compile Remove="DAOs\BalanceDAO\BalanceDAO.cs" />
+    <Compile Remove="DAOs\UsersDAO\UsersDAO.cs" />
+    <Compile Remove="DAOs\ResourcesDAOs\ProfilesDAO.cs" />
+    <Compile Remove="DAOs\ResourcesDAOs\resourceDAO.cs" />
+    <Compile Remove="DAOs\ResourcesDAOs\FurnitureDAO.cs" />
+    <Compile Remove="DAOs\ProductsDAO\WindowsDAOClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="css-js-img\**" />

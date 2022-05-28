@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using testMvcProject.DAOs.ProductsDAO;
-using testMvcProject.DAOs.ResourcesDAOs;
-using testMvcProject.DAOs.UsersDAO;
 using testMvcProject.DataBaseDAOs.Users;
 using testMvcProject.DataBaseDAOs.UsersLoginsPasswords;
 using System.Web;
@@ -62,9 +59,7 @@ namespace testMvcProject.Controllers
 
         public ViewResult Orders()
         {
-            //!!
-            WindowsDAOClass windowsList = new WindowsDAOClass();
-            return View(windowsList);
+            return View();
         }
         
         public ViewResult Authorization(string telephone)
