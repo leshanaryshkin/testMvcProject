@@ -15,5 +15,7 @@ namespace testMvcProject.DataBase
         public int UserID { get; set; }
         public virtual User User { get; set; }
 
+        [StringLength(30)]
+        public string Process { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace testMvcProject.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "addedServiceToPositionLists",
+                name: "added",
                 columns: table => new
                 {
                 },
@@ -19,7 +19,7 @@ namespace testMvcProject.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "addedServiceToPositionLists");
+                name: "added");
         }
     }
 }
