@@ -63,7 +63,8 @@
                     <div class="select">
 
                         <select id="profile" onchange="calc()">
-                            <option value="" disabled selected>Профиль</option>
+                            <option value="" di
+                            bled selected>Профиль</option>
                             @{foreach (var profile in Model.profileManager.GetAll())
                                 {
                                     if (profile.isActualPosition == true)
