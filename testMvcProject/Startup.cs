@@ -60,6 +60,9 @@ namespace testMvcProject
 
             app.UseSession();
 
+            
+
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using testMvcProject.DataBase;
 
 namespace testMvcProject.Migrations
 {
     [DbContext(typeof(DBContext2))]
-    partial class DBContext2ModelSnapshot : ModelSnapshot
+    [Migration("20220530150220_CreatedServiceListTable6")]
+    partial class CreatedServiceListTable6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -228,40 +230,6 @@ namespace testMvcProject.Migrations
                     b.ToTable("UsersLoginsPasswords");
                 });
 
-            modelBuilder.Entity("testMvcProject.DataBase.Window", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("FurnitureID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProfileID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("height")
-                        .HasColumnType("int");
-
-                    b.Property<int>("howManyCameras")
-                        .HasColumnType("int");
-
-                    b.Property<int>("howManySashes")
-                        .HasColumnType("int");
-
-                    b.Property<int>("width")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("FurnitureID");
-
-                    b.HasIndex("ProfileID");
-
-                    b.ToTable("Windows");
-                });
-
             modelBuilder.Entity("testMvcProject.DataBase.Order", b =>
                 {
                     b.HasOne("testMvcProject.DataBase.User", "User")
@@ -301,25 +269,6 @@ namespace testMvcProject.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("testMvcProject.DataBase.Window", b =>
-                {
-                    b.HasOne("testMvcProject.DataBase.Furniture", "Furniture")
-                        .WithMany()
-                        .HasForeignKey("FurnitureID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("testMvcProject.DataBase.Profile", "Profile")
-                        .WithMany()
-                        .HasForeignKey("ProfileID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Furniture");
-
-                    b.Navigation("Profile");
                 });
 #pragma warning restore 612, 618
         }

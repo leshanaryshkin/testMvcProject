@@ -15,6 +15,12 @@ namespace testMvcProject.DataBase
         public DbSet<Furniture> Furnitures { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Balance> Balances { get; set; }
+        public DbSet<AdditionalService> Services { get; set; }
+        public DbSet<OrderContent> OrderContents { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<ServisePosList> ServicesToPos { get; set; }
+        public DbSet<Window> Windows { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,6 +40,14 @@ namespace testMvcProject.DataBase
                 .HasIndex(p => new { p.telephone })
                 .IsUnique(true);
 
+            modelBuilder.Entity<AdditionalService>()
+                .HasIndex(p => new { p.ServiceName })
+                .IsUnique(true);
+
+            modelBuilder.Entity<Window>().HasKey(x => new { x.ID });
+
+
+
         }
-    }
+}
 }

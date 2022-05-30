@@ -73,10 +73,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SQLite" Version="3.13.0" />
-    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.2" />
-    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="4.2.2" />
-    <PackageReference Include="Microsoft.Owin" Version="4.2.2" />
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Owin" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -119,6 +118,14 @@
     <Compile Remove="DAOs\ResourcesDAOs\resourceDAO.cs" />
     <Compile Remove="DAOs\ResourcesDAOs\FurnitureDAO.cs" />
     <Compile Remove="DAOs\ProductsDAO\WindowsDAOClass.cs" />
+    <Compile Remove="DataBase\AddedServiceToPositionList.cs" />
+    <Compile Remove="Migrations\20220529054114_CreatedServiceListTable2.Designer.cs" />
+    <Compile Remove="Migrations\20220529054114_CreatedServiceListTable2.cs" />
+    <Compile Remove="Migrations\20220529053554_CreatedServiceListTable.cs" />
+    <Compile Remove="Migrations\20220529053554_CreatedServiceListTable.Designer.cs" />
+    <Compile Remove="Migrations\20220529060328_CreatedServiceListTable6.cs" />
+    <Compile Remove="Migrations\20220529060328_CreatedServiceListTable6.Designer.cs" />
+    <Compile Remove="DataBase\ServicesList.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="css-js-img\**" />
