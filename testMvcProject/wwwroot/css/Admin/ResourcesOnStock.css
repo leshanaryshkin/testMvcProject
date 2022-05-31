@@ -139,14 +139,16 @@
 
 
 .tbl{
+    position:relative;
     width:1500px;
     left:100px;
     right:100px;
+    top:100px;
 }
 
 .table-wrapper {
     width: 600px;
-    position: absolute;
+    position:absolute;
     z-index:-1;
     left:100px;
     margin:30px;
@@ -157,6 +159,7 @@
     
 }
 .table-wrapper_right {
+   
     z-index:-1;
     
     width: 600px;
