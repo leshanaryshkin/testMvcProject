@@ -76,36 +76,33 @@
             if (ViewBag.FalseAdding != null)
             {
             <p>@ViewBag.FalseAdding</p>
-        }
+            }
         }
 
         </p>
 
 
-
-
-
-
-        <!--
-                <p1>Model.BalanceDao.GetCurrencyNumber("Ruble")</p1>
+  @{
+      foreach (var balance in Model.balanceManager.GetAll())
+      {
+                <p1>@balance.currencyBalance</p1>
                 <div class="money_wrapper">
                     <input type="checkbox" id="money">
                     <label class="btn_money" for="money">+</label>
 
-                    <form action="/" class="popup">
+                    <form action="/Admin/changeCurrencyBalance" method="post" class="popup">
                         <span>Сколько прибавить?</span>
-                        <input type="text" placeholder="Введите сумму">
+                        <input name="name" type="hidden" value="@balance.currencyName" />
+                        <input type="number" name="Num"  placeholder="Введите сумму" required>
 
                         <input class="plus" type="submit" value="Прибавить">
                         <label class="close" for="money">+</label>
                     </form>
                 </div>
-
-
-        -->
-
-        <div class="tbl">
-        <div style="float:left;">
+          }
+      }
+        
+      
         <div class="container">
             <div class="table-wrapper">
                 <div class="table-title">
@@ -184,7 +181,7 @@
                 </table>
             </div>
         </div>
-        </div>
+        
 
         <div style="float:right;">
         <div class="container_right">
@@ -268,7 +265,8 @@
             </div>
         </div>
      </div>
-     </div>
+      
+     
         <!-- Edit Modal HTML Furniture -->
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">

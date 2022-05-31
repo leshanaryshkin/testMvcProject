@@ -38,6 +38,8 @@ body {
 .cart-header {
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+    place-items: center; /*по центру*/
+    align-items: center; /*ровно вдоль поперечной оси*/
     column-gap: 30px;
     padding: 22px 0;
     background-color: #E79472;
@@ -50,18 +52,56 @@ body {
 
 .cart-footer {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
-    column-gap: 30px; /*раст между колонками*/
-    padding: 19px 0; /*отступы*/
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr 4fr 4fr;
+    grid-template-rows: 50px;
+    place-items: center; /*по центру*/
+    align-items: center; /*ровно вдоль поперечной оси*/
+    column-gap: 10px; /*раст между колонками*/
+    padding: 15px 10px; /*отступы*/
+    padding-top: 15px;
+    padding-bottom: 15px;
     background: #E79472;
-    font-weight: 700; /*обьем шрифта*/
-    font-size: 18px; /*размер шрифта*/
-    line-height: 1.2; /*величина пространства между строками*/
 }
 
 .cart-footer__price {
-    grid-column-start: 8; /*с какой начинаем запись про сумму*/
+    grid-column-start: 6; /*с какой начинаем запись про сумму*/
+    text-align: center;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 550;
 }
+
+.cart-footer__order {
+    grid-column-start: 7;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #000000;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+:hover.cart-footer__order {
+    grid-column-start: 7;
+    text-align: center;
+    background: #ddd9d9;
+    border: 1px solid #000000;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #E79472;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.title-2 {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 550;
+    padding: 10px 10px; /*отступы*/
+}
+
 
 
 .product {
