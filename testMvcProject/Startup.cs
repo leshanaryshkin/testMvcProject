@@ -31,7 +31,7 @@ namespace testMvcProject
         {
 
             var connectString =
-                "Server=localhost;Database=myMvcProject;User=SA;Password=reallyStrongPwd123;";
+                "Server=(localdb)\\mssqllocaldb;Database=WindowUnion;Trusted_Connection=True;MultipleActiveResultSets=true";
 
             services.AddDbContext<DBContext2>(param => param.UseSqlServer(connectString));
 

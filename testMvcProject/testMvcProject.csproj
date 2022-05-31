@@ -71,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Models\Users\" />
     <Folder Include="DataBaseDAOs\" />
