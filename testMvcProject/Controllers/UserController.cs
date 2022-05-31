@@ -12,6 +12,8 @@ using System.Web;
 using testMvcProject.DataBaseDAOs.Resources;
 using testMvcProject.DataBaseDAOs.Resources.Furniture;
 using testMvcProject.DataBaseDAOs.Resources.Profile;
+using testMvcProject.DataBaseDAOs.Balance;
+using Microsoft.AspNetCore.Http;
 
 
 
