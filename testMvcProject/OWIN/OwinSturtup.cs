@@ -27,7 +27,7 @@ namespace IdentityUoWApp
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = "ApplicationCookie",
-                LoginPath = new Microsoft.Owin.PathString("/Account/Login"),
+                LoginPath = new Microsoft.Owin.PathString("/User/LogIn"),
             });
         }
     }

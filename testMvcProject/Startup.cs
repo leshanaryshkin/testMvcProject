@@ -31,19 +31,21 @@ namespace testMvcProject
             services.AddMvc(option => option.EnableEndpointRouting = false);
             
             services.AddDistributedMemoryCache();
+            
 
             services.AddScoped<IUserManager, UserDAO>();
             services.AddScoped<IUserLoginsPasswordsManager, UsersLoginsPasswordsDAO>();
             services.AddScoped<IFurnitureManager, FurnitureDAO>();
             services.AddScoped<IProfileManager, ProfileDAO>();
             services.AddScoped<IBalanceManager, DataBaseDAOs.Balance.BalanceDAO>();
-
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromMinutes(15);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+
+
 
         }
 
@@ -52,13 +54,13 @@ namespace testMvcProject
         {
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
+            app.UseSession();
+
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
-            app.UseMvc();
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseSession();
 
             
 

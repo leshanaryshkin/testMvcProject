@@ -11,6 +11,10 @@ using testMvcProject.DataBaseDAOs.Resources.Furniture;
 using testMvcProject.DataBaseDAOs.Resources;
 using testMvcProject.DataBaseDAOs.Resources.Profile;
 using testMvcProject.DataBaseDAOs.Balance;
+using System.Web;
+using System.Security.Claims;
+using Microsoft.Owin.Security;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

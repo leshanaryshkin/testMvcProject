@@ -1,4 +1,10 @@
-﻿@using Microsoft.AspNetCore.Http
+﻿@using Microsoft.AspNetCore.Http;
+@using System;
+@using  Microsoft.AspNetCore.Mvc;
+@using System;
+@using System.Web;
+@using System.Web.Mvc;
+
 @{
     Layout = null;
 }
@@ -28,7 +34,7 @@
 
 <body>
 
-	<div class="wrapper">
+<div class="wrapper">
 		<section class="parallax">
 	
 			<div class="parallax__body">
@@ -77,6 +83,13 @@
 			
 			<section>
 				<div class="intro__inner">
+					
+					@{
+						if (@Context.Session.Keys.Contains("tel"))
+						{
+							<h1 class="intro__title">@Context.Session.GetString("name"), привет!</h1>
+						}
+					}
 					<h1 class="intro_title">Компания «UnionWindows» изготавливает, доставляет и устанавливает пластиковые окна из оригинального ПВХ профиля. Предлагаем заказать пластиковые окна с установкой по ГОСТ недорого. На профили ПВХ мы даем гарантию 50 лет. </h1>
 					<p class="intro_text">Наши преимущества:</p>
 				</div>

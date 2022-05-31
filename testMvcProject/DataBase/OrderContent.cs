@@ -17,7 +17,7 @@ namespace testMvcProject.DataBase
 
         public int ServicesListID { get; set; }
         [ForeignKey(nameof(ServicesListID))]
-        public virtual ServicesToPos Services { get; set; }
+        public virtual ServisePosList Services { get; set; }
 
         
     }
