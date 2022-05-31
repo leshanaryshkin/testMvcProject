@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using testMvcProject.DAOs.ProductsDAO;
-using testMvcProject.DAOs.ResourcesDAOs;
-using testMvcProject.DAOs.UsersDAO;
+//using Microsoft.AspNetCore.Mvc;
 using testMvcProject.DataBaseDAOs.Users;
 using testMvcProject.DataBaseDAOs.UsersLoginsPasswords;
-using System.Web;
 using testMvcProject.DataBaseDAOs.Resources;
 using testMvcProject.DataBaseDAOs.Resources.Furniture;
 using testMvcProject.DataBaseDAOs.Resources.Profile;
@@ -16,6 +9,15 @@ using testMvcProject.DataBaseDAOs.Balance;
 using Microsoft.AspNetCore.Http;
 
 
+
+using System.Linq;
+using System.Web;
+using System.Data.Entity;
+using System.Security.Claims;
+using Microsoft.Owin.Security;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -29,18 +31,32 @@ namespace testMvcProject.Controllers
 
         public readonly IFurnitureManager furnitureManager;
         public readonly IProfileManager profileManager;
+        public readonly IBalanceManager balanceManager;
+
+
 
         public UserController(IUserManager userManager,
             IUserLoginsPasswordsManager userLoginsPasswordsManager,
-            IFurnitureManager furnitureManager, IProfileManager profileManager)
+            IFurnitureManager furnitureManager, IProfileManager profileManager,
+            IBalanceManager balanceManager)
         {
             this.userManager = userManager;
             this.userLoginsPasswordsManager = userLoginsPasswordsManager;
             this.furnitureManager = furnitureManager;
             this.profileManager = profileManager;
+            this.balanceManager = balanceManager;
         }
 
-    
+
+        [NonAction]
+        private void CreateSession(string tel)
+        {
+            testMvcProject.DataBase.User user = userManager.Get(tel);
+            HttpContext.Session.SetString("name", user.Name);
+            HttpContext.Session.SetString("tel", user.telephone);
+            HttpContext.Session.SetInt32("isAdmin", Convert.ToInt32(userLoginsPasswordsManager.isAdmin(tel)));
+        }
+
 
 
         public ViewResult AboutUs()
@@ -55,14 +71,12 @@ namespace testMvcProject.Controllers
 
         public ViewResult Calculator()
         {
-            return View(new ResourceClass(furnitureManager, profileManager));
+            return View(new ResourceClass(furnitureManager, profileManager, balanceManager));
         }
 
         public ViewResult Orders()
         {
-            //!!
-            WindowsDAOClass windowsList = new WindowsDAOClass();
-            return View(windowsList);
+            return View();
         }
         
         public ViewResult Authorization(string telephone)
@@ -107,6 +121,7 @@ namespace testMvcProject.Controllers
 
             userLoginsPasswordsManager.Create(user1);
             
+            CreateSession(user.telephone);
             return RedirectToAction("SuccessRegistration", "User", new{user.Name});
         }
         
@@ -131,6 +146,8 @@ namespace testMvcProject.Controllers
             }
             else
             {
+
+                CreateSession(login);
                 return RedirectToAction("AboutUs", "User");
             }
 

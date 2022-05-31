@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using testMvcProject.DataBase;
 
 namespace testMvcProject.Migrations
 {
     [DbContext(typeof(DBContext2))]
-    partial class DBContext2ModelSnapshot : ModelSnapshot
+    [Migration("20220531142933_InitialCreate2314")]
+    partial class InitialCreate2314
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

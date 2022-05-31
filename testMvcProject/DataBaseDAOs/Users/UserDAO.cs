@@ -51,5 +51,7 @@ namespace testMvcProject.DataBaseDAOs.Users
 
         }
 
+        public User Get(string tel) => dBContext.Users.FirstOrDefault(p => p.telephone == tel);
+
     }
 }

@@ -9,7 +9,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using testMvcProject.Models;
-using testMvcProject.DAOs.UsersDAO;
 using testMvcProject.Models.Resources.ImplementedResources;
 using testMvcProject.Models.Users;
 

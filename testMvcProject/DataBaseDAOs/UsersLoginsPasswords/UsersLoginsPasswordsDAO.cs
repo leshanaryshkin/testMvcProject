@@ -44,5 +44,12 @@ namespace testMvcProject.DataBaseDAOs.UsersLoginsPasswords
             return true;
 
         }
+
+        public bool isAdmin(string tel)
+        {
+            if (dBContext.UsersLoginsPasswords.FirstOrDefault(p => p.Login == tel && p.Is_admin) != null)
+                return true;
+            return false;
+        }
     }
 }

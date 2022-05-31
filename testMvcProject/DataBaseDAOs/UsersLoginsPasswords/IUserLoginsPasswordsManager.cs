@@ -11,5 +11,6 @@ namespace testMvcProject.DataBaseDAOs.UsersLoginsPasswords
         void Create(UserLoginPassword usersLoginsPasswords);
         void Delete(int ID);
         bool ContainAccount(string tel, string password);
+        bool isAdmin(string tel);
     }
 }

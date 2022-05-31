@@ -50,11 +50,22 @@
     <None Remove="DataBaseDAOs\Resources\" />
     <None Remove="DataBaseDAOs\Resources\Furniture\" />
     <None Remove="DataBaseDAOs\Resources\Profile\" />
+    <None Remove="DataBaseDAOs\Balance\" />
+    <None Remove="Microsoft.Owin.Host.SystemWeb" />
+    <None Remove="Microsoft.Owin.Security.Cookies" />
+    <None Remove="Microsoft.Owin" />
+    <None Remove="DAOs\.DS_Store" />
+    <None Remove="OWIN\" />
+    <None Remove="Microsoft.AspNetCore.Http" />
+    <None Remove="Microsoft.AspNet.Mvc" />
+    <None Remove="EntityFramework" />
+    <None Remove="Microsoft.AspNetCore.Session" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
@@ -67,7 +78,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SQLite" Version="3.13.0" />
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Owin" Version="2.0.0" />
+    <PackageReference Include="EntityFramework" Version="5.0.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -80,6 +97,8 @@
     <Folder Include="DataBaseDAOs\Resources\" />
     <Folder Include="DataBaseDAOs\Resources\Furniture\" />
     <Folder Include="DataBaseDAOs\Resources\Profile\" />
+    <Folder Include="DataBaseDAOs\Balance\" />
+    <Folder Include="OWIN\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -102,6 +121,20 @@
     <Compile Remove="GlobalUsings.cs" />
     <Compile Remove="DataBase\UsersLoginsPassword.cs" />
     <Compile Remove="DataBaseDAOs\Resources\IResourceManager.cs" />
+    <Compile Remove="DAOs\BalanceDAO\BalanceDAO.cs" />
+    <Compile Remove="DAOs\UsersDAO\UsersDAO.cs" />
+    <Compile Remove="DAOs\ResourcesDAOs\ProfilesDAO.cs" />
+    <Compile Remove="DAOs\ResourcesDAOs\resourceDAO.cs" />
+    <Compile Remove="DAOs\ResourcesDAOs\FurnitureDAO.cs" />
+    <Compile Remove="DAOs\ProductsDAO\WindowsDAOClass.cs" />
+    <Compile Remove="DataBase\AddedServiceToPositionList.cs" />
+    <Compile Remove="Migrations\20220529054114_CreatedServiceListTable2.Designer.cs" />
+    <Compile Remove="Migrations\20220529054114_CreatedServiceListTable2.cs" />
+    <Compile Remove="Migrations\20220529053554_CreatedServiceListTable.cs" />
+    <Compile Remove="Migrations\20220529053554_CreatedServiceListTable.Designer.cs" />
+    <Compile Remove="Migrations\20220529060328_CreatedServiceListTable6.cs" />
+    <Compile Remove="Migrations\20220529060328_CreatedServiceListTable6.Designer.cs" />
+    <Compile Remove="DataBase\ServicesList.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="css-js-img\**" />
