@@ -1,7 +1,5 @@
+@using Microsoft.AspNetCore.Http
 
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 <html>
@@ -19,10 +17,6 @@
 <header class="header">
 
     <div class="header__inner">
-        <div class="header__logo">
-            <img src="~/img/AboutUs/logo.png" alt="">
-        </div>
-
         <div class="nav">
             <a class="nav__link" href="~/User/AboutUs">О нас</a>
             <a class="nav__link" href="~/User/Calculator">Калькулятор</a>
@@ -119,7 +113,10 @@
 
 
                     <footer class="cart-footer">
-                        <div class="cart-footer__price">29 000 руб.</div>
+                        <div class="cart-footer__price">Итого: 29 000 руб.</div>
+                        <div class="cart-footer__order">
+                            <h2 class="title-2">Оформить заказ</h2>
+                        </div>
                     </footer>
                 </section>
 
@@ -127,7 +124,7 @@
         </div>
     </section>
 
-   
+
 
 </body>
 
