@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using testMvcProject.DataBase;
 
 namespace testMvcProject.Migrations
 {
     [DbContext(typeof(DBContext2))]
-    partial class DBContext2ModelSnapshot : ModelSnapshot
+    [Migration("20220601140132_WorkingwOrders50")]
+    partial class WorkingwOrders50
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,15 +124,25 @@ namespace testMvcProject.Migrations
 
             modelBuilder.Entity("testMvcProject.DataBase.OrderContent", b =>
                 {
-                    b.Property<int>("order_ID")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicesListID")
+                        .HasColumnType("int");
+
                     b.Property<int>("WindowID")
                         .HasColumnType("int");
 
-                    b.HasKey("order_ID");
+                    b.HasKey("ID");
+
+                    b.HasIndex("OrderID");
+
+                    b.HasIndex("ServicesListID");
 
                     b.HasIndex("WindowID");
 
@@ -290,11 +302,27 @@ namespace testMvcProject.Migrations
 
             modelBuilder.Entity("testMvcProject.DataBase.OrderContent", b =>
                 {
+                    b.HasOne("testMvcProject.DataBase.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("testMvcProject.DataBase.ServisePosList", "Services")
+                        .WithMany()
+                        .HasForeignKey("ServicesListID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("testMvcProject.DataBase.Window", "Window")
                         .WithMany()
                         .HasForeignKey("WindowID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Services");
 
                     b.Navigation("Window");
                 });

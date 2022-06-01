@@ -101,6 +101,12 @@ namespace testMvcProject.Controllers
                 user.ID = userManager.Get(HttpContext.Session.GetString("tel")).ID;
                 order.UserID = user.ID;
                 orderManager.Add(order);
+
+
+
+                Windows.Clear();
+
+
                 return RedirectToAction("AboutUs", "User");
             }
 

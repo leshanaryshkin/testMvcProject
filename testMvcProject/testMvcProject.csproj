@@ -103,7 +103,6 @@
     <Folder Include="DataBaseDAOs\Balance\" />
     <Folder Include="OWIN\" />
     <Folder Include="DataBaseDAOs\OrdersDAO\" />
-    <Folder Include="DataBaseDAOs\OrderContent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -142,6 +141,11 @@
     <Compile Remove="Migrations\20220529060328_CreatedServiceListTable6.Designer.cs" />
     <Compile Remove="DataBase\ServicesList.cs" />
     <Compile Remove="Views\Cabinet\**" />
+    <Compile Remove="DataBase\OrderContent.cs" />
+    <Compile Remove="DataBaseDAOs\OrderContent\IUserContentManager.cs" />
+    <Compile Remove="DataBaseDAOs\OrderContent\UserContentDAO.cs" />
+    <Compile Remove="DataBase\OrderContent.cs" />
+    <Compile Remove="DataBase\ServisePosList.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="css-js-img\**" />

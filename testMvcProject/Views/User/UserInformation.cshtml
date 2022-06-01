@@ -14,42 +14,131 @@
     <title>Info</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/Admin/Requests.css" />
+<meta charset="utf-8"> 
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta http-equiv="X-UA-Compatible" content="ie=edge"> 
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&famil.." 
+rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&famil.." rel="stylesheet">
+
 </head>
 <body>
 
-    <a class="nav__link" href="~/User/AboutUs">На главную</a>
+	<header class="header">
+				<div class="container">
+					<div class="header__inner">
+						<div class="header__logo">
+							<img src="~/img/AboutUs/logo.png" alt="">
+						</div>
+						
+						<div class="nav">
+							<a class ="nav__link" href="~/User/AboutUs">О нас</a>
+							<a class ="nav__link" href="~/User/Calculator">Калькулятор</a>
+							<a class ="nav__link" href="~/User/Orders">Корзина</a>
+							@{
+                            								if (Context.Session.Keys.Contains("tel"))
+                            								{
+                            									<a class="nav__link" href="~/User/UserInformation">Кабинет</a>
+                            								}
+                            							}
+							<a class ="nav__link" href="~/User/Authorization">Вход</a>
 
-    @{
-        string Telephone = Context.Session.GetString("tel");
-        User user = Model.UserManager.Get(Telephone);
-        UserLoginPassword userLog = Model.UserLoginsPasswordsManager.Get(Telephone);
+							
+						</div>
+					</div>
+				</div>
+				
+			</header>
+<div class="text1">
+	@{
+		string Telephone = Context.Session.GetString("tel");
+		User user = Model.UserManager.Get(Telephone);
+		UserLoginPassword userLog = Model.UserLoginsPasswordsManager.Get(Telephone);
 
-        <h3>Ваше имя: @user.Name</h3>
-        <h3>Ваш адрес: @user.Adress</h3>
-        <h3>Ваш номер телефона: @user.telephone</h3>
-        <h3>Ваш пароль: @userLog.Password</h3>
-        <form method="post" action="~/User/ChangePassword">
-            <input name="tel" type="hidden" value="@user.telephone" />
-            <input name="pass" type="text" class="form_input" placeholder="новый пароль" required>
-            <p>
-                <button class="form_btn">сменить пароль</button>
-            </p>
+		<h3>Ваше имя: @user.Name</h3>
+		<h3>Ваш адрес: @user.Adress</h3>
+		<h3>Ваш номер телефона: @user.telephone</h3>
+		<h3>Ваш пароль: @userLog.Password</h3>
+		<form method="post" action="~/User/ChangePassword">
+			<input name="tel" type="hidden" value="@user.telephone" />
+			<input name="pass" type="text" class="form_input" placeholder="новый пароль" required>
+			<p>
+				<button class="form_btn">сменить пароль</button>
+			</p>
 
-        </form>
+		</form>
 
 
 
+	}
+</div>
+
+
+<style>
+    
+    .header {
+        width: 100%;
+        position: absolute;
+        height: 100px;
+        margin-bottom: 100px;
     }
-
+    
+    .header__inner {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid #E79472;
+        align-items: center;
+        padding: 35px 0px;
+        width: 100%;
+    }
+    
+    
+    .nav {
+        display: flex;
+        font-family: 'Oswald', Sans-Serif;
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    .nav__link {
+        color: #000000;
+        text-decoration: none;
+        transition: .2s linear;
+        margin-left: 50px;
+    }
+    
+    :hover.nav__link {
+        color: #747474;
+    }
+    
+    :first-child.nav__link {
+        margin-left: 0;
+    }
+    div.text1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform:  translate(-50%, -50%);
+    }
+    
+    .form_input {
+    border: 2px solid #000000;
+    }
+    
+    .form_btn {
+    background-color: #E79472;
+    color: #000000;
+    }
+    
+</style>
 </body>
 </html>

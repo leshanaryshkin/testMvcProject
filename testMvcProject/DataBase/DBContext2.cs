@@ -16,9 +16,8 @@ namespace testMvcProject.DataBase
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Balance> Balances { get; set; }
         public DbSet<AdditionalService> Services { get; set; }
-        public DbSet<OrderContent> OrderContents { get; set; }
+        public DbSet<OrderContain> OrderContain { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<ServisePosList> ServicesToPos { get; set; }
         public DbSet<Window> Windows { get; set; }
 
 
@@ -45,6 +44,7 @@ namespace testMvcProject.DataBase
                 .IsUnique(true);
 
             modelBuilder.Entity<Window>().HasKey(x => new { x.ID });
+            modelBuilder.Entity<OrderContain>().HasNoKey();
 
 
 
