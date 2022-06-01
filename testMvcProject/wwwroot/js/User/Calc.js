@@ -17,6 +17,7 @@ function calc() {
 
     price += height.value * width.value * parseInt(profile.options[profile.selectedIndex].value) / 10000;
     price *= parseInt(camers.options[camers.selectedIndex].value);
+    price += parseInt(furniture.options[furniture.selectedIndex].value);
     price *= parseInt(sashes.options[sashes.selectedIndex].value);
     price += (option1.checked == true) ? parseInt(option1.value) : 0;
     price += (option2.checked == true) ? parseInt(option2.value) : 0;
