@@ -22,5 +22,7 @@ namespace testMvcProject.DataBase
 
         public int howManyCameras { get; set; }
         public int howManySashes { get; set; }
+
+        public int price { get; set; }
     }
 }

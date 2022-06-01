@@ -13,6 +13,7 @@ using testMvcProject.DataBaseDAOs.Resources.Furniture;
 using testMvcProject.DataBaseDAOs.Resources.Profile;
 using testMvcProject.DataBaseDAOs.Balance;
 using testMvcProject.DataBaseDAOs.Service;
+using testMvcProject.DataBaseDAOs.OrdersDAO;
 
 namespace testMvcProject
 {
@@ -40,6 +41,7 @@ namespace testMvcProject
             services.AddScoped<IProfileManager, ProfileDAO>();
             services.AddScoped<IBalanceManager, DataBaseDAOs.Balance.BalanceDAO>();
             services.AddScoped<IServiceManager, DataBaseDAOs.Service.ServiceDAO>();
+            services.AddScoped<IOrderManager, DataBaseDAOs.OrdersDAO.OrderDAO>();
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(15);

@@ -1,6 +1,7 @@
 ﻿using System;
 using testMvcProject.DataBase;
 using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace testMvcProject.DataBaseDAOs.Resources.Furniture
 {
@@ -10,5 +11,6 @@ namespace testMvcProject.DataBaseDAOs.Resources.Furniture
         List<DataBase.Furniture> GetAll();
         DataBase.Furniture ContainFurniture(string furnitureName);
         void ChangeActualPosition(string name);
+        DataBase.Furniture GetByPrice(int price);
     }
 }

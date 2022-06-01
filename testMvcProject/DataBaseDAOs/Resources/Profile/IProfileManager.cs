@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace testMvcProject.DataBaseDAOs.Resources.Profile
 {
@@ -10,5 +11,6 @@ namespace testMvcProject.DataBaseDAOs.Resources.Profile
         DataBase.Profile ContainProfile(string profileName);
         void ChangeActualPosition(string name);
 
+        DataBase.Profile GetProfileByPrice(int price);
     }
 }

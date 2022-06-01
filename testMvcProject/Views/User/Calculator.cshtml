@@ -56,48 +56,54 @@
 
     <div class = "fill"></div>
     <div class="container">
-        <form action="#"class = "form form1">
+        <form method="post" action="~/User/Test" class = "form form1">
             <div class="form__item">
                 <h2 class="heading">Рассчитайте стоимость своего окна</h2>
                 <ul class="switcher">
                     <div class="select">
 
-                        <select id="profile" onchange="calc()">
+                        <select name="profilePrice" id="profile" onchange="calc()">
                             <option value="" disabled selected>Профиль</option>
                             @{foreach (var profile in Model.profileManager.GetAll())
-                                {
-                                    if (profile.isActualPosition == true)
-                                    {
-                                    <option class="profil" id="@profile.ID" value="@profile.pricePerMeter">@profile.Name</option>
-                                        }
-                                    }
-                                }
+                              {
+                                  if (profile.isActualPosition == true)
+                                  {
+                                      <option class="profil" id="@profile.ID" value="@profile.pricePerMeter">@profile.Name</option>
+                                  }
+                              }
+                            }
                         </select>
 
-                        <select id="furniture" onchange="calc()">
+                        <select name="furniturePrice" id="furniture" onchange="calc()">
                             <option value="" disabled selected>Фурнитура</option>
                             @{foreach (var furniture in Model.furnitureManager.GetAll())
-                                {
-                                    if (furniture.isActualPosition == true)
-                                    {
-                                    <option class="furniture" id="@furniture.ID" value="@furniture.pricePerOnce">@furniture.Name</option>
-                                    }
-                                 }
+                              {
+                                  if (furniture.isActualPosition == true)
+                                  {
+                                      <option class="furniture" id="@furniture.ID" value="@furniture.pricePerOnce">@furniture.Name</option>
+                                                                                                                                 
+                                  }
                               }
+                            }
                         </select>
 
-                        <select id="camers" onchange="calc()">
+                        <select name="kamer" id="camers" onchange="calc()">
                             <option value="" disabled selected>Кол-во камер</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
-                        <select id="sashes" onchange="changeImg(sashes.value); calc();">
+                        <select name="sashes" id="sashes" onchange="changeImg(sashes.value); calc();">
                             <option value="" disabled selected>Кол-во створок</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
+                        
+                        <input type="hidden" name="price" id="price" />
+                        
+                        <button type="submit" id="add">В корзину</button>
+
                     </div>
                     
                 </ul>
@@ -105,39 +111,27 @@
            
             <div class="form__item">
                 
-            <div class="slider2">
+                <div class="slider2">
                 
-                <input type="range" name ="height"  id="height" step = "1" min="0" max="400" value="0" onchange="calc()"/>
-                <div class="window"><img src="~/img/AboutUs/window1.png" id="window_img"alt=""></div>
+                    <input  type="range" name ="height"  id="height" step = "1" min="0" max="400" value="0" onchange="calc()"/>
+                    <div class="window"><img src="~/img/AboutUs/window1.png" id="window_img"alt=""></div>
                 </div>
-                <output id="volume2" for="height" > 0</output>
+                
+                <output  id="volume2" for="height" > 0</output>
                 <div class="slider">
-                <input type="range" name ="width"  id="width" step = "1" min="0" max="400" value="0" onchange="calc()"/>
-                <output id="volume" for="width" > 0</output>
-            </div>
+                    <input type="range" name ="width"  id="width" step = "1" min="0" max="400" value="0" onchange="calc()"/>
+                    <output id="volume" for="width" > 0</output>
+                </div>
                 <div class="form__item">
-                    <h2 class="heading">Дополнительные услуги</h2>
-                    <div class="option__item">
-                        <input type="checkbox" onchange="calc()" name="option1" id="option1" value="300" class="option"/>
-                        <label for="option1" class="checkmark"></label>
-                        <label for="option1">Подмести пол</label>
-                    </div>
-                    <div class="option__item">
-                        <input type="checkbox" onchange="calc()" name="option2" id="option2" value="1" class="option"/>
-                        <label for="option2" class="checkmark"></label>
-                        <label for="option2">Выгнать Нарышкина из комнаты</label>
-                    </div>
-                    <div class="option__item">
-                        <input type="checkbox" onchange="calc()" name="option3" id="option3" value="500" class="option"/>
-                        <label for="option3" class="checkmark"></label>
-                        <label for="option3">Выйти из окна</label>
-                    </div>
                 </div>
             </div>
         </form>
-        <form action="#"class = "form form2">
+        
+        <form method="post" action="~/User/Test" class = "form form2">
             <div class="">
                 <h2 class="heading">Ваш заказ:</h2>
+                
+                
                 <div>
                     <span>Стоимость профиля:</span>
                     <span><output id="profile_price">0</output> рублей/м²</span>
@@ -166,13 +160,17 @@
             <span>Дополнительные услуги:</span>
             <span><output id="additionally">0</output> рублей</span>
         </div>
-        <div>
-            <div class="form__item">
-                <h2 class="heading">Итоговая стоимость:</h2>
-                <div><span id="result">0</span> руб.</div>
+            <div>
+                <div class="form__item">
+                    <h2 class="heading">Итоговая стоимость:</h2>
+                    <div><span id="result">0</span> руб.</div>
+                </div>
+                
+                
+                
+                <button type="submit" id="add">В корзину</button>
             </div>
-        <button type="submit" id="add">В корзину</button>
-        </div>
+            
         </form>
     </div>
     <script src="~/js/User/Calc.js"></script>

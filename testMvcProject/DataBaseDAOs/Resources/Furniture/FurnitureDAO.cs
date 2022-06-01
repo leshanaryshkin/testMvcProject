@@ -40,6 +40,12 @@ namespace testMvcProject.DataBaseDAOs.Resources.Furniture
                 dBContext.SaveChanges();
             }
         }
+        
+        
+        public DataBase.Furniture GetByPrice(int price) => dBContext.Furnitures.FirstOrDefault(p => p.pricePerOnce == price);
+
+
+
 
 
 

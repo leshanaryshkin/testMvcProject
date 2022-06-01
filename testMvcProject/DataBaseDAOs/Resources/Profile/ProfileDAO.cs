@@ -21,7 +21,9 @@ namespace testMvcProject.DataBaseDAOs.Resources.Profile
             dBContext.SaveChanges();
         }
 
-        public List<DataBase.Profile> GetAll() => dBContext.Profiles.ToList();
+        public DataBase.Profile GetProfileByPrice(int price) => dBContext.Profiles.FirstOrDefault(p => p.pricePerMeter == price);
+
+
 
 
         public DataBase.Profile ContainProfile(string profileName)
@@ -40,6 +42,9 @@ namespace testMvcProject.DataBaseDAOs.Resources.Profile
                 dBContext.SaveChanges();
             }
         }
+
+
+        public List<DataBase.Profile> GetAll() => dBContext.Profiles.ToList();
 
     }
 }

@@ -61,6 +61,8 @@
     <None Remove="EntityFramework" />
     <None Remove="Microsoft.AspNetCore.Session" />
     <None Remove="Views\Cabinet\**" />
+    <None Remove="DataBaseDAOs\OrdersDAO\" />
+    <None Remove="DataBaseDAOs\OrderContentDAO\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.2.0" />
@@ -100,6 +102,8 @@
     <Folder Include="DataBaseDAOs\Resources\Profile\" />
     <Folder Include="DataBaseDAOs\Balance\" />
     <Folder Include="OWIN\" />
+    <Folder Include="DataBaseDAOs\OrdersDAO\" />
+    <Folder Include="DataBaseDAOs\OrderContent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
