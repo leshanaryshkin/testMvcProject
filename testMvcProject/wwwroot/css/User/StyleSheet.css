@@ -357,7 +357,7 @@ h3 {
 #slider { /*положение слайдера*/
     position: relative;
     text-align: center;
-    top: 60px;
+    top: 80px;
 
 }
 
@@ -472,8 +472,10 @@ label, a {
 }
 
 #active { /*расположение блока с переключателями*/
-    margin:100px;
+    margin:150px;
     text-align: center;
+    
+
 }
 
     #active label:hover { /*поведение чекбокса при наведении*/
