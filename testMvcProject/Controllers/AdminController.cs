@@ -14,6 +14,8 @@ using testMvcProject.DataBaseDAOs.Balance;
 using System.Web;
 using System.Security.Claims;
 using Microsoft.Owin.Security;
+using testMvcProject.DataBase;
+using testMvcProject.DataBaseDAOs.Service;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -27,17 +29,19 @@ namespace testMvcProject.Controllers
         public readonly IFurnitureManager furnitureManager;
         public readonly IProfileManager profileManager;
         public readonly IBalanceManager balanceManager;
+        public readonly IServiceManager ServiceManager;
 
         public AdminController(IUserManager userManager,
             IUserLoginsPasswordsManager userLoginsPasswordsManager,
             IFurnitureManager furnitureManager, IProfileManager profileManager,
-            IBalanceManager balanceManager)
+            IBalanceManager balanceManager, IServiceManager serviceManager)
         {
             this.userManager = userManager;
             this.userLoginsPasswordsManager = userLoginsPasswordsManager;
             this.furnitureManager = furnitureManager;
             this.profileManager = profileManager;
             this.balanceManager = balanceManager;
+            this.ServiceManager = serviceManager;
         }
 
         public ViewResult OrdersInProgress() => View();
@@ -50,7 +54,7 @@ namespace testMvcProject.Controllers
             if (trouble != null)
                 ViewBag.FalseAdding = "Такой ресурс уже присутствует";
             
-            ResourceClass resources = new ResourceClass(furnitureManager, profileManager, balanceManager);
+            ResourceClass resources = new ResourceClass(furnitureManager, profileManager, balanceManager, ServiceManager);
             
             return View(resources);
         }
@@ -143,7 +147,23 @@ namespace testMvcProject.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult AddNewService(string name, int price)
+        {
+            AdditionalService service = new AdditionalService();
+            service.ServiceName = name;
+            service.ServicePrice = price;
+            service.isActual = true;
+            ServiceManager.Add(service);
+            return RedirectToAction("ResourcesOnStock", "Admin");
+        }
 
+        public ActionResult changeActualService(string name)
+        {
+            ServiceManager.ChangeActual(name);
+            return RedirectToAction("ResourcesOnStock", "Admin");
+
+        }
 
     }
 }

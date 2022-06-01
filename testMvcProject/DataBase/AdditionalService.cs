@@ -15,5 +15,6 @@ namespace testMvcProject.DataBase
         public string ServiceName { get; set; }
 
         public int ServicePrice { get; set; }
+        public bool isActual { get; set; } = true;
     }
 }

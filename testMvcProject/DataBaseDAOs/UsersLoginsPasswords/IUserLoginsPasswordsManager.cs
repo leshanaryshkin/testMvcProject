@@ -12,5 +12,7 @@ namespace testMvcProject.DataBaseDAOs.UsersLoginsPasswords
         void Delete(int ID);
         bool ContainAccount(string tel, string password);
         bool isAdmin(string tel);
+        void changePass(string tel, string pass);
+        UserLoginPassword Get(string tel);
     }
 }

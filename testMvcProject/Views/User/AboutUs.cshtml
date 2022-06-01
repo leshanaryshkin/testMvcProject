@@ -73,7 +73,14 @@
 							<a class ="nav__link" href="~/User/AboutUs">О нас</a>
 							<a class ="nav__link" href="~/User/Calculator">Калькулятор</a>
 							<a class ="nav__link" href="~/User/Orders">Корзина</a>
+							@{
+                            								if (Context.Session.Keys.Contains("tel"))
+                            								{
+                            									<a class="nav__link" href="~/User/UserInformation">Кабинет</a>
+                            								}
+                            							}
 							<a class ="nav__link" href="~/User/Authorization">Вход</a>
+
 							
 						</div>
 					</div>

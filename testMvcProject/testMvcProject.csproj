@@ -60,6 +60,7 @@
     <None Remove="Microsoft.AspNet.Mvc" />
     <None Remove="EntityFramework" />
     <None Remove="Microsoft.AspNetCore.Session" />
+    <None Remove="Views\Cabinet\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.2.0" />
@@ -114,6 +115,7 @@
     <Content Remove="Views\Admin\Index.cshtml" />
     <Content Remove="css-js-img\**" />
     <Content Remove="Views\User\css\**" />
+    <Content Remove="Views\Cabinet\**" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="css-js-img\**" />
@@ -135,9 +137,14 @@
     <Compile Remove="Migrations\20220529060328_CreatedServiceListTable6.cs" />
     <Compile Remove="Migrations\20220529060328_CreatedServiceListTable6.Designer.cs" />
     <Compile Remove="DataBase\ServicesList.cs" />
+    <Compile Remove="Views\Cabinet\**" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="css-js-img\**" />
     <EmbeddedResource Remove="Views\User\css\**" />
+    <EmbeddedResource Remove="Views\Cabinet\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Cabinet\Information.cshtml" />
   </ItemGroup>
 </Project>

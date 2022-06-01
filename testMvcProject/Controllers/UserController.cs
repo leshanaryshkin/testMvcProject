@@ -8,7 +8,7 @@ using testMvcProject.DataBaseDAOs.Resources.Profile;
 using testMvcProject.DataBaseDAOs.Balance;
 using Microsoft.AspNetCore.Http;
 
-
+using testMvcProject.DataBaseDAOs;
 
 using System.Linq;
 using System.Web;
@@ -18,6 +18,9 @@ using Microsoft.Owin.Security;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using testMvcProject.DataBaseDAOs;
+using testMvcProject.DataBaseDAOs.Service;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -33,18 +36,21 @@ namespace testMvcProject.Controllers
         public readonly IProfileManager profileManager;
         public readonly IBalanceManager balanceManager;
 
+        public readonly IServiceManager ServiceManager;
+
 
 
         public UserController(IUserManager userManager,
             IUserLoginsPasswordsManager userLoginsPasswordsManager,
             IFurnitureManager furnitureManager, IProfileManager profileManager,
-            IBalanceManager balanceManager)
+            IBalanceManager balanceManager, IServiceManager ServiceManager)
         {
             this.userManager = userManager;
             this.userLoginsPasswordsManager = userLoginsPasswordsManager;
             this.furnitureManager = furnitureManager;
             this.profileManager = profileManager;
             this.balanceManager = balanceManager;
+            this.ServiceManager = this.ServiceManager;
         }
 
 
@@ -71,36 +77,36 @@ namespace testMvcProject.Controllers
 
         public ViewResult Calculator()
         {
-            return View(new ResourceClass(furnitureManager, profileManager, balanceManager));
+            return View(new ResourceClass(furnitureManager, profileManager, balanceManager, ServiceManager));
         }
 
         public ViewResult Orders()
         {
             return View();
         }
-        
+
         public ViewResult Authorization(string telephone)
         {
             if (telephone == "404")
                 ViewBag.FalseReg = "Такой пользователь не зарегистрирован";
-            else if (telephone!=null)
+            else if (telephone != null)
                 ViewBag.FalseReg = $"Пользователь с номером {telephone} уже есть в базе";
-             
+
 
             return View();
         }
 
 
         [HttpPost]
-        public IActionResult Registration(string telephone, string name, 
+        public IActionResult Registration(string telephone, string name,
             string cityName, string streetName, string houseNumber)
         {
 
             if (userManager.ContainTel(telephone) != null)
             {
-                return RedirectToAction("Authorization", "User", new{telephone});
+                return RedirectToAction("Authorization", "User", new {telephone});
             }
-            
+
 
             string Adress = cityName + " " + streetName + " " + houseNumber;
 
@@ -114,18 +120,18 @@ namespace testMvcProject.Controllers
             int? id = userManager.ContainTel(telephone);
 
             DataBase.UserLoginPassword user1 = new DataBase.UserLoginPassword();
-            user1.ID = Convert.ToInt32(id); 
+            user1.ID = Convert.ToInt32(id);
             user1.Is_admin = false;
             user1.Login = telephone;
             user1.Password = name;
 
             userLoginsPasswordsManager.Create(user1);
-            
+
             CreateSession(user.telephone);
-            return RedirectToAction("SuccessRegistration", "User", new{user.Name});
+            return RedirectToAction("SuccessRegistration", "User", new {user.Name});
         }
-        
-    
+
+
 
         public ViewResult SuccessRegistration(string name)
         {
@@ -133,12 +139,12 @@ namespace testMvcProject.Controllers
             return View();
         }
 
-        
+
 
         [HttpPost]
         public IActionResult LogIn(string login, string password)
         {
-            
+
             if (!userLoginsPasswordsManager.ContainAccount(login, password))
             {
                 string telephone = "404";
@@ -146,12 +152,22 @@ namespace testMvcProject.Controllers
             }
             else
             {
-
                 CreateSession(login);
                 return RedirectToAction("AboutUs", "User");
             }
+            
+        }
 
+        public ViewResult UserInformation()
+        {
+            return View(new UserInfo(userManager, userLoginsPasswordsManager));
+        }
 
+        [HttpPost]
+        public IActionResult ChangePassword(string tel, string pass)
+        {
+            userLoginsPasswordsManager.changePass(tel, pass);
+            return RedirectToAction("UserInformation", "User");
         }
     }
 }

@@ -1,0 +1,55 @@
+@using Microsoft.AspNetCore.Http
+@using testMvcProject.DataBase
+@using testMvcProject.DataBaseDAOs;
+@model UserInfo;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Admin/Requests.css" />
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <a class="nav__link" href="~/User/AboutUs">На главную</a>
+
+    @{
+        string Telephone = Context.Session.GetString("tel");
+        User user = Model.UserManager.Get(Telephone);
+        UserLoginPassword userLog = Model.UserLoginsPasswordsManager.Get(Telephone);
+
+        <h3>Ваше имя: @user.Name</h3>
+        <h3>Ваш адрес: @user.Adress</h3>
+        <h3>Ваш номер телефона: @user.telephone</h3>
+        <h3>Ваш пароль: @userLog.Password</h3>
+        <form method="post" action="~/User/ChangePassword">
+            <input name="tel" type="hidden" value="@user.telephone" />
+            <input name="pass" type="text" class="form_input" placeholder="новый пароль" required>
+            <p>
+                <button class="form_btn">сменить пароль</button>
+            </p>
+
+        </form>
+
+
+
+    }
+
+</body>
+</html>

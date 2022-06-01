@@ -51,5 +51,19 @@ namespace testMvcProject.DataBaseDAOs.UsersLoginsPasswords
                 return true;
             return false;
         }
+
+        public void changePass(string tel, string pass)
+        {
+            DataBase.UserLoginPassword user = dBContext.UsersLoginsPasswords.FirstOrDefault(p => p.Login == tel);
+
+            user.Password = pass;
+                dBContext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                dBContext.SaveChanges();
+
+        }
+        
+        public UserLoginPassword Get(string tel) => dBContext.UsersLoginsPasswords.FirstOrDefault(p => p.Login == tel);
+
+
     }
 }
